@@ -1,4 +1,3 @@
-@charset "UTF-8";
 #ai-green-faq {
   padding-block: 6rem;
   background: var(--dark-gray);
@@ -11,13 +10,23 @@
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   max-width: 90rem;
   margin: 0 auto;
-  padding: 4.5rem;
+  padding: 1.25rem;
   border-radius: 35px;
   background: var(--light-green-opacity);
   background: linear-gradient(to top right, var(--dark-gray), var(--dark-green), var(--light-green-opacity));
   box-shadow: -27px 27px 39px 3px rgba(0, 0, 0, 0.46);
   color: #fff;
   gap: 5rem;
+}
+@media (min-width: 30rem) {
+  #ai-green-faq .container {
+    padding: 2.5rem;
+  }
+}
+@media (min-width: 50rem) {
+  #ai-green-faq .container {
+    padding: 4.5rem;
+  }
 }
 #ai-green-faq .content {
   padding-top: 2rem;
@@ -28,11 +37,18 @@
   justify-content: space-between;
 }
 #ai-green-faq .header svg > path {
+  stroke: var(--light-green);
   fill: var(--light-green);
+  opacity: 0.5;
 }
 #ai-green-faq .big-header {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
+}
+@media (min-width: 50rem) {
+  #ai-green-faq .big-header {
+    font-size: 3rem;
+  }
 }
 #ai-green-faq .sub-header {
   padding-block: 1.5rem;
@@ -62,6 +78,7 @@
 }
 #ai-green-faq .links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 #ai-green-faq .link {
@@ -71,6 +88,7 @@
   width: max-content;
   margin-top: 2rem;
   padding: 1.25rem 2rem;
+  transition: 0.3s;
   border-radius: 100vh;
   box-shadow: -4px 4px 20px 3px rgba(0, 0, 0, 0.75);
   color: #fff;
@@ -82,17 +100,68 @@
   min-width: 20rem;
   background-color: var(--very-light-green);
 }
+#ai-green-faq .link.variant1:hover, #ai-green-faq .link.variant1:focus, #ai-green-faq .link.variant1:active {
+  background-color: var(--light-green);
+}
 #ai-green-faq .link.variant2 {
   background-color: var(--light-green);
 }
+#ai-green-faq .link.variant2:hover, #ai-green-faq .link.variant2:focus, #ai-green-faq .link.variant2:active {
+  background-color: var(--green);
+}
 #ai-green-faq .link.variant3 {
-  background: linear-gradient(to left, var(--black-opacity-30), var(--black-opacity-50));
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  background-color: transparent;
+}
+#ai-green-faq .link.variant3 * {
+  position: relative;
+  z-index: 2;
+}
+#ai-green-faq .link.variant3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  background: linear-gradient(to left, var(--black-opacity-20), var(--black-opacity-30));
+}
+#ai-green-faq .link.variant3:hover::before, #ai-green-faq .link.variant3:focus::before, #ai-green-faq .link.variant3:active::before {
+  transform: translateX(-30%);
 }
 #ai-green-faq .link.variant4 {
+  position: relative;
   width: 100%;
   padding-block: 1rem;
-  background: var(--dark-green);
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  background-color: transparent;
+}
+#ai-green-faq .link.variant4 * {
+  position: relative;
+  z-index: 2;
+}
+#ai-green-faq .link.variant4::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
   background: linear-gradient(to right, var(--dark-green), var(--light-green));
+}
+#ai-green-faq .link.variant4:hover::before, #ai-green-faq .link.variant4:focus::before, #ai-green-faq .link.variant4:active::before {
+  transform: translateX(-110%);
 }
 #ai-green-faq .list {
   display: flex;
@@ -104,6 +173,9 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+}
+#ai-green-faq .list > li:hover .li-icon, #ai-green-faq .list > li:focus .li-icon, #ai-green-faq .list > li:active .li-icon {
+  background-color: transparent !important;
 }
 #ai-green-faq .list .li-title {
   display: block;
@@ -120,8 +192,12 @@
   min-width: 55px;
   height: 55px;
   border-radius: 50%;
+  transition: 0.3s;
   background-color: var(--light-green);
   box-shadow: -9px 9px 23px 3px rgba(0, 0, 0, 0.75);
+}
+#ai-green-faq .list li:nth-child(even) .li-icon {
+  background-color: var(--green);
 }
 #ai-green-faq .list .li-icon svg {
   width: 35px;
@@ -132,43 +208,61 @@
   opacity: 0;
 }
 #ai-green-faq .tab__content {
+  z-index: 2;
   max-height: 0;
   overflow: hidden;
   transition: all 0.35s;
+  border-radius: 20px;
+  background-color: var(--black-opacity-20);
 }
 #ai-green-faq .tab input:checked ~ .tab__content {
   max-height: 10rem;
+  box-shadow: -2px 2px 10px 3px rgba(0, 0, 0, 0.55);
 }
 #ai-green-faq .accordion {
   position: relative;
-  padding-bottom: 2rem;
-  overflow: hidden;
-  color: var(--black-opacity-30);
-}
-#ai-green-faq .accordion::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: calc(100% - 2rem);
-  border-radius: 100vh;
-  background-color: var(--light-green);
+  padding-top: 2rem;
+  color: var(--black-opacity-20);
 }
 #ai-green-faq .tab__label,
 #ai-green-faq .tab__close {
   display: flex;
-  margin-top: 2rem;
-  margin-inline-start: 0.5rem;
-  padding: 0.5rem 11rem;
+  position: relative;
+  z-index: 3;
+  margin-top: 1.75rem;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border: 1px solid var(--light-green);
+  border-bottom-width: 3px;
   border-radius: 30px;
-  background: var(--black-opacity-30);
-  background: linear-gradient(to left, var(--black-opacity-30), var(--black-opacity-50));
-  box-shadow: -3px 3px 7px 3px rgba(0, 0, 0, 0.6);
-  color: white;
+  background-color: transparent;
+  box-shadow: -2px 2px 7px 3px rgba(0, 0, 0, 0.3);
+  color: #fff;
   font-weight: bold;
-  letter-spacing: 1px;
-  cursor: pointer;
+}
+#ai-green-faq .tab__label *,
+#ai-green-faq .tab__close * {
+  position: relative;
+  z-index: 2;
+}
+#ai-green-faq .tab__label::before,
+#ai-green-faq .tab__close::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  background: linear-gradient(to left, var(--black-opacity-20), var(--black-opacity-40));
+}
+#ai-green-faq .tab__label:hover::before, #ai-green-faq .tab__label:focus::before, #ai-green-faq .tab__label:active::before,
+#ai-green-faq .tab__close:hover::before,
+#ai-green-faq .tab__close:focus::before,
+#ai-green-faq .tab__close:active::before {
+  transform: translateX(-30%);
 }
 #ai-green-faq .tab__label.first,
 #ai-green-faq .tab__close.first {
@@ -176,22 +270,28 @@
 }
 #ai-green-faq .tab__label {
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.25rem 2rem;
+  transition: 0.3s;
 }
-#ai-green-faq .tab__label::after {
-  content: "❯";
-  width: 1em;
-  height: 1em;
-  transform: rotate(90deg);
-  transition: all 0.35s;
-  text-align: center;
+#ai-green-faq .tab__label svg > path {
+  stroke: var(--green);
+  fill: var(--green);
 }
-#ai-green-faq .tab input:checked + .tab__label::after {
-  transform: rotate(270deg);
+#ai-green-faq .tab__label:hover,
+#ai-green-faq .tab__label:focus,
+#ai-green-faq .tab__label:active {
+  transform: scale(1.015);
+  background: transparent;
+}
+#ai-green-faq .tab__label:hover svg > path,
+#ai-green-faq .tab__label:focus svg > path,
+#ai-green-faq .tab__label:active svg > path {
+  stroke: #fff;
+  fill: #fff;
 }
 #ai-green-faq .tab__content p {
   margin: 0;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
 }
 #ai-green-faq .tab__close {
   justify-content: flex-end;
@@ -201,15 +301,15 @@
 #ai-green-faq .accordion--radio {
   --black-opacity: var(--secondary);
 }
-#ai-green-faq .tab input:not(:checked) + .tab__label:hover::after {
+#ai-green-faq .tab input:not(:checked) + .tab__label:hover svg {
   animation: bounce 0.5s infinite;
 }
 @keyframes bounce {
   25% {
-    transform: rotate(90deg) translate(0.25rem);
+    transform: translateY(0.15rem);
   }
   75% {
-    transform: rotate(90deg) translate(-0.25rem);
+    transform: translateY(-0.15rem);
   }
 }
 

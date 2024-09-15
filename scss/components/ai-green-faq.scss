@@ -8,7 +8,7 @@
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     max-width: 90rem;
     margin: 0 auto;
-    padding: 4.5rem;
+    padding: 1.25rem;
     border-radius: 35px;
     background: var(--light-green-opacity);
     background: linear-gradient(
@@ -20,6 +20,14 @@
     box-shadow: -27px 27px 39px 3px rgba(0, 0, 0, 0.46);
     color: #fff;
     gap: 5rem;
+
+    @media (min-width: 30rem) {
+      padding: 2.5rem;
+    }
+
+    @media (min-width: 50rem) {
+      padding: 4.5rem;
+    }
   }
 
   .content {
@@ -33,12 +41,18 @@
   }
 
   .header svg > path {
+    stroke: var(--light-green);
     fill: var(--light-green);
+    opacity: 0.5;
   }
 
   .big-header {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
+
+    @media (min-width: 50rem) {
+      font-size: 3rem;
+    }
   }
 
   .sub-header {
@@ -73,6 +87,7 @@
 
   .links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
@@ -83,6 +98,7 @@
     width: max-content;
     margin-top: 2rem;
     padding: 1.25rem 2rem;
+    transition: 0.3s;
     border-radius: 100vh;
     box-shadow: -4px 4px 20px 3px rgba(0, 0, 0, 0.75);
     color: #fff;
@@ -94,26 +110,93 @@
   .link.variant1 {
     min-width: 20rem;
     background-color: var(--very-light-green);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--light-green);
+    }
   }
   .link.variant2 {
     background-color: var(--light-green);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--green);
+    }
   }
   .link.variant3 {
-    background: linear-gradient(
-      to left,
-      var(--black-opacity-30),
-      var(--black-opacity-50)
-    );
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    border: none;
+    background-color: transparent;
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      transition: all 0.4s ease-in-out;
+      background: linear-gradient(
+        to left,
+        var(--black-opacity-20),
+        var(--black-opacity-30)
+      );
+    }
+
+    &:hover::before,
+    &:focus::before,
+    &:active::before {
+      transform: translateX(-30%);
+    }
   }
   .link.variant4 {
+    position: relative;
     width: 100%;
     padding-block: 1rem;
-    background: var(--dark-green);
-    background: linear-gradient(
-      to right,
-      var(--dark-green),
-      var(--light-green)
-    );
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    border: none;
+    background-color: transparent;
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      transition: all 0.4s ease-in-out;
+      background: linear-gradient(
+        to right,
+        var(--dark-green),
+        var(--light-green)
+      );
+    }
+
+    &:hover::before,
+    &:focus::before,
+    &:active::before {
+      transform: translateX(-110%);
+    }
   }
 
   .list {
@@ -127,6 +210,15 @@
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+
+    
+    &:hover, &:focus, &:active {
+
+      .li-icon {
+        background-color: transparent !important;
+      }
+      
+    }
   }
 
   .list .li-title {
@@ -145,9 +237,14 @@
     min-width: 55px;
     height: 55px;
     border-radius: 50%;
+    transition: 0.3s;
     background-color: var(--light-green);
     box-shadow: -9px 9px 23px 3px rgba(0, 0, 0, 0.75);
   }
+
+  .list li:nth-child(even) .li-icon {
+    background-color: var(--green);
+  } 
 
   .list .li-icon svg {
     width: 35px;
@@ -159,51 +256,68 @@
     opacity: 0;
   }
   .tab__content {
+    z-index: 2;
     max-height: 0;
     overflow: hidden;
     transition: all 0.35s;
+    border-radius: 20px;
+    background-color: var(--black-opacity-20);
   }
   .tab input:checked ~ .tab__content {
     max-height: 10rem;
+    box-shadow: -2px 2px 10px 3px rgba(0, 0, 0, 0.55);
   }
 
   /* Visual styles */
   .accordion {
     position: relative;
-    padding-bottom: 2rem;
-    overflow: hidden;
-    color: var(--black-opacity-30);
-  }
-
-  .accordion::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: calc(100% - 2rem);
-    border-radius: 100vh;
-    background-color: var(--light-green);
+    padding-top: 2rem;
+    color: var(--black-opacity-20);
   }
 
   .tab__label,
   .tab__close {
     display: flex;
-    margin-top: 2rem;
-    margin-inline-start: 0.5rem;
-    padding: 0.5rem 11rem;
-    border-radius: 30px;
-    background: var(--black-opacity-30);
-    background: linear-gradient(
-      to left,
-      var(--black-opacity-30),
-      var(--black-opacity-50)
-    );
-    box-shadow: -3px 3px 7px 3px rgba(0, 0, 0, 0.6);
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1px;
-    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    margin-top: 1.75rem;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid var(--light-green);
+    border-bottom-width: 3px;
+    border-radius: 30px; 
+    background-color: transparent;
+    box-shadow: -2px 2px 7px 3px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-weight: bold; 
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      transition: all 0.4s ease-in-out;
+      background: linear-gradient(
+        to left,
+        var(--black-opacity-20),
+        var(--black-opacity-40)
+      );
+    }
+
+    &:hover::before,
+    &:focus::before,
+    &:active::before {
+      transform: translateX(-30%);
+    }
   }
 
   .tab__label.first,
@@ -213,23 +327,31 @@
 
   .tab__label {
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1.25rem 2rem;
+    transition: 0.3s;
   }
-  .tab__label::after {
-    content: "\276F";
-    width: 1em;
-    height: 1em;
-    transform: rotate(90deg);
-    transition: all 0.35s;
-    text-align: center;
+
+  .tab__label svg > path {
+    stroke: var(--green);
+    fill: var(--green);
   }
-  .tab input:checked + .tab__label::after {
-    transform: rotate(270deg);
+
+  .tab__label:hover,
+  .tab__label:focus,
+  .tab__label:active {
+    transform: scale(1.015);
+
+    background: transparent;
+
+    svg > path {
+      stroke: #fff;
+      fill: #fff;
+    }
   }
 
   .tab__content p {
     margin: 0;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 2rem;
   }
 
   .tab__close {
@@ -242,15 +364,15 @@
   }
 
   /* Arrow animation */
-  .tab input:not(:checked) + .tab__label:hover::after {
+  .tab input:not(:checked) + .tab__label:hover svg {
     animation: bounce 0.5s infinite;
   }
   @keyframes bounce {
     25% {
-      transform: rotate(90deg) translate(0.25rem);
+      transform: translateY(0.15rem);
     }
     75% {
-      transform: rotate(90deg) translate(-0.25rem);
+      transform: translateY(-0.15rem);
     }
   }
 }

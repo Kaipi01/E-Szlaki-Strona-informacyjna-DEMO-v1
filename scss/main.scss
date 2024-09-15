@@ -7,15 +7,29 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+.mt-3 {
+  margin-top: 3rem;
+}
  
 :root {
-  --black-opacity-50: #00000071;
-  --black-opacity-30: #0000003c;
+  --black-opacity-50: #0000007d;
+  --black-opacity-40: #00000067;
+  --black-opacity-30: #00000056;
+  --black-opacity-20: #00000030;
   --secondary: #ff5252;
   --background: #eee;
   --highlight: #ffda79; 
   /* green */
   --light-green: #00FF57;
+  --green: #00c821;
   --dark-green: #155a2c;
   --light-green-opacity: #00ff5596;
   --very-light-green: #37ff7a;
