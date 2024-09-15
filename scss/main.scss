@@ -1,0 +1,26 @@
+@use "./components/ai-green-faq.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+:root {
+  --black-opacity-50: #00000071;
+  --black-opacity-30: #0000003c;
+  --secondary: #ff5252;
+  --background: #eee;
+  --highlight: #ffda79; 
+  /* green */
+  --light-green: #00FF57;
+  --dark-green: #155a2c;
+  --light-green-opacity: #00ff5596;
+  --very-light-green: #37ff7a;
+  /* gray */
+  --very-light-gray: #e4e4e4;
+  --gray: #3F624A;
+  --dark-gray: #1d2d2b;
+}
