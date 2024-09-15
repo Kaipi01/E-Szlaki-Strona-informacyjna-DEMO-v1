@@ -4,8 +4,7 @@
   background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
 
   .container {
-    display: grid;
-
+    display: grid; 
     max-width: 90rem;
     margin: 0 auto;
     padding: 1.25rem;
@@ -47,46 +46,7 @@
     stroke: var(--light-green);
     opacity: 0.5;
     fill: var(--light-green);
-  }
-
-  .big-header {
-    font-size: 2rem;
-    font-weight: bold;
-
-    @media (min-width: 50rem) {
-      font-size: 3rem;
-    }
-  }
-
-  .sub-header {
-    padding-block: 1.5rem;
-    color: var(--very-light-green);
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .small-header {
-    font-size: 1.35rem;
-    font-weight: bold;
-  }
-
-  .header-hr {
-    height: 2px;
-    margin-block: 1rem;
-    border: none;
-    border-radius: 2px;
-    opacity: 0.4;
-    background-color: var(--very-light-green);
-  }
-
-  .text {
-    padding-bottom: 1.5rem;
-    color: var(--very-light-gray);
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
+  } 
 
   .links {
     display: flex;
