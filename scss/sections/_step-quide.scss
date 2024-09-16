@@ -1,48 +1,59 @@
 #step-quide {
-  .intro-content {
-    .text {
-      color: var(--dark-gray);
-    }
-  }
-
-  .steps-list {
+  .steps-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-columns: 1fr 8rem 1fr;
+    height: 800px;
     counter-reset: list-el-number;
+    gap: 2rem;
 
-    li {
+    .steps-content-left {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      text-align: center;
-      counter-increment: list-el-number;
-      gap: 1rem;
+      gap: 3rem;
+    }
+    .steps-graph {
+      height: 100%;
+      border-radius: 100vmax;
+      background-color: green;
+    }
+    .steps-content-right {
+      background-color: rgb(201, 201, 201);
+    }
 
-      &::after {
-        content: counter(list-el-number);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.5rem;
-        border: 2px solid var(--dark-green);
-        border-radius: 50%;
-        border-color: var(--dark-green);
-        color: var(--dark-green);
-        font-size: 1.5rem;
-        font-weight: bold;
-        aspect-ratio: 1/1;
+    .step {
+      padding: 1.5rem;
+      background: rgb(201, 201, 201);
+      background: linear-gradient(to bottom, rgb(201, 201, 201), #fff);
+      border-radius: 20px;
+
+      .header {
+        text-align: center;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background: linear-gradient(to bottom, var(--dark-green), var(--green));
+
+        .small-header {
+          padding: 1.5rem 0;
+          color: #fff;
+          text-transform: uppercase;
+        }
       }
-    }
-    svg {
-        fill: var(--dark-gray);
-    }
-
-    .small-header {
-    }
-    .text {
-      order: 999;
-      color: var(--dark-gray);
+      .content {
+        padding: 1.5rem;
+        padding-bottom: 2rem;
+        background-color: #fff;
+        
+        .small-header {
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+        .text {
+          color: var(--dark-gray);
+        }
+      }
+      
     }
   }
 }
