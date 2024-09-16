@@ -1,0 +1,48 @@
+#step-quide {
+  .intro-content {
+    .text {
+      color: var(--dark-gray);
+    }
+  }
+
+  .steps-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    counter-reset: list-el-number;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      counter-increment: list-el-number;
+      gap: 1rem;
+
+      &::after {
+        content: counter(list-el-number);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        border: 2px solid var(--dark-green);
+        border-radius: 50%;
+        border-color: var(--dark-green);
+        color: var(--dark-green);
+        font-size: 1.5rem;
+        font-weight: bold;
+        aspect-ratio: 1/1;
+      }
+    }
+    svg {
+        fill: var(--dark-gray);
+    }
+
+    .small-header {
+    }
+    .text {
+      order: 999;
+      color: var(--dark-gray);
+    }
+  }
+}

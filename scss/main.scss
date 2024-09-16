@@ -1,4 +1,10 @@
 @use "./base/base";
-@use "./base/variables";
-@use "./components/ai-green-faq";
-@use "./components/ai-information";
+@use "./base/variables"; 
+@use "./components/tooltip-link";
+@use "./components/animated-border";
+@use "./components/links"; 
+@use "./sections/ai-green-faq";
+@use "./sections/ai-information";
+@use "./sections/ai-table-info";
+@use "./sections/ai-timeline"; 
+@use "./sections/step-quide"; 

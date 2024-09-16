@@ -10,13 +10,22 @@ body {
   font-family: sans-serif;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .container {
   position: relative;
   max-width: 81rem;
   margin: 0 auto;
   padding-inline: 2rem;
 
-  @media (min-width: 80rem) {
+  @media (min-width: 62.5rem) {
+    padding-inline: 4rem;
+  }
+
+  @media (min-width: 87.5rem) {
     padding-inline: 0rem;
   }
 }
@@ -27,6 +36,18 @@ body {
 .mt-3 {
   margin-top: 3rem;
 }
+
+.basic-link {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--dark-green);
+  text-decoration-style: dashed;
+  text-underline-offset: 0.25rem;
+
+  &--light {
+    text-decoration-color: var(--very-light-green);
+  }
+} 
 
 .big-header {
   font-size: 2rem;
@@ -53,7 +74,7 @@ body {
 
 .header-hr {
   height: 2px;
-  margin-block: 1rem;
+  margin-block: 0.9rem;
   border: none;
   border-radius: 2px;
   opacity: 0.4;
@@ -64,5 +85,5 @@ body {
   padding-bottom: 1.5rem;
   color: var(--very-light-gray);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
