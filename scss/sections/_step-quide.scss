@@ -23,16 +23,16 @@
     }
 
     .step {
-      padding: 1.5rem;
+      padding: 1.5rem; 
+      border-radius: 20px;
       background: rgb(201, 201, 201);
       background: linear-gradient(to bottom, rgb(201, 201, 201), #fff);
-      border-radius: 20px;
 
       .header {
-        text-align: center;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         background: linear-gradient(to bottom, var(--dark-green), var(--green));
+        text-align: center;
 
         .small-header {
           padding: 1.5rem 0;

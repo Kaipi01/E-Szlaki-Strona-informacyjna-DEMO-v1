@@ -109,6 +109,7 @@ a {
   --gray: #3F624A;
   --dark-gray: #1d2d2b;
   --dark-gray-opacity: #1d2d2bf5;
+  --dark-gray-80: #1d2d2bd4;
   --dark-gray-50: #1d2d2b84;
   --dark-gray-20: #1d2d2b45;
 }
@@ -520,15 +521,15 @@ a {
 }
 #step-quide .steps-container .step {
   padding: 1.5rem;
+  border-radius: 20px;
   background: rgb(201, 201, 201);
   background: linear-gradient(to bottom, rgb(201, 201, 201), #fff);
-  border-radius: 20px;
 }
 #step-quide .steps-container .step .header {
-  text-align: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background: linear-gradient(to bottom, var(--dark-green), var(--green));
+  text-align: center;
 }
 #step-quide .steps-container .step .header .small-header {
   padding: 1.5rem 0;
@@ -546,6 +547,109 @@ a {
 }
 #step-quide .steps-container .step .content .text {
   color: var(--dark-gray);
+}
+
+#szybki-dostep {
+  background: linear-gradient(to right, #ebebe6, #f8f8f8);
+}
+#szybki-dostep .text {
+  color: var(--dark-gray);
+}
+#szybki-dostep .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+}
+#szybki-dostep .wrapper .card {
+  --card-border-radius: 20px;
+  --card-padding-inline: 1.5rem;
+}
+#szybki-dostep .wrapper .card:hover .tip-text {
+  transform: translateY(2rem);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#szybki-dostep .wrapper .card .tip-text {
+  height: 5rem;
+  padding: 0 var(--card-padding-inline);
+  padding-top: 1rem;
+  transform: translateY(5rem);
+  transition: all 0.3s;
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  background-color: #fff;
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+#szybki-dostep .wrapper .card .card-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 19rem;
+  min-height: 30rem;
+  transition: all 0.3s;
+  border-radius: var(--card-border-radius);
+  background-image: url("../images/img-3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0px -17rem 53px -40px rgba(0, 0, 0, 0.6862745098), rgba(0, 0, 0, 0.53) 0px 19px 38px, rgba(0, 0, 0, 0.52) 0px 15px 12px;
+  color: #fff;
+}
+#szybki-dostep .wrapper .card .card-container:hover, #szybki-dostep .wrapper .card .card-container:focus, #szybki-dostep .wrapper .card .card-container:active {
+  background-position: 40%;
+  box-shadow: inset 0px -18rem 53px -40px rgba(0, 0, 0, 0.7647058824), rgba(0, 0, 0, 0.53) 0px 19px 38px, rgba(0, 0, 0, 0.52) 0px 15px 12px;
+}
+#szybki-dostep .wrapper .card .card-container:hover .icon-top svg path, #szybki-dostep .wrapper .card .card-container:focus .icon-top svg path, #szybki-dostep .wrapper .card .card-container:active .icon-top svg path {
+  transition: 0.3s;
+  fill: var(--light-green);
+}
+#szybki-dostep .wrapper .card .card-container .content {
+  padding-inline: var(--card-padding-inline);
+}
+#szybki-dostep .wrapper .card .card-container .small-header {
+  padding-bottom: 0.5rem;
+}
+#szybki-dostep .wrapper .card .card-container .text {
+  padding: 0;
+  color: var(--very-light-gray);
+}
+#szybki-dostep .wrapper .card .card-container .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--card-padding-inline);
+  padding: 1.2rem var(--card-padding-inline);
+  border-bottom-right-radius: var(--card-border-radius);
+  border-bottom-left-radius: var(--card-border-radius);
+  background-color: var(--dark-gray-80);
+  backdrop-filter: blur(5px);
+}
+#szybki-dostep .wrapper .card .card-container .bottom .text {
+  font-size: 0.8rem;
+}
+#szybki-dostep .wrapper .card .card-container .bottom svg path {
+  fill: #fff;
+}
+#szybki-dostep .wrapper .card .card-container .icon-top {
+  display: flex;
+  position: absolute;
+  top: var(--card-padding-inline);
+  right: var(--card-padding-inline);
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  border-radius: 50%;
+  background-color: var(--dark-gray-opacity);
+  aspect-ratio: 1/1;
+}
+#szybki-dostep .wrapper .card .card-container .icon-top svg path {
+  fill: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */
