@@ -257,13 +257,14 @@ body.dark {
   color: #fff;
   font-weight: bold;
   text-decoration: none;
+  word-break: keep-all;
   gap: 0.5rem;
 }
 .link.small {
-  font-size: 0.9rem;
-  font-weight: normal;
   padding: 0.65rem 1.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .link.variant1 {
@@ -325,7 +326,7 @@ body.dark {
 }
 .link.variant4 * {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 .link.variant4::before {
   content: "";
@@ -343,14 +344,22 @@ body.dark {
   transform: translateX(-110%);
 }
 
+.green-list.list .li-icon {
+  order: -1;
+  transition: 0.3s;
+}
+.green-list.list .li-icon svg {
+  width: 35px;
+}
+.green-list.list .li-icon svg path {
+  fill: var(--font-color-green-hover);
+}
 .green-list.green-list--variant2.list .li-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  order: -1;
   min-width: 55px;
   height: 55px;
-  transition: 0.3s;
   border-radius: 50%;
   background-color: var(--light-green);
   box-shadow: -9px 9px 23px 3px rgba(0, 0, 0, 0.75);
@@ -358,8 +367,8 @@ body.dark {
 .green-list.green-list--variant2.list li:nth-child(even) .li-icon {
   background-color: var(--green);
 }
-.green-list.green-list--variant2.list .li-icon svg {
-  width: 35px;
+.green-list.green-list--variant2.list .li-icon svg path {
+  fill: #fff;
 }
 .green-list.list {
   display: flex;
@@ -411,6 +420,7 @@ body.dark {
 }
 #ai-how-it-works .card {
   width: 100%;
+  min-height: 17rem;
   padding: 1rem;
   padding-top: 2rem;
   border-radius: 15px;
@@ -443,11 +453,39 @@ body.dark {
   fill: var(--very-light-gray);
 }
 #ai-how-it-works .card.content-with-symbol.variant2 {
-  padding: 0.9rem 0.65rem;
+  position: relative;
+  padding: 0.9rem 1rem;
+  overflow: hidden;
+}
+#ai-how-it-works .card.content-with-symbol.variant2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  background-color: var(--dark-gray);
+}
+#ai-how-it-works .card.content-with-symbol.variant2:hover::before, #ai-how-it-works .card.content-with-symbol.variant2:focus::before, #ai-how-it-works .card.content-with-symbol.variant2:active::before {
+  transform: translateX(0);
+}
+#ai-how-it-works .card.content-with-symbol.variant2 .text {
+  position: relative;
+  z-index: 2;
+  margin-block: auto;
+  color: #fff;
+  font-size: 1.2rem;
 }
 #ai-how-it-works .card.content-with-symbol.variant2 .symbol {
-  width: 10rem;
-  height: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14rem;
+  height: 14rem;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
 }
 #ai-how-it-works .card.content-text {
   padding-block: 2.5rem;
@@ -466,11 +504,12 @@ body.dark {
 #ai-how-it-works .card.content-text .text {
   padding-bottom: 1rem;
 }
-#ai-how-it-works .card.content-text svg path {
+#ai-how-it-works .card.content-text .link-icon-wrapper svg path {
   fill: var(--font-color);
 }
 #ai-how-it-works .card.content-text .link-icon-wrapper {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
 }
@@ -479,10 +518,19 @@ body.dark {
   align-items: center;
   justify-content: space-between;
 }
+#ai-how-it-works .card.content-text .links a {
+  display: block;
+}
 #ai-how-it-works .card.content-2-column {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+}
+@media (min-width: 75em) {
+  #ai-how-it-works .card.content-2-column {
+    flex-direction: row;
+  }
 }
 #ai-how-it-works .card.green {
   background: var(--green);
@@ -521,7 +569,7 @@ body.dark {
 }
 @media (min-width: 62.5rem) {
   #ai-how-it-works .top-content {
-    grid-template-columns: 1fr 20rem;
+    grid-template-columns: 1fr 19.5rem;
     gap: 3rem;
   }
 }
@@ -567,7 +615,7 @@ body.dark {
 #ai-how-it-works .top-content .right::before {
   content: none;
 }
-@media (min-width: 62.5rem) {
+@media (min-width: 62.5em) {
   #ai-how-it-works .top-content .right::before {
     content: "";
   }
@@ -604,15 +652,19 @@ body.dark {
 #ai-how-it-works .bottom-content {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: flex-start;
   margin-top: 3rem;
   gap: 1rem;
 }
-@media (min-width: 40em) {
+#ai-how-it-works .bottom-content .card {
+  min-height: 0;
+}
+@media (min-width: 50em) {
   #ai-how-it-works .bottom-content {
     grid-template-columns: 1fr 20rem;
   }
 }
-@media (min-width: 55em) {
+@media (min-width: 56em) {
   #ai-how-it-works .bottom-content {
     grid-template-columns: 1fr 30rem;
   }
@@ -630,13 +682,13 @@ body.dark {
 #ai-how-it-works .bottom-content .left {
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: 1rem;
-  row-gap: 2.5rem;
+  gap: 1rem;
 }
 @media (min-width: 87.5em) {
   #ai-how-it-works .bottom-content .left {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
+    row-gap: 2.5rem;
   }
 }
 #ai-how-it-works .bottom-content .left .card:last-child {
@@ -649,12 +701,11 @@ body.dark {
 }
 #ai-how-it-works .bottom-content .right {
   position: relative;
-  min-height: 100%;
 }
 #ai-how-it-works .bottom-content .right::before {
   content: none;
 }
-@media (min-width: 62.5rem) {
+@media (min-width: 62.5em) {
   #ai-how-it-works .bottom-content .right::before {
     content: "";
   }

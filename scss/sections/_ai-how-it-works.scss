@@ -25,24 +25,20 @@
     var(--background)
   );
 
-  .big-header {
-  }
-  .sub-header-wrap {
-  }
   .sub-header {
     font-size: 1.2rem;
   }
 
   .card {
     width: 100%;
-    //min-height: 17rem;
+    min-height: 17rem;
     padding: 1rem;
     padding-top: 2rem;
     border-radius: 15px;
     background: var(--background);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 44px 28px,
       rgba(0, 0, 0, 0.12) 0px 15px 12px;
-    
+
     &.content-with-symbol {
       @extend %flex-column;
       justify-content: space-between;
@@ -74,24 +70,59 @@
 
         path {
           fill: var(--very-light-gray);
-        }
-      }
+        } 
+      } 
 
       &.variant2 {
-        padding: 0.9rem 0.65rem;
+        position: relative;
+        padding: 0.9rem 1rem;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform: translateX(-100%);
+          transition: 0.3s;
+          background-color: var(--dark-gray);
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          &::before {
+            transform: translateX(0);
+          }
+        }
+
+        .text {
+          position: relative;
+          z-index: 2;
+          margin-block: auto;
+          color: #fff;
+          font-size: 1.2rem;
+        }
 
         .symbol {
-          width: 10rem;
-          height: 10rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 14rem;
+          height: 14rem;
+          transform: translate(-50%, -50%);
+          opacity: 0.2;
         }
       }
-    }   
-       
-    &.content-text {  
-        padding-block: 2.5rem;   
-        padding-inline: 2rem;  
- 
-      .small-header { 
+    }
+
+    &.content-text {
+      padding-block: 2.5rem;
+      padding-inline: 2rem;
+
+      .small-header {
         font-size: 1.4rem;
       }
 
@@ -107,14 +138,17 @@
         padding-bottom: 1rem;
       }
 
-      svg {
-        path {
-          fill: var(--font-color);
+      .link-icon-wrapper {
+        svg {
+          path {
+            fill: var(--font-color);
+          }
         }
       }
 
       .link-icon-wrapper {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 0.5rem;
       }
@@ -123,14 +157,22 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        a {
+          display: block;
+        }
       }
     }
 
     &.content-2-column {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
       gap: 2rem;
-      //flex-wrap: wrap;
+
+      @media (min-width: 75em) {
+        flex-direction: row;
+      }
     }
 
     &.green {
@@ -185,7 +227,7 @@
     }
 
     @media (min-width: 62.5rem) {
-      grid-template-columns: 1fr 20rem;
+      grid-template-columns: 1fr 19.5rem;
       gap: 3rem;
     }
 
@@ -231,11 +273,9 @@
       &::before {
         @extend %green-border-left;
         content: none;
-
-        @media (min-width: 62.5rem) {
+        @media (min-width: 62.5em) {
           content: "";
         }
-
         @media (min-width: 87.5em) {
           left: -2.15rem;
         }
@@ -268,14 +308,19 @@
   .bottom-content {
     display: grid;
     grid-template-columns: 1fr;
+    align-items: flex-start;
     margin-top: 3rem;
-    gap: 1rem;
-
-    @media (min-width: 40em) {
+    gap: 1rem;  
+            
+    .card {
+      min-height: 0; 
+    }  
+   
+    @media (min-width: 50em) {
       grid-template-columns: 1fr 20rem;
     }
-
-    @media (min-width: 55em) {
+ 
+    @media (min-width: 56em) {
       grid-template-columns: 1fr 30rem;
     }
 
@@ -290,12 +335,13 @@
     .left {
       display: grid;
       grid-template-columns: 1fr;
-      column-gap: 1rem;
-      row-gap: 2.5rem;
+      gap: 1rem;
+      
 
       @media (min-width: 87.5em) {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1.5rem;
+        row-gap: 2.5rem;
       }
 
       .card:last-child {
@@ -309,16 +355,13 @@
 
     .right {
       position: relative;
-      min-height: 100%;
 
       &::before {
         @extend %green-border-left;
         content: none;
-
-        @media (min-width: 62.5rem) {
+        @media (min-width: 62.5em) {
           content: "";
         }
-
         @media (min-width: 87.5em) {
           left: -2.15rem;
         }
