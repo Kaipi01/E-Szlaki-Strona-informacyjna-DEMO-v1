@@ -58,7 +58,7 @@
   }
   .table > tbody > tr > td:first-child {
     background-color: var(--dark-green) !important;
-    color: #fff;
+    color: var(--font-color);
     font-weight: bold;
   }
   .table > tbody > tr > td:nth-child(5) {
@@ -68,7 +68,7 @@
   .table > thead > tr > th {
     border: none;
     background-color: var(--dark-gray);
-    color: #fff;
+    color: var(--font-color);
     font-weight: bold;
   }
  
@@ -101,7 +101,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.12);
   }
   .table .table {
-    background-color: #fff;
+    background-color: var(--font-color);
   }
   .table .no-border {
     border: 0;
@@ -136,7 +136,7 @@
   }
   .table-hover > tbody > tr:hover > td,
   .table-hover > tbody > tr:hover > th {
-    background-color: #fff;
+    background-color: var(--font-color);
   }
   @media screen and (max-width: 65rem) {
     .table-responsive-vertical > .table {
@@ -193,7 +193,7 @@
     }
     .table-responsive-vertical > .table-striped > tbody > tr > td,
     .table-responsive-vertical > .table-striped > tbody > tr:nth-child(odd) {
-      background-color: #fff;
+      background-color: var(--font-color);
     }
     .table-responsive-vertical
       > .table-striped
@@ -204,10 +204,10 @@
     }
     .table-responsive-vertical > .table-hover > tbody > tr:hover > td,
     .table-responsive-vertical > .table-hover > tbody > tr:hover {
-      background-color: #fff;
+      background-color: var(--font-color);
     }
     .table-responsive-vertical > .table-hover > tbody > tr > td:hover {
-      background-color: #fff;
+      background-color: var(--font-color);
     }
   }
   .table-striped.table-mc-green > tbody > tr:nth-child(odd) > td,
@@ -224,7 +224,7 @@
       .table-striped.table-mc-green
       > tbody
       > tr:nth-child(odd) {
-      background-color: #fff;
+      background-color: var(--font-color);
     }
     .table-responsive-vertical
       .table-striped.table-mc-green
@@ -239,7 +239,7 @@
       > tr:hover
       > td,
     .table-responsive-vertical .table-hover.table-mc-green > tbody > tr:hover {
-      background-color: #fff;
+      background-color: var(--font-color);
     }
     .table-responsive-vertical
       .table-hover.table-mc-green

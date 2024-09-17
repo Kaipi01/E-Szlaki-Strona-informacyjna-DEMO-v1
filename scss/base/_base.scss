@@ -7,6 +7,8 @@
 }
 
 body {
+  transition: all 0.3s;
+  color: var(--font-color);
   font-family: sans-serif;
 }
 
@@ -29,12 +31,32 @@ a {
     padding-inline: 0rem;
   }
 }
-
+.mt-1 {
+  margin-top: 1rem;
+}
 .mt-2 {
   margin-top: 2rem;
 }
 .mt-3 {
   margin-top: 3rem;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mb-3 {
+  margin-bottom: 3rem;
+}
+.my-1 {
+  margin-block: 1rem;
+}
+.my-2 {
+  margin-block: 2rem;
+}
+.my-3 {
+  margin-block: 3rem;
 }
 
 .basic-link {
@@ -47,7 +69,21 @@ a {
   &--light {
     text-decoration-color: var(--very-light-green);
   }
-} 
+
+  &--small {
+    font-size: 0.9rem;
+  }
+
+  &--variant2 {
+    transition: 0.3s;
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+      color: var(--font-color-green-hover);
+    }
+  }
+}
 
 .big-header {
   font-size: 2rem;
@@ -83,7 +119,11 @@ a {
 
 .text {
   padding-bottom: 1.5rem;
-  color: var(--very-light-gray);
+  color: var(--font-color-gray);
   font-size: 0.9rem;
   line-height: 1.5;
+
+  &--narrow {
+    max-width: 80ch;
+  }
 }

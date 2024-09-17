@@ -89,7 +89,7 @@ $color6: #aff1b6;
         width: $content-width;
         padding: $spacing;
         border-radius: 0 $bdrs $bdrs 0;
-        background: #fff; 
+        background: var(--background); 
       }
       &__date {
         display: flex;

@@ -1,4 +1,4 @@
-:root {
+body {
     /* black */
     --black-opacity-50: #0000007d;
     --black-opacity-40: #00000067;
@@ -11,12 +11,27 @@
     --light-green-opacity: #00ff5596;
     --light-green-20: #00ff5535;
     --very-light-green: #37ff7a;
-    /* gray */
-    --very-light-gray: #e4e4e4;
+    /* gray */ 
+    --very-light-gray: #eaeaea;
     --gray: #3F624A;
-    --dark-gray: #1d2d2b;
+    --dark-gray: #1d2d2b; 
+    --very-dark-gray: #222;  
     --dark-gray-opacity: #1d2d2bf5;
     --dark-gray-80: #1d2d2bd4;
     --dark-gray-50: #1d2d2b84;
-    --dark-gray-20: #1d2d2b45;
+    --dark-gray-20: #1d2d2b45;  
+    /* base */ 
+    --background: #fff;
+    --background-gray: var(--very-light-gray);
+    --font-color: var(--dark-gray);
+    --font-color-gray: var(--gray);
+    --font-color-green-hover: var(--green);
+  } 
+
+  body.dark {
+    --background: var(--dark-gray);
+    --background-gray: var(--very-dark-gray);
+    --font-color: #fff;
+    --font-color-gray: var(--very-light-gray);
+    --font-color-green-hover: var(--light-green);
   }

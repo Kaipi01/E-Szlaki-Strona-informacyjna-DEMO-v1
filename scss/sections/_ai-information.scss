@@ -11,7 +11,7 @@
       align-items: center;
       padding-bottom: 0.5rem;
       transition: 0.3s;
-      color: #fff;
+      color: var(--font-color);
       gap: 0.4rem;
 
       &:hover {
@@ -34,7 +34,7 @@
     background: #558064;
     background: linear-gradient(to right, #395b46, #63956e); 
     background-size: 400% 400%;
-    color: #fff;
+    color: var(--font-color);
 
     @keyframes gradient {
       0% {
@@ -152,7 +152,7 @@
       }
 
       .small-header {
-        color: #fff;
+        color: var(--font-color);
       }
     }
 

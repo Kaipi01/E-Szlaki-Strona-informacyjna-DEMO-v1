@@ -4,7 +4,7 @@
   background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
 
   .container {
-    display: grid; 
+    display: grid;
     max-width: 90rem;
     margin: 0 auto;
     padding: 1.25rem;
@@ -32,6 +32,16 @@
     }
   }
 
+  .green-list.list {
+    .li-title {
+      color: #fff;
+    }
+  }
+
+  .text {
+    color: var(--very-light-gray);
+  }
+
   .content {
     padding-top: 2rem;
   }
@@ -46,7 +56,7 @@
     stroke: var(--light-green);
     opacity: 0.5;
     fill: var(--light-green);
-  } 
+  }
 
   .links {
     display: flex;
@@ -54,58 +64,6 @@
     align-items: center;
     margin-top: 1.5rem;
     gap: 1rem;
-  }
-
-
-
-  .list {
-    display: flex;
-    flex-direction: column;
-    padding-top: 1.8rem;
-    gap: 0.5rem;
-  }
-
-  .list > li {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-
-    &:hover,
-    &:focus,
-    &:active {
-      .li-icon {
-        background-color: transparent !important;
-      }
-    }
-  }
-
-  .list .li-title {
-    display: block;
-    padding-bottom: 0.2rem;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
-  .list .li-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: -1;
-    min-width: 55px;
-    height: 55px;
-    transition: 0.3s;
-    border-radius: 50%;
-    background-color: var(--light-green);
-    box-shadow: -9px 9px 23px 3px rgba(0, 0, 0, 0.75);
-  }
-
-  .list li:nth-child(even) .li-icon {
-    background-color: var(--green);
-  }
-
-  .list .li-icon svg {
-    width: 35px;
   }
 
   .tab input {
