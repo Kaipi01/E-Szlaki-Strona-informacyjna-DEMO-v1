@@ -1,9 +1,15 @@
 #szybki-dostep {
-  background: linear-gradient(to right, #ebebe6, #f8f8f8);
-  .text {
-    color: var(--dark-gray);
-  }
-
+  padding: 5rem 0;
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background) 
+  );
+ 
+  .big-header {
+    color: var(--font-color);
+  } 
+ 
   .wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +37,7 @@
         transition: all 0.3s;
         border-top-left-radius: var(--card-border-radius);
         border-top-right-radius: var(--card-border-radius);
-        background-color: var(--background);
+        background-color: #fff;
         color: var(--dark-gray);
         font-size: 0.85rem;
         font-weight: bold;
