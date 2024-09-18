@@ -1,0 +1,152 @@
+
+#timeline-module {
+
+    --timeline-strap-width: 0.2rem;
+
+  .timeline {
+    padding: 0px 5%;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+
+    > div {
+      flex: 1;
+      padding: 20px 40px;
+
+      &:last-child {
+        padding-bottom: 40px !important;
+        text-align: left;
+      }
+    }
+
+    &:nth-child(odd) {
+      > div:first-child {
+        position: relative;
+        text-align: right;
+
+        &::after {
+          right: -11px;
+        }
+      }
+
+      > div:last-child {
+        border-left: var(--timeline-strap-width) solid #e0e0e0;
+        text-align: left;
+      }
+
+      .timeline-content > h2 {
+        text-align: left !important;
+      }
+
+      .timeline-date > div {
+        margin-right: 0px;
+      }
+    }
+
+    &:nth-child(even) {
+      > div:first-child {
+        position: relative;
+        order: 2;
+        text-align: left;
+
+        &::after {
+          left: -1px;
+        }
+      }
+
+      > div:last-child {
+        order: 1;
+        border-right: var(--timeline-strap-width) solid #e0e0e0;
+        text-align: right;
+      }
+
+      .timeline-date > div {
+        margin-left: 0px;
+      }
+
+      .timeline-content > h2 {
+        text-align: right !important;
+      }
+    }
+
+    > div:first-child::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background-color: #0066ff;
+      box-shadow: 0 0 0 4px rgba(103, 58, 183, 0.2);
+    }
+
+    .timeline-date > div {
+      max-width: max-content;
+      margin: auto;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background-color: #0066ff;
+      box-shadow: 0 0 0 4px rgba(103, 58, 183, 0.2);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .timeline-content {
+      .fa-icon {
+        font-size: 80px;
+      }
+
+      > h2 {
+        margin: 0px;
+        color: #0066ff;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+    }
+
+    &:not(:last-child) .timeline-content > .fa-icon {
+      margin-bottom: 70px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .timeline-item {
+      flex-direction: column;
+      border-left: var(--timeline-strap-width) solid #e0e0e0;
+
+      > div {
+        order: unset !important;
+        border-width: 0px !important;
+        text-align: left !important;
+
+        &::after {
+          left: 0% !important;
+        }
+      }
+
+      &:nth-child(odd) .timeline-content > h2 {
+        text-align: left !important;
+      }
+
+      &:nth-child(even) .timeline-content > h2 {
+        text-align: left !important;
+      }
+    }
+  }
+
+  .logo {
+    position: relative;
+    top: 0;
+    width: 280px;
+    height: 80px;
+    margin: auto;
+    background-image: url("http://infraview.net/wp-content/uploads/2018/09/InfraView_Logo.png"),
+      url("http://infraview.net/wp-content/uploads/2018/09/InfraView_Logo.png");
+    background-repeat: no-repeat;
+    text-align: "center";
+    -webkit-filter: invert(100%);
+  }
+}

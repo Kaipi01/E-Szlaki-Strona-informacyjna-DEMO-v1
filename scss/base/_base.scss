@@ -85,6 +85,12 @@ a {
   }
 }
 
+.big-hr {
+  width: 100%;
+  height: 0.2rem;
+  background: linear-gradient(to right, var(--font-color-green-hover));
+}
+
 .big-header {
   font-size: 2rem;
   font-weight: bold;

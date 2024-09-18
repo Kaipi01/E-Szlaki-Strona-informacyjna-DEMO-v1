@@ -1,0 +1,401 @@
+#used-technologies {
+  .text-intro {
+    max-width: 60rem;
+  }
+
+  .main-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 0px;
+    padding: 10px;
+
+    .technology-icon {
+      width: 100%;
+    }
+  }
+
+  .icon-backend {
+    // .gear-b {
+    //   animation: rotate-reverse 6s;
+    // }
+
+    // .gear-s {
+    //   animation: rotate 12s linear infinite;
+    // }
+
+    // #XMLID_87_,
+    // #XMLID_85_,
+    // #XMLID_83_ {
+    //   animation: twinkle 3s ease-in-out infinite;
+    // }
+
+    // #XMLID_85_ {
+    //   animation-delay: 0.4s;
+    // }
+
+    // #XMLID_83_ {
+    //   animation-delay: 0.6s;
+    // }
+
+    // .line-t,
+    // .line-m,
+    // .line-b {
+    //   animation: shrink 1.8s ease-in-out infinite;
+    // }
+
+    // .line-m {
+    //   animation-delay: 0.3s;
+    // }
+
+    // .line-b {
+    //   animation-delay: 0.6s;
+    // }
+
+    .code {
+      // &-letter_o {
+      //   animation: typingO 3s linear infinite;
+      // }
+
+      // &-letter_d {
+      //   animation: typingD 3s linear infinite;
+      // }
+
+      // &-letter_e {
+      //   animation: typingE 3s linear infinite;
+      // }
+
+      @keyframes typingE {
+        20.1%,
+        80% {
+          fill: transparent;
+        }
+
+        20%,
+        80.1% {
+          fill: #fff;
+        }
+      }
+
+      @keyframes typingD {
+        30.1%,
+        70% {
+          fill: transparent;
+        }
+
+        30%,
+        70.1% {
+          fill: #fff;
+        }
+      }
+
+      @keyframes typingO {
+        40.1%,
+        60% {
+          fill: transparent;
+        }
+
+        40%,
+        60.1% {
+          fill: #fff;
+        }
+      }
+    }
+
+    .hover {
+      animation-play-state: paused !important;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    &:hover {
+      .hover {
+        animation-play-state: running !important;
+      }
+    }
+  }
+
+  .icon-mobile {
+    .gear {
+      animation: rotate 30s linear infinite;
+    }
+
+    .line-t,
+    .line-m,
+    .line-b {
+      animation: shrink 2.2s ease-in-out infinite;
+    }
+
+    .play-btn polygon {
+      animation: twinkle 3s linear infinite;
+    }
+
+    .line-m {
+      animation-delay: 0.3s;
+    }
+
+    .line-b {
+      animation-delay: 0.6s;
+    }
+
+    .ruler {
+      transform-origin: 300px 200px;
+      animation: bounceBFt2 2s ease-in-out infinite;
+    }
+
+    .hook {
+      transform-origin: 148px 24px;
+      animation: bounce3 1.6s ease-in-out infinite;
+    }
+
+    .play-bar--play {
+      opacity: 1;
+    }
+
+    .play-bar--pause {
+      opacity: 0;
+    }
+
+    .hover {
+      animation-play-state: paused !important;
+    }
+
+    &:hover {
+      .hover {
+        animation-play-state: running !important;
+      }
+
+      .play-bar--play {
+        opacity: 0;
+      }
+
+      .play-bar--pause {
+        opacity: 1;
+      }
+    }
+  }
+
+  .icon-frontend {
+    .ruler {
+      animation: bounceBF 1.8s ease-in-out infinite;
+    }
+
+    .panel {
+      animation: twinkle3 3s ease-in-out infinite;
+
+      &2 {
+        animation-delay: 0.5s;
+      }
+
+      &3 {
+        animation-delay: 1s;
+      }
+
+      &4 {
+        animation-delay: 1.5s;
+      }
+
+      &5 {
+        animation-delay: 2s;
+      }
+    }
+
+    .line-1 {
+      transform-origin: 162px;
+      animation: shrink 2s ease-in-out infinite;
+    }
+
+    .line-2,
+    .line-3 {
+      transform-origin: 144.3px 0;
+      animation: shrink 2s ease-in-out infinite;
+    }
+
+    .line-2 {
+      animation-delay: -0.4s;
+    }
+
+    .blink1,
+    .blink2,
+    .blink3 {
+      animation: 6s linear infinite;
+    }
+
+    .blink1 {
+      animation-name: bubble-b;
+    }
+
+    .blink2 {
+      animation-name: bubble-m;
+    }
+
+    .blink3 {
+      animation-name: bubble-t;
+    }
+
+    .play-btn {
+      opacity: 1;
+    }
+
+    .pause-btn {
+      opacity: 0;
+    }
+
+    .hover {
+      animation-play-state: paused;
+    }
+
+    &:hover {
+      .play-btn {
+        opacity: 0;
+      }
+      .pause-btn {
+        opacity: 1;
+      }
+
+      .hover {
+        animation-play-state: running;
+      }
+    }
+  }
+
+  .star {
+    animation: twinkle 4s ease-in-out infinite;
+
+    &-2 {
+      animation-delay: 1s;
+    }
+  }
+
+  @keyframes twinkle {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+
+    25%,
+    75% {
+      transform: scale(1.6);
+    }
+  }
+
+  @keyframes twinkle2 {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+
+    25%,
+    75% {
+      transform: scale(1.07);
+    }
+  }
+
+  @keyframes twinkle3 {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+
+    25%,
+    75% {
+      transform: scale(1.14);
+    }
+  }
+
+  @keyframes bubble-t {
+    26%,
+    80% {
+      transform: scale(0);
+    }
+
+    20%,
+    86% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bubble-m {
+    36%,
+    70% {
+      transform: scale(0);
+    }
+
+    30%,
+    76% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bubble-b {
+    46%,
+    60% {
+      transform: scale(0);
+    }
+
+    40%,
+    66% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bounce {
+    50% {
+      transform: rotate(-6deg);
+    }
+  }
+
+  @keyframes bounce2 {
+    50% {
+      transform: rotate(6deg);
+    }
+  }
+
+  @keyframes bounce3 {
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes bounceBF {
+    0%,
+    100% {
+      transform: rotate(1.6deg);
+    }
+
+    50% {
+      transform: rotate(-1.6deg);
+    }
+  }
+
+  @keyframes bounceBFt2 {
+    0%,
+    100% {
+      transform: rotate(4.6deg);
+    }
+
+    50% {
+      transform: rotate(-4.6deg);
+    }
+  }
+
+  @keyframes shrink {
+    50% {
+      transform: scaleX(0.3);
+    }
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes rotate-reverse {
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+}
