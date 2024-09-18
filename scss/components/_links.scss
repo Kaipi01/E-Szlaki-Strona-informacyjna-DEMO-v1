@@ -10,8 +10,8 @@
     box-shadow: -4px 4px 20px 3px rgba(0, 0, 0, 0.75);
     color: #fff;
     font-weight: bold;
-    text-decoration: none;
-    word-break: keep-all;
+    text-decoration: none; 
+    word-break: keep-all; 
     gap: 0.5rem;
 
     &.small {
@@ -79,7 +79,7 @@
     &:focus::before,
     &:active::before {
       transform: translateX(-30%);
-    }
+    } 
   }
   .link.variant4 {
     position: relative;
@@ -102,7 +102,7 @@
       z-index: 1;
       top: 0;
       left: 0;
-      width: 150%;
+      width: 150%; 
       height: 100%;
       transition: all 0.4s ease-in-out;
       background: linear-gradient(

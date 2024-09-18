@@ -7,6 +7,7 @@ body {
     /* green */ 
     --light-green: #00FF57;
     --green: #00c821;
+    --green-opacity: #00c821bb;
     --dark-green: #155a2c;
     --light-green-opacity: #00ff5596;
     --light-green-20: #00ff5535;
@@ -25,7 +26,7 @@ body {
     --background-gray: var(--very-light-gray);
     --font-color: var(--dark-gray);
     --font-color-gray: var(--gray);
-    --font-color-green-hover: var(--green);
+    --font-color-green-hover: var(--green); 
   } 
 
   body.dark {
@@ -33,5 +34,5 @@ body {
     --background-gray: var(--very-dark-gray);
     --font-color: #fff;
     --font-color-gray: var(--very-light-gray);
-    --font-color-green-hover: var(--light-green);
+    --font-color-green-hover: var(--light-green); 
   }

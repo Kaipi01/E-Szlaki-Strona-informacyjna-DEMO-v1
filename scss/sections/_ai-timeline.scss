@@ -54,12 +54,12 @@ $color6: #aff1b6;
       &:nth-child(2n + 1) {
         flex-direction: row-reverse;
         .timeline__event__date {
-          border-radius: 0 var(--timeline-border-radius)
-            var(--timeline-border-radius) 0;
-        }
-        .timeline__event__content {
           border-radius: var(--timeline-border-radius) 0 0
             var(--timeline-border-radius);
+        }
+        .timeline__event__content {
+          border-radius: 0 var(--timeline-border-radius)
+            var(--timeline-border-radius) 0;
         }
 
         .timeline__event__icon {
