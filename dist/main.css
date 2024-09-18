@@ -464,6 +464,11 @@ body.dark {
   font-weight: bold;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
+@media (min-width: 68.75em) {
+  #ai-modern-list .list-container .list-el-number::after {
+    font-size: 2.35rem;
+  }
+}
 #ai-modern-list .list-container .list-el-info {
   display: flex;
   position: relative;
@@ -501,7 +506,7 @@ body.dark {
   height: 4rem;
   border-radius: 50%;
   background: var(--dark-gray);
-  background: linear-gradient(to left, var(--gray), var(--dark-gray));
+  background: linear-gradient(to left, var(--background-gray), var(--background));
   box-shadow: -9px 9px 23px 3px rgba(0, 0, 0, 0.75);
 }
 #ai-modern-list .list-container .list-el-info .list-el-icon::before {
@@ -515,6 +520,7 @@ body.dark {
   transform: translate(-1.25rem, calc(-50% + 3px));
   transition: all 0.4s ease-in-out;
   border-top: 6px dashed var(--font-color-green-hover);
+  border-radius: 3px;
 }
 @media (min-width: 50em) {
   #ai-modern-list .list-container .list-el-info .list-el-icon::before {
@@ -526,10 +532,10 @@ body.dark {
   height: 35px;
 }
 #ai-modern-list .list-container .list-el-info .list-el-icon svg path {
-  fill: var(--light-green);
+  fill: var(--font-color-green-hover);
 }
 #ai-modern-list .list-container .list-el-info .list-el-text .small-header {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 #ai-modern-list .list-container .list-el-info .list-el-text .hr-header {
   margin-block: 0.4rem;
