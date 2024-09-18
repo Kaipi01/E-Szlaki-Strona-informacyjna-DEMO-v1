@@ -1,68 +1,86 @@
 #used-technologies {
+  padding: 5rem 0;
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
+ 
   .text-intro {
     max-width: 60rem;
   }
 
-  .main-wrapper {
+  .main-wrapper { 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    align-items: flex-start;
+    place-self: center;
     margin-bottom: 0px;
-    padding: 10px;
+    gap: 2rem;  
 
+    .technology-content {
+      .sub-header {
+        font-size: 0.9rem;
+        padding-bottom: 0;
+      }
+
+      .hr-header {
+        margin-block: 0.5rem;
+      }
+
+      .text {
+        font-size: 1rem;
+      }
+    }
+ 
     .technology-icon {
-      width: 100%;
+      height: 24rem;
+      margin: 0 auto;
     }
   }
 
-  .icon-backend {
-    // .gear-b {
-    //   animation: rotate-reverse 6s;
-    // }
+  .icon-backend { 
 
-    // .gear-s {
-    //   animation: rotate 12s linear infinite;
-    // }
+    #XMLID_87_,
+    #XMLID_85_,
+    #XMLID_83_ {
+      animation: twinkle 3s ease-in-out infinite;
+    }
 
-    // #XMLID_87_,
-    // #XMLID_85_,
-    // #XMLID_83_ {
-    //   animation: twinkle 3s ease-in-out infinite;
-    // }
+    #XMLID_85_ {
+      animation-delay: 0.4s;
+    }
 
-    // #XMLID_85_ {
-    //   animation-delay: 0.4s;
-    // }
+    #XMLID_83_ {
+      animation-delay: 0.6s;
+    }
 
-    // #XMLID_83_ {
-    //   animation-delay: 0.6s;
-    // }
+    .line-t,
+    .line-m,
+    .line-b {
+      animation: shrink 1.8s ease-in-out infinite;
+    }
 
-    // .line-t,
-    // .line-m,
-    // .line-b {
-    //   animation: shrink 1.8s ease-in-out infinite;
-    // }
+    .line-m {
+      animation-delay: 0.3s;
+    }
 
-    // .line-m {
-    //   animation-delay: 0.3s;
-    // }
-
-    // .line-b {
-    //   animation-delay: 0.6s;
-    // }
+    .line-b {
+      animation-delay: 0.6s;
+    }
 
     .code {
-      // &-letter_o {
-      //   animation: typingO 3s linear infinite;
-      // }
+      &-letter_o {
+        animation: typingO 3s linear infinite;
+      }
 
-      // &-letter_d {
-      //   animation: typingD 3s linear infinite;
-      // }
+      &-letter_d {
+        animation: typingD 3s linear infinite;
+      }
 
-      // &-letter_e {
-      //   animation: typingE 3s linear infinite;
-      // }
+      &-letter_e {
+        animation: typingE 3s linear infinite;
+      }
 
       @keyframes typingE {
         20.1%,
@@ -114,11 +132,7 @@
     }
   }
 
-  .icon-mobile {
-    .gear {
-      animation: rotate 30s linear infinite;
-    }
-
+  .icon-mobile { 
     .line-t,
     .line-m,
     .line-b {
@@ -244,7 +258,7 @@
       animation-play-state: paused;
     }
 
-    &:hover {
+    &:hover { 
       .play-btn {
         opacity: 0;
       }
@@ -256,15 +270,7 @@
         animation-play-state: running;
       }
     }
-  }
-
-  .star {
-    animation: twinkle 4s ease-in-out infinite;
-
-    &-2 {
-      animation-delay: 1s;
-    }
-  }
+  } 
 
   @keyframes twinkle {
     0%,

@@ -1,15 +1,34 @@
 @use "./base/base";
-@use "./base/variables"; 
+@use "./base/variables";
 @use "./components/tooltip-link";
 @use "./components/animated-border";
-@use "./components/links"; 
-@use "./components/list"; 
+@use "./components/links";
+@use "./components/list";
 // @use "./sections/ai-green-faq";
 // @use "./sections/ai-information";
 // @use "./sections/ai-table-info";
-// @use "./sections/ai-timeline"; 
-// @use "./sections/ai-modern-list"; 
-// @use "./sections/timeline-module"; 
-@use "./sections/used-technologies"; 
-// @use "./sections/szybki-dostep"; 
-// @use "./sections/ai-how-it-works"; 
+// @use "./sections/ai-timeline";
+// @use "./sections/ai-modern-list";
+// @use "./sections/timeline-module";
+@use "./sections/used-technologies";
+// @use "./sections/szybki-dostep";
+// @use "./sections/ai-how-it-works";
+
+#toggle-theme-btn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  z-index: 999; 
+
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  } 
+
+  input {
+    height: 2rem;
+    aspect-ratio: 1/1;
+  }
+}

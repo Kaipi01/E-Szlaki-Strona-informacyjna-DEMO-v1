@@ -11,7 +11,7 @@ body {
   color: var(--font-color);
   font-family: sans-serif;
 }
-
+  
 a {
   color: inherit;
   text-decoration: none;
@@ -79,7 +79,9 @@ a {
     font-size: 0.9rem;
     text-decoration: none;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       color: var(--font-color-green-hover);
     }
   }
@@ -87,8 +89,13 @@ a {
 
 .big-hr {
   width: 100%;
-  height: 0.2rem;
-  background: linear-gradient(to right, var(--font-color-green-hover));
+  height: 0.3rem;
+  border-radius: 0.2rem;
+  background: linear-gradient(
+    to right,
+    var(--background-green-hover-opacity),
+    var(--background-green-opacity)
+  );
 }
 
 .big-header {
