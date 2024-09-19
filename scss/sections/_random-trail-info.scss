@@ -1,0 +1,156 @@
+@use "../components/modern-card" as *;
+
+#random-trail-info {
+  --grid-gap-large: 2.5rem;
+  --grid-gap-medium: 2rem;
+  --grid-gap-small: 1rem;
+  --trail-short-info-margin-big: -2rem;
+  --trail-short-info-margin: -1rem;
+
+  padding: 5rem 0;
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
+
+  .header {
+    .big-header {
+    }
+    .text {
+      max-width: 60rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: var(--grid-gap-small);
+
+    @media (min-width: 75em) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--grid-gap-medium);
+
+      .content-right {
+        order: 2;
+      }
+    }
+
+    @media (min-width: 87.5em) {
+      grid-template-columns: 30rem 1fr;
+      align-items: stretch;
+      gap: var(--grid-gap-large);
+    }
+
+    .panel {
+      @extend %modern-card;
+      min-height: 10rem;
+    }
+
+    .content-right {
+      .trail-preview-panel,
+      .trail-map-link {
+        min-height: 20rem !important;
+        background-color: lightgreen;
+
+        @media (min-width: 62.5em) {
+          min-height: 27rem !important;
+        }
+      }
+
+      .trail-short-info {
+        position: relative;
+        z-index: 2;
+        margin-block: var(--trail-short-info-margin);
+        border-radius: 0;
+
+        @media (min-width: 62.5em) {
+          margin-block: var(--trail-short-info-margin-big);
+        }
+      }
+
+      .trail-preview-panel {
+        background-image: url("../images/example-trail.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .trail-map-link {
+        display: block;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-image: url("../images/example-map.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          &::after {
+            transform: translateX(0);
+          }
+
+          .trail-map-link-text {
+            opacity: 1;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform: translateX(-100%);
+          transition: 0.4s;
+          border-radius: inherit;
+          background-color: var(--black-opacity-50);
+        }
+
+        .trail-map-link-text {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          left: 50%;
+          transform: translate(
+            -50%,
+            calc(-50% - (var(--trail-short-info-margin) / 2))
+          );
+          transition: 0.4s;
+          opacity: 0;
+          font-size: 2rem;
+          font-weight: bold;
+
+          @media (min-width: 62.5em) {
+            transform: translate(
+              -50%,
+              calc(-50% - (var(--trail-short-info-margin-big) / 2))
+            );
+          }
+        }
+      }
+    }
+
+    .content-left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--grid-gap-small);
+
+      @media (min-width: 50em) {
+        gap: var(--grid-gap-medium);
+      }
+
+      @media (min-width: 75em) {
+        gap: var(--grid-gap-large);
+      }
+    }
+  }
+}

@@ -4,15 +4,17 @@
 @use "./components/animated-border";
 @use "./components/links";
 @use "./components/list";
-// @use "./sections/ai-green-faq";
-// @use "./sections/ai-information";
-// @use "./sections/ai-table-info";
-// @use "./sections/ai-timeline";
-// @use "./sections/ai-modern-list";
+@use "./components/modern-card";
+@use "./sections/random-trail-info";
+// @use "./sections/green-faq";
+// @use "./sections/our-mission-information";
+// @use "./sections/table-info";
+// @use "./sections/modern-timeline";
+// @use "./sections/collection-list";
 // @use "./sections/timeline-module";
-@use "./sections/used-technologies";
-// @use "./sections/szybki-dostep";
-// @use "./sections/ai-how-it-works";
+// @use "./sections/used-technologies"; 
+// @use "./sections/quick-access";
+// @use "./sections/how-it-works";
 
 #toggle-theme-btn {
   position: fixed;
