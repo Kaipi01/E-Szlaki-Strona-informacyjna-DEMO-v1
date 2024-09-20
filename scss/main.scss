@@ -5,22 +5,25 @@
 @use "./components/links";
 @use "./components/list";
 @use "./components/modern-card";
-@use "./sections/random-trail-info";
+
 // @use "./sections/green-faq";
 // @use "./sections/our-mission-information";
-// @use "./sections/table-info";
-// @use "./sections/modern-timeline";
 // @use "./sections/collection-list";
-// @use "./sections/timeline-module";
 // @use "./sections/used-technologies"; 
 // @use "./sections/quick-access";
 // @use "./sections/how-it-works";
+@use "./sections/timeline-module";
+@use "./sections/big-quote-section";
+@use "./sections/modules-and-tools";
+// @use "./sections/table-info";  
+// @use "./sections/random-trail-info";
+
 
 #toggle-theme-btn {
   position: fixed;
   right: 2rem;
   top: 2rem;
-  z-index: 999; 
+  z-index: 999;  
 
   .toggle {
     display: flex;
