@@ -1,5 +1,7 @@
 body {
     /* black */
+    --black-opacity: rgba(0, 0, 0, 0.8);
+    --black-opacity-70: rgba(0, 0, 0, 0.7);
     --black-opacity-50: #0000007d;
     --black-opacity-40: #00000067;
     --black-opacity-30: #00000056;
@@ -17,7 +19,7 @@ body {
     /* gray */ 
     --very-light-gray: #efefef;
     --gray: #3F624A;
-    --dark-gray: #1d2d2b; 
+    --dark-gray: #192725; 
     --very-dark-gray: #222;  
     --dark-gray-opacity: #1d2d2bf5;
     --dark-gray-80: #1d2d2bd4;

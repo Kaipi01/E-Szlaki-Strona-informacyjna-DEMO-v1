@@ -30,9 +30,9 @@
   .sub-header {
     font-size: 1.2rem;
   }
-
+ 
   .card {
-    @extend %modern-card;
+    @extend %modern-card; 
     min-height: 17rem;
 
     &.content-with-symbol {
