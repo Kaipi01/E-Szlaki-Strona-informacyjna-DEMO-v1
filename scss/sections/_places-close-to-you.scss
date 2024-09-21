@@ -1,0 +1,94 @@
+@use "../components/modern-card" as *;
+
+#places-close-to-you {
+  padding: 5rem 0;
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
+
+  .header {
+    position: relative;
+    padding-block: 4rem;
+    background-image: url(../images/example-trail.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        var(--dark-gray-opacity),
+        var(--dark-gray-50) 60%,
+        transparent
+      );
+      //box-shadow: inset 50vw 0px 151px -20px var(--dark-gray);
+    }
+
+    .text {
+      max-width: 50rem;
+      color: var(--very-light-gray);
+      font-size: 1rem;
+    }
+  }
+
+  .sort-and-filter-box {
+    @extend %modern-card;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    background: var(--dark-gray);
+    background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
+  }
+
+  .places-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin-top: 3rem;
+    gap: 1rem;
+
+    @media (min-width: 62.5em) {
+      gap: 2rem;
+    }
+  }
+
+  .place-card {
+    @extend %modern-card;
+    padding: 0;
+
+    .place-img {
+      width: 100%;
+      height: 12.5rem;
+      border-radius: inherit;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      object-fit: cover;
+    }
+    .place-card-content {
+      padding: 1.5rem;
+      padding-bottom: 1rem;
+
+      .small-header {
+        font-size: 1.2rem;
+      }
+      .sub-header {
+        margin-bottom: 1rem;
+        padding-block: 0.5rem;
+        font-size: 0.9rem;
+        text-transform: capitalize;
+      }
+      .text {
+      }
+    }
+  }
+}

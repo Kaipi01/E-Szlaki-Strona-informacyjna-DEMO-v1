@@ -1,10 +1,12 @@
 @use "./base/base";
+@use './functions/toRem';
 @use "./base/variables";
 @use "./components/tooltip-link";
 @use "./components/animated-border";
 @use "./components/links";
 @use "./components/list";
 @use "./components/modern-card";
+@use "./components/custom-select";
 
 // @use "./sections/green-faq";
 // @use "./sections/our-mission-information";
@@ -15,9 +17,9 @@
 // @use "./sections/timeline-module"; 
 // @use "./sections/modules-and-tools";
 // @use "./sections/table-info";  
-// @use "./sections/random-trail-info";
+// @use "./sections/random-trail-info"; 
 @use "./sections/places-module";
-
+@use "./sections/places-close-to-you";
 
 //animation: gradient 17s ease infinite;
 
@@ -39,12 +41,15 @@
   right: 2rem;
   top: 2rem;
   z-index: 999;  
+  background-color: #FFF;
+  padding: 10px;
 
   .toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
+    color: #000;
   } 
 
   input {

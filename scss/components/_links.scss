@@ -51,6 +51,7 @@
     overflow: hidden;
     transition: all 0.4s ease-in-out;
     border: none;
+    color: #fff;
     background-color: transparent;
 
     * {
@@ -75,10 +76,15 @@
       );
     }
 
-    &:hover::before,
-    &:focus::before,
-    &:active::before {
-      transform: translateX(-30%);
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--very-light-green);
+
+      &::before {
+        transform: translateX(-30%);
+      }
+     
     } 
   }
   .link.variant4 {
