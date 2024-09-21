@@ -1,15 +1,104 @@
-const motionQuery = window.matchMedia("(prefers-reduced-motion)");
+document.addEventListener("DOMContentLoaded", function() {
 
-function ready(fn) {
-  document.addEventListener("DOMContentLoaded", fn, false);
-}
+  // Slider
+  const s1 = new Slider("#places-slider"); 
 
-ready(() => {
+  setInterval(() => {
+    s1.next(); 
+  }, 1000)
+  
+
+  // Scroll spy skrypt
+  // linki są dynamicznie generowane na podstawie nagłówków posiadających klase "js-toc-title"
   const tableOfContents = new TableOfContents(
     "#our-mission-information .js-toc"
   );
   tableOfContents.init();
-});
+
+  
+}); 
+
+function Slider(target) {
+  let index = 1;
+  let isMoved = true;
+  const speed = 1000; // ms 
+  const transform = "transform " + speed / 1000 + "s";
+  let translate = (i) => "translateX(-" + 100 * i + "%)"; 
+
+  const slider = document.querySelector(target);
+  const sliderRects = slider.getClientRects()[0];
+  slider.style["overflow"] = "hidden";
+
+  const container = document.createElement("div");
+  container.style["display"] = "flex";
+  container.style["flex-direction"] = "row";
+  container.style["width"] = sliderRects.width + "px";
+  container.style["height"] = sliderRects.height + "px";
+  container.style["transform"] = translate(index);
+ 
+  let boxes = [].slice.call(slider.children);
+  boxes = [].concat(boxes[boxes.length - 1], boxes, boxes[0]);
+
+  const size = boxes.length;
+  for (let i = 0; i < size; i++) {
+    const box = boxes[i];
+    box.style["flex"] = "none";
+    box.style["flex-wrap"] = "wrap";
+    box.style["height"] = "100%";
+    box.style["width"] = "100%";
+    container.appendChild(box.cloneNode(true));
+  }
+
+  container.addEventListener("transitionstart", function () {
+    isMoved = false;
+    setTimeout(() => {
+      isMoved = true;
+    }, speed);
+  });
+  container.addEventListener("transitionend", function () {
+     
+    if (index === size - 1) {
+      index = 1;
+      container.style["transition"] = "none";
+      container.style["transform"] = translate(index);
+    }
+ 
+    if (index === 0) {
+      index = size - 2;
+      container.style["transition"] = "none";
+      container.style["transform"] = translate(index);
+    }
+  });
+ 
+  slider.innerHTML = "";
+  slider.appendChild(container);
+
+  return {
+    move: function (i) {
+      if (isMoved === true) {
+        index = i;
+        container.style["transition"] = transform;
+        container.style["transform"] = translate(index);
+      }
+    },
+    next: function () {
+      if (isMoved === true) {
+        index = (index + 1) % size;
+        container.style["transition"] = transform;
+        container.style["transform"] = translate(index);
+      }
+    },
+    prev: function () {
+      if (isMoved === true) {
+        index = index === 0 ? index + size : index;
+        index = (index - 1) % size;
+        container.style["transition"] = transform;
+        container.style["transform"] = translate(index);
+      }
+    }
+  };
+}
+
 
 class TableOfContents {
   constructor(selector) {
@@ -30,24 +119,8 @@ class TableOfContents {
 
     this.setUpObserver();
     this.createLinksFromHeadings();
-    this.observeSections();
-
-    this.links.forEach((link) => {
-      link.addEventListener("click", this.handleLinkClick.bind(this));
-    });
-  }
-
-  handleLinkClick(evt) {
-    const currentLink = evt.target;
-
-    // this.links.forEach((link) => {
-    //   link.classList.remove("active");
-    //   link.parentElement.classList.remove("list-li-hover")
-    // });
-
-    // currentLink.classList.add("active");
-    // currentLink.parentElement.classList.add("list-li-hover")
-  }
+    this.observeSections(); 
+  } 
 
   handleObserver(entries, observer) {
     entries.forEach((entry) => {

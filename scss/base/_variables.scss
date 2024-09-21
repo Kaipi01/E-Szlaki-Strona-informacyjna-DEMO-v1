@@ -1,52 +1,52 @@
 body {
-    /* black */
-    --black-opacity: rgba(0, 0, 0, 0.8);
-    --black-opacity-70: rgba(0, 0, 0, 0.7);
-    --black-opacity-50: #0000007d;
-    --black-opacity-40: #00000067;
-    --black-opacity-30: #00000056;
-    --black-opacity-20: #00000030; 
-    /* green */
-    --light-green: #00FF57; 
-    --light-green-opacity: #00ff5596;   
-    --green: #00c821;  
-    --green-opacity: #00c821c3;   
-    --dark-green: #155a2c;
-    --dark-green-opacity: #155a2cc7;  
-    --light-green-20: #00ff5535;
-    --very-light-green: #37ff7a;
-    --very-light-green-opacity: #37ff7ac7;
-    /* gray */ 
-    --very-light-gray: #efefef;
-    --gray: #3F624A;
-    --dark-gray: #192725; 
-    --very-dark-gray: #222;  
-    --dark-gray-opacity: #1d2d2bf5;
-    --dark-gray-80: #1d2d2bd4;
-    --dark-gray-50: #1d2d2b84;
-    --dark-gray-20: #1d2d2b45;  
-    /* base */ 
-    --background: #fff;
-    --background-gray: var(--very-light-gray);
-    --font-color: var(--dark-gray);
-    --font-color-gray: var(--gray);
-    --font-color-green: var(--dark-green); 
-    --font-color-green-hover: var(--green); 
-    --background-green: var(--dark-green); 
-    --background-green-hover: var(--green); 
-    --background-green-opacity: var(--green-opacity); 
-    --background-green-hover-opacity: var(--dark-green-opacity); 
-  } 
+  /* black */
+  --black-opacity: rgba(0, 0, 0, 0.8);
+  --black-opacity-70: rgba(0, 0, 0, 0.7);
+  --black-opacity-50: #0000007d;
+  --black-opacity-40: #00000067;
+  --black-opacity-30: #00000056;
+  --black-opacity-20: #00000030;
+  /* green */
+  --light-green: #00ff57;
+  --light-green-opacity: #00ff5596;
+  --green: #00c821;
+  --green-opacity: #00c821c3;
+  --dark-green: #155a2c;
+  --dark-green-opacity: #155a2cc7;
+  --light-green-20: #00ff5535;
+  --very-light-green: #37ff7a;
+  --very-light-green-opacity: #37ff7ac7;
+  /* gray */
+  --very-light-gray: #efefef;
+  --gray: #3f624a;
+  --dark-gray: #192725;
+  --very-dark-gray: #222;
+  --dark-gray-opacity: #1d2d2bf5;
+  --dark-gray-80: #1d2d2bd4;
+  --dark-gray-50: #1d2d2b84;
+  --dark-gray-20: #1d2d2b45;
+  /* base */
+  --background: #fff;
+  --background-gray: var(--very-light-gray);
+  --font-color: var(--dark-gray);
+  --font-color-gray: var(--gray);
+  --font-color-green: var(--dark-green);
+  --font-color-green-hover: var(--green);
+  --background-green: var(--dark-green);
+  --background-green-hover: var(--green);
+  --background-green-opacity: var(--green-opacity);
+  --background-green-hover-opacity: var(--dark-green-opacity); 
+}
 
-  body.dark {
-    --background: var(--dark-gray);
-    --background-gray: var(--very-dark-gray);
-    --font-color: #fff;
-    --font-color-gray: var(--very-light-gray);
-    --font-color-green: var(--very-light-green); 
-    --font-color-green-hover: var(--light-green); 
-    --background-green: var(--very-light-green); 
-    --background-green-hover: var(--light-green); 
-    --background-green-opacity: var(--very-light-green-opacity); 
-    --background-green-hover-opacity: var(--light-green-opacity); 
-  }
+body.dark {
+  --background: var(--dark-gray);
+  --background-gray: var(--very-dark-gray);
+  --font-color: #fff;
+  --font-color-gray: var(--very-light-gray);
+  --font-color-green: var(--very-light-green);
+  --font-color-green-hover: var(--light-green);
+  --background-green: var(--very-light-green);
+  --background-green-hover: var(--light-green);
+  --background-green-opacity: var(--very-light-green-opacity);
+  --background-green-hover-opacity: var(--light-green-opacity);
+}

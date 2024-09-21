@@ -7,7 +7,7 @@
 @use "./components/modern-card";
 
 // @use "./sections/green-faq";
-@use "./sections/our-mission-information";
+// @use "./sections/our-mission-information";
 // @use "./sections/collection-list";
 // @use "./sections/used-technologies"; 
 // @use "./sections/quick-access";
@@ -16,6 +16,22 @@
 // @use "./sections/modules-and-tools";
 // @use "./sections/table-info";  
 // @use "./sections/random-trail-info";
+@use "./sections/places-module";
+
+
+//animation: gradient 17s ease infinite;
+
+// @keyframes gradient {
+    //   0% {
+    //     background-position: 0% 50%;background-positionbackground-positionbackground-position
+    //   }
+    //   50% {
+    //     background-position: 100% 50%;background-positionbackground-positionbackground-position
+    //   }
+    //   100% {
+    //     background-position: 0% 50%;background-positionbackground-positionbackground-position
+    //   }
+    // }
 
 
 #toggle-theme-btn {
