@@ -1,0 +1,67 @@
+#quote-section {
+    
+  .wrapper {
+    margin: auto;
+  }
+
+  figure {
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    border-radius: 4px; 
+    text-align: center; 
+  }
+
+  blockquote {
+    z-index: 2;
+    color: var(--font-color);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+
+    @media (min-width: toRem(1200)) {
+      font-size: 3rem;
+    } 
+  }
+
+  .icon {
+    position: absolute;
+    width: 2.5rem;
+    color: hsla(0, 0%, 65%, 50%);
+
+    @media (min-width: toRem(768)) {
+      z-index: 0;
+      width: 5rem;
+    }
+  }
+
+  .icon-left {
+    top: 0;
+    left: 1.5rem;
+  }
+
+  .icon-right {
+    right: 1.5rem;
+    bottom: 0;
+  }
+
+  figcaption {
+    line-height: 1.6;
+  }
+
+  .blockquote-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    @media (min-width: toRem(768)) {
+      font-size: 1.35rem;
+    }
+
+    @media (min-width: toRem(1200)) {
+      font-size: 1.5rem;
+    }
+  }
+}

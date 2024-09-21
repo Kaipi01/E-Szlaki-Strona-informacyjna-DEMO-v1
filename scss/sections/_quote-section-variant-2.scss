@@ -1,0 +1,37 @@
+#quote-section-variant-2 {
+  blockquote {
+    position: relative;
+    width: 60%;
+    margin: 50px auto;
+    padding: 1.2em 30px 1.2em 75px;
+    border-left: 8px solid #78c0a8;
+    background: #ededed;
+    color: #555555; 
+    font-family: Open Sans; 
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.6;
+  } 
+
+  blockquote::before {
+    content: "\201C";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    color: #78c0a8;
+    font-family: Arial;
+    font-size: 4em;
+  }
+
+  blockquote::after {
+    content: "";
+  }
+
+  blockquote span {
+    display: block;
+    margin-top: 1em;
+    color: #333333;
+    font-style: normal;
+    font-weight: bold;
+  }
+}

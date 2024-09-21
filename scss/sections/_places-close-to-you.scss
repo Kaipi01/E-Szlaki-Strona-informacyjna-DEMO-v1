@@ -42,11 +42,11 @@
 
   .sort-and-filter-box {
     @extend %modern-card;
-    margin-top: 3rem;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     width: 100%;
+    margin-top: 3rem;
     background: var(--dark-gray);
     background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
   }
@@ -64,7 +64,19 @@
 
   .place-card {
     @extend %modern-card;
+
+    --card-padding-inline: 1.5rem;
+
+    position: relative;
     padding: 0;
+
+    &:hover {
+      .icon-top {
+        svg path {
+          fill: var(--very-light-green);
+        }
+      }
+    }
 
     .place-img {
       width: 100%;
@@ -74,8 +86,29 @@
       border-bottom-left-radius: 0;
       object-fit: cover;
     }
+ 
+    .icon-top {
+      display: flex;
+      position: absolute;
+      top: var(--card-padding-inline);
+      right: var(--card-padding-inline);
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      border-radius: 50%;
+      background-color: var(--dark-gray-opacity);
+      aspect-ratio: 1/1;
+
+      svg {
+        path {
+          transition: 0.3s;
+          fill: #fff;
+        }
+      }
+    }
+
     .place-card-content {
-      padding: 1.5rem;
+      padding: var(--card-padding-inline);
       padding-bottom: 1rem;
 
       .small-header {
@@ -86,8 +119,6 @@
         padding-block: 0.5rem;
         font-size: 0.9rem;
         text-transform: capitalize;
-      }
-      .text {
       }
     }
   }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -8,6 +9,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+:root {
+  font-size: 16px;
 }
 
 body {
@@ -613,11 +618,11 @@ body.dark {
   font-size: 1rem;
 }
 #places-close-to-you .sort-and-filter-box {
-  margin-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-top: 3rem;
   background: var(--dark-gray);
   background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
 }
@@ -633,7 +638,12 @@ body.dark {
   }
 }
 #places-close-to-you .place-card {
+  --card-padding-inline: 1.5rem;
+  position: relative;
   padding: 0;
+}
+#places-close-to-you .place-card:hover .icon-top svg path {
+  fill: var(--very-light-green);
 }
 #places-close-to-you .place-card .place-img {
   width: 100%;
@@ -643,8 +653,24 @@ body.dark {
   border-bottom-left-radius: 0;
   object-fit: cover;
 }
+#places-close-to-you .place-card .icon-top {
+  display: flex;
+  position: absolute;
+  top: var(--card-padding-inline);
+  right: var(--card-padding-inline);
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  border-radius: 50%;
+  background-color: var(--dark-gray-opacity);
+  aspect-ratio: 1/1;
+}
+#places-close-to-you .place-card .icon-top svg path {
+  transition: 0.3s;
+  fill: #fff;
+}
 #places-close-to-you .place-card .place-card-content {
-  padding: 1.5rem;
+  padding: var(--card-padding-inline);
   padding-bottom: 1rem;
 }
 #places-close-to-you .place-card .place-card-content .small-header {
@@ -656,6 +682,102 @@ body.dark {
   font-size: 0.9rem;
   text-transform: capitalize;
 }
+
+#quote-section .wrapper {
+  margin: auto;
+}
+#quote-section figure {
+  display: flex;
+  position: relative;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+#quote-section blockquote {
+  z-index: 2;
+  color: var(--font-color);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+@media (min-width: toRem(1200)) {
+  #quote-section blockquote {
+    font-size: 3rem;
+  }
+}
+#quote-section .icon {
+  position: absolute;
+  width: 2.5rem;
+  color: hsla(0, 0%, 65%, 0.5);
+}
+@media (min-width: toRem(768)) {
+  #quote-section .icon {
+    z-index: 0;
+    width: 5rem;
+  }
+}
+#quote-section .icon-left {
+  top: 0;
+  left: 1.5rem;
+}
+#quote-section .icon-right {
+  right: 1.5rem;
+  bottom: 0;
+}
+#quote-section figcaption {
+  line-height: 1.6;
+}
+#quote-section .blockquote-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+@media (min-width: toRem(768)) {
+  #quote-section .blockquote-name {
+    font-size: 1.35rem;
+  }
+}
+@media (min-width: toRem(1200)) {
+  #quote-section .blockquote-name {
+    font-size: 1.5rem;
+  }
+}
+
+#quote-section-variant-2 blockquote {
+  position: relative;
+  width: 60%;
+  margin: 50px auto;
+  padding: 1.2em 30px 1.2em 75px;
+  border-left: 8px solid #78c0a8;
+  background: #ededed;
+  color: #555555;
+  font-family: Open Sans;
+  font-size: 1.4em;
+  font-style: italic;
+  line-height: 1.6;
+}
+#quote-section-variant-2 blockquote::before {
+  content: "“";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: #78c0a8;
+  font-family: Arial;
+  font-size: 4em;
+}
+#quote-section-variant-2 blockquote::after {
+  content: "";
+}
+#quote-section-variant-2 blockquote span {
+  display: block;
+  margin-top: 1em;
+  color: #333333;
+  font-style: normal;
+  font-weight: bold;
+}
+
 #toggle-theme-btn {
   position: fixed;
   right: 2rem;
