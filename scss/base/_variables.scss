@@ -9,6 +9,8 @@ body {
   /* green */
   --light-green: #00ff57;
   --light-green-opacity: #00ff5596;
+  --light-green-30: #00ff555c;
+  --light-green-20: #00ff553f;
   --green: #00c821;
   --green-opacity: #00c821c3;
   --dark-green: #155a2c;
@@ -21,12 +23,16 @@ body {
   --gray: #3f624a;
   --dark-gray: #192725;
   --very-dark-gray: #222;
+  --very-dark-gray-opacity: #222222b9;
+  --very-dark-gray-opacity-30: #2222224e;
   --dark-gray-opacity: #1d2d2bf5;
   --dark-gray-80: #1d2d2bd4;
   --dark-gray-50: #1d2d2b84;
   --dark-gray-20: #1d2d2b45;
   /* base */
   --background: #fff;
+  --background-opacity: #ffffffb5;
+  --background-opacity-30: #ffffff54;
   --background-gray: var(--very-light-gray);
   --font-color: var(--dark-gray);
   --font-color-gray: var(--gray);
@@ -40,6 +46,8 @@ body {
 
 body.dark {
   --background: var(--very-dark-gray);
+  --background-opacity: var(--very-dark-gray-opacity);
+  --background-opacity-30: var(--very-dark-gray-opacity-30);
   --background-gray: var(--very-dark-gray);
   --font-color: #fff;
   --font-color-gray: var(--very-light-gray);

@@ -4,11 +4,17 @@
     to left,
     var(--background-gray),
     var(--background) 
-  );
+  ); 
  
   .big-header {
     color: var(--font-color);
   } 
+
+  .header {
+    .text {
+      font-size: 1rem;
+    }
+  }
  
   .wrapper {
     display: flex;

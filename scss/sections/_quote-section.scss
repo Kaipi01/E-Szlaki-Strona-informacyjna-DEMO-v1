@@ -1,36 +1,48 @@
 #quote-section {
-    
-  .wrapper {
+  padding: 5rem 0; 
+  animation: show-quote 2s linear; 
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
+
+  .wrapper { 
     margin: auto;
   }
 
-  figure {
+  .quote-figure {
     display: flex;
-    position: relative;
-    flex-flow: column;
+
+    flex-flow: column; 
     align-items: center;
     justify-content: center;
     padding: 4rem 1.5rem;
-    border-radius: 4px; 
-    text-align: center; 
+    border-radius: 4px;
+    text-align: center;
   }
 
-  blockquote {
+  .blockquote {
+    position: relative;
     z-index: 2;
+    max-width: 40ch;
     color: var(--font-color);
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.2;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.5;
 
     @media (min-width: toRem(1200)) {
       font-size: 3rem;
-    } 
+    }
   }
 
   .icon {
     position: absolute;
-    width: 2.5rem;
-    color: hsla(0, 0%, 65%, 50%);
+    width: 2rem;
+
+    path {
+      fill: var(--background-green);
+    }
 
     @media (min-width: toRem(768)) {
       z-index: 0;
@@ -40,21 +52,23 @@
 
   .icon-left {
     top: 0;
-    left: 1.5rem;
+    left: -1rem;
   }
 
   .icon-right {
-    right: 1.5rem;
+    right: -1rem;
     bottom: 0;
   }
 
-  figcaption {
+  .blockquote-figcaption {
     line-height: 1.6;
   }
 
   .blockquote-name {
+    margin-top: 1.5rem;
+    color: var(--background-green);
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: bold;
 
     @media (min-width: toRem(768)) {
       font-size: 1.35rem;
@@ -63,5 +77,15 @@
     @media (min-width: toRem(1200)) {
       font-size: 1.5rem;
     }
+  }
+}
+@keyframes show-quote {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
+  } 
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
   }
 }

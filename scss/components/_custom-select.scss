@@ -5,38 +5,39 @@ $select-width: 220px;
 $select-height: 40px;
 
 .custom-select {
+  cursor: pointer;
   display: inline-block;
   position: relative;
+  font-size: 16px;
+  color: $select-color;
   width: $select-width;
   height: $select-height;
-  color: $select-color;
-  font-size: 16px;
-  cursor: pointer;
 
   &-hidden {
     display: none;
     visibility: hidden;
     padding-right: 10px;
   }
-
-  &-styled {
-    position: absolute; 
+  &-styled { 
+    position: absolute;
+    top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
-    padding: 0.75rem 1rem;
+    left: 0; 
+    background-color: $select-background;
+    padding: 8px 15px; 
+    border-radius: 5px;
     transition: all 0.2s ease-in;
-    background-color: $select-background; 
 
     &:after {
       content: "";
-      position: absolute;
-      top: 16px;
-      right: 10px;
       width: 0;
       height: 0;
       border: 7px solid transparent;
       border-color: $select-color transparent transparent transparent;
+      position: absolute;
+      top: 16px;
+      right: 10px;
     }
     &:hover {
       background-color: darken($select-background, 2);
@@ -44,37 +45,35 @@ $select-height: 40px;
     &:active,
     &.active {
       background-color: darken($select-background, 5);
-
       &:after {
         top: 9px;
         border-color: transparent transparent $select-color transparent;
       }
     }
-  } 
+  }
 
   &-options {
     display: none;
     position: absolute;
-    z-index: 999;
     top: 100%;
     right: 0;
     left: 0;
+    z-index: 999;
     margin: 0;
     padding: 0;
-    background-color: darken($select-background, 5);
     list-style: none;
+    background-color: darken($select-background, 5);
 
     li {
       margin: 0;
       padding: 12px 0;
-      transition: all 0.15s ease-in;
-      border-top: 1px solid darken($select-background, 10);
       text-indent: 15px;
-
+      border-top: 1px solid darken($select-background, 10);
+      transition: all 0.15s ease-in;
       &:hover,
       &.is-selected {
-        background: $select-color;
         color: $select-background;
+        background: $select-color;
       }
       &[rel="hide"] {
         display: none;
@@ -82,3 +81,87 @@ $select-height: 40px;
     }
   }
 }
+
+// .custom-select {
+//   --select-color: #fff;
+//   --select-width: toRem(220);
+//   --select-height: toRem(40);
+
+//   display: inline-block;
+//   position: relative;
+//   width: var(--select-width);
+//   height: var(--select-height);
+//   color: var(--select-color);
+//   font-size: 1rem;
+//   cursor: pointer;
+
+//   &-hidden {
+//     display: none;
+//     visibility: hidden;
+//     padding-right: toRem(10);
+//   }
+
+//   &-styled {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     padding: 0.75rem 1rem;
+//     transition: all 0.2s ease-in;
+//     background-color: var(--background-gray);
+
+//     &:after {
+//       content: "";
+//       position: absolute;
+//       top: toRem(16);
+//       right: toRem(10);
+//       width: 0;
+//       height: 0;
+//       border: 7px solid transparent;
+//       border-color: var(--select-color) transparent transparent transparent;
+//     }
+//     &:hover {
+//       background-color: var(--background-gray);
+//     }
+//     &:active,
+//     &.active {
+//       background-color: var(--background-gray);
+
+//       &:after {
+//         top: 9px;
+//         border-color: transparent transparent var(--select-color) transparent;
+//       }
+//     }
+//   }
+
+//   &-options {
+//     display: none;
+//     position: absolute;
+//     z-index: 99;
+//     top: 100%;
+//     right: 0;
+//     left: 0;
+//     margin: 0;
+//     padding: 0;
+//     background-color: var(--background-gray);
+//     list-style: none;
+
+//     li {
+//       margin: 0;
+//       padding: toRem(12) 0;
+//       transition: all 0.15s ease-in;
+//       border-top: 1px solid var(--background-gray);
+//       text-indent: toRem(15);
+
+//       &:hover,
+//       &.is-selected {
+//         background: var(--select-color);
+//         color: var(--background-gray);
+//       }
+//       &[rel="hide"] {
+//         display: none;
+//       }
+//     }
+//   }
+// }

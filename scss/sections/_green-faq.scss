@@ -1,7 +1,12 @@
 #green-faq {
   padding-block: 6rem;
   background: var(--dark-gray);
-  background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
+  //background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
 
   .container {
     display: grid;
@@ -14,8 +19,7 @@
     background: linear-gradient(
       to top right,
       var(--dark-gray),
-      var(--dark-green),
-      var(--light-green-opacity)
+      var(--dark-green) 
     );
     box-shadow: -27px 27px 39px 3px rgba(0, 0, 0, 0.46);
     color: #fff;
@@ -193,6 +197,19 @@
     }
     75% {
       transform: translateY(-0.15rem);
+    }
+  }
+}
+
+.dark {
+  #green-faq {
+    .container {
+      background: linear-gradient(
+        to top right,
+        var(--dark-gray),
+        var(--dark-green),
+        var(--light-green-opacity)
+      );
     }
   }
 }

@@ -1,0 +1,116 @@
+.custom-range {
+  --marker-border-clr: #0ea5e9;
+  --marker-size: 15px;
+  --track-heigt: 3px;
+
+  --tooltip-bg-clr: rgba(0, 0, 0, 0.4);
+  --tooltip-txt-clr: var(--marker-border-clr);
+
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  max-width: 600px;
+
+  .sliders_control {
+    position: relative;
+  }
+
+  .slider-tooltip {
+    position: absolute;
+    top: -3.5rem;
+    left: 0;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: var(--tooltip-bg-clr);
+    color: var(--tooltip-txt-clr);
+    font-size: 0.8rem;
+    text-align: center;
+    translate: -50% 0;
+  }
+
+  .slider-tooltip::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -0.25rem;
+    left: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: inherit;
+    translate: -50% 0;
+    rotate: 45deg;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: var(--marker-size);
+    height: var(--marker-size);
+    border-radius: 50%;
+    background-color: var(--marker-border-clr);
+    box-shadow: 0 0 0 1px var(--marker-border-clr);
+    cursor: pointer;
+    pointer-events: all;
+    -webkit-appearance: none;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: var(--marker-size);
+    height: var(--marker-size);
+    border-radius: 50%;
+    background-color: var(--marker-border-clr);
+    box-shadow: 0 0 0 1px var(--marker-border-clr);
+    cursor: pointer;
+    pointer-events: all;
+    -webkit-appearance: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background: #f7f7f7;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:active {
+    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+  }
+
+  input[type="range"] {
+    position: absolute;
+    width: 100%;
+    height: var(--track-heigt);
+    background-color: var(--marker-border-clr);
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  #fromSlider {
+    z-index: 1;
+    height: 0;
+  }
+
+  .scale {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: calc(100% - var(--marker-size));
+    margin-top: 2rem;
+    margin-inline: auto;
+    font-size: 0.8rem;
+  }
+
+  .scale div {
+    position: absolute;
+    translate: -50% 0;
+  }
+
+  .scale div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% -125%;
+    width: 1px;
+    height: 10px;
+    background-color: #666;
+  }
+}

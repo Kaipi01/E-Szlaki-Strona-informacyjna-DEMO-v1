@@ -8,23 +8,31 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-    
+
   .text {
-    color: var(--dark-gray);
+    color: var(--font-color);
   }
 
   .intro-content {
     padding-bottom: 2.5rem;
+
+    .text {
+      color: var(--font-color);
+      font-size: 1rem;
+    }
   }
 
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; 
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #fff, #ffffffbd);
+    background: linear-gradient(
+      to left,
+       #fff, #ffffffeb 
+    );
   }
   .table {
     width: 100%;
@@ -33,7 +41,7 @@
     border-radius: var(--table-border-radius);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
   .table > thead > tr,
   .table > tbody > tr,
@@ -58,7 +66,7 @@
   }
   .table > tbody > tr > td:first-child {
     background-color: var(--dark-green) !important;
-    color: var(--font-color);
+    color: #fff;
     font-weight: bold;
   }
   .table > tbody > tr > td:nth-child(5) {
@@ -68,26 +76,26 @@
   .table > thead > tr > th {
     border: none;
     background-color: var(--dark-gray);
-    color: var(--font-color);
+    color: #fff;
     font-weight: bold;
   }
- 
+
   .table > tbody > tr > td {
     background-color: #ffffffae;
-  }  
- 
+  }
+
   .table > thead > tr > th:first-child {
     border-top-left-radius: var(--table-border-radius);
   }
   .table > thead > tr > th:last-child {
     border-top-right-radius: var(--table-border-radius);
   }
-//   .table > tbody > tr:last-child > td:last-child:last-child {
-//     border-bottom-right-radius: var(--table-border-radius);
-//   }
-//   .table > tbody > tr:last-child > td:first-child {
-//     border-bottom-left-radius: var(--table-border-radius);
-//   }
+  //   .table > tbody > tr:last-child > td:last-child:last-child {
+  //     border-bottom-right-radius: var(--table-border-radius);
+  //   }
+  //   .table > tbody > tr:last-child > td:first-child {
+  //     border-bottom-left-radius: var(--table-border-radius);
+  //   }
 
   .table > caption + thead > tr:first-child > th,
   .table > caption + thead > tr:first-child > td,
@@ -136,7 +144,7 @@
   }
   .table-hover > tbody > tr:hover > td,
   .table-hover > tbody > tr:hover > th {
-    background-color: var(--font-color);
+    background-color: var(--background);
   }
   @media screen and (max-width: 65rem) {
     .table-responsive-vertical > .table {
@@ -204,10 +212,10 @@
     }
     .table-responsive-vertical > .table-hover > tbody > tr:hover > td,
     .table-responsive-vertical > .table-hover > tbody > tr:hover {
-      background-color: var(--font-color);
+      background-color: var(--background);
     }
     .table-responsive-vertical > .table-hover > tbody > tr > td:hover {
-      background-color: var(--font-color);
+      background-color: var(--background);
     }
   }
   .table-striped.table-mc-green > tbody > tr:nth-child(odd) > td,
@@ -224,7 +232,7 @@
       .table-striped.table-mc-green
       > tbody
       > tr:nth-child(odd) {
-      background-color: var(--font-color);
+      background-color: #000;
     }
     .table-responsive-vertical
       .table-striped.table-mc-green
@@ -239,7 +247,7 @@
       > tr:hover
       > td,
     .table-responsive-vertical .table-hover.table-mc-green > tbody > tr:hover {
-      background-color: var(--font-color);
+      background-color: var(--background);
     }
     .table-responsive-vertical
       .table-hover.table-mc-green
@@ -248,5 +256,25 @@
       > td:hover {
       background-color: #c0f9bb;
     }
+  }
+}
+
+.dark #table-info { 
+
+  &::before { 
+    background: linear-gradient(
+      to left, 
+      var(--background-opacity),
+      var(--background)
+    );
+  }
+
+  .table > tbody > tr > td {
+    background-color: #2c2c2cae;
+  }
+
+  .table-striped.table-mc-green > tbody > tr:nth-child(odd) > td,
+  .table-striped.table-mc-green > tbody > tr:nth-child(odd) > th {
+    background-color: var(--dark-green) !important;
   }
 }

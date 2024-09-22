@@ -1,99 +1,120 @@
 document.addEventListener("DOMContentLoaded", function () {
-  CustomSelect.initAll();
 
-  // Slider
-  const s1 = new Slider("#places-slider");
+  //Scroll spy skrypt
+  //linki są dynamicznie generowane na podstawie nagłówków posiadających klase "js-toc-title"
+  new TableOfContents("#our-mission-information .js-toc").init();
+  // Tabs skrypt
+  // linki są dynamicznie generowane na podstawie nagłówków posiadających klase "tab-content-title"
+  //new TabsContent("#modules-and-tools .tabs").init();
 
-  setInterval(() => {
-    s1.next();
-  }, 1000);
+  ScrollToTopButton.init("#back-to-top-button");
+  // CustomSelect.initAll();
+  // CustomRangeSlider.initAll();
 
-  // Scroll spy skrypt
-  // linki są dynamicznie generowane na podstawie nagłówków posiadających klase "js-toc-title"
-  const tableOfContents = new TableOfContents(
-    "#our-mission-information .js-toc"
-  );
-  tableOfContents.init();
+  // const slider = CustomSlider.init("#places-slider");
+
+  // setInterval(() => {
+  //   slider.next();
+  // }, 1000);
+
+  
 });
 
-function Slider(target) {
-  let index = 1;
-  let isMoved = true;
-  const speed = 1000; // ms
-  const transform = "transform " + speed / 1000 + "s";
-  let translate = (i) => "translateX(-" + 100 * i + "%)";
+class CustomSlider {
+  constructor(target) {
+    this.index = 1;
+    this.isMoved = true;
+    this.speed = 1000; // ms
+    this.transform = `transform ${this.speed / 1000}s`;
+    this.slider = document.querySelector(target);
 
-  const slider = document.querySelector(target);
-  const sliderRects = slider.getClientRects()[0];
-  slider.style["overflow"] = "hidden";
-
-  const container = document.createElement("div");
-  container.style["display"] = "flex";
-  container.style["flex-direction"] = "row";
-  container.style["width"] = sliderRects.width + "px";
-  container.style["height"] = sliderRects.height + "px";
-  container.style["transform"] = translate(index);
-
-  let boxes = [].slice.call(slider.children);
-  boxes = [].concat(boxes[boxes.length - 1], boxes, boxes[0]);
-
-  const size = boxes.length;
-  for (let i = 0; i < size; i++) {
-    const box = boxes[i];
-    box.style["flex"] = "none";
-    box.style["flex-wrap"] = "wrap";
-    box.style["height"] = "100%";
-    box.style["width"] = "100%";
-    container.appendChild(box.cloneNode(true));
+    this.initSlider();
+    this.addEventListeners();
   }
 
-  container.addEventListener("transitionstart", function () {
-    isMoved = false;
-    setTimeout(() => {
-      isMoved = true;
-    }, speed);
-  });
-  container.addEventListener("transitionend", function () {
-    if (index === size - 1) {
-      index = 1;
-      container.style["transition"] = "none";
-      container.style["transform"] = translate(index);
+  getTranslateValue(i) {
+    return `translateX(-${100 * i}%)`;
+  }
+
+  initSlider() {
+    const sliderRects = this.slider.getClientRects()[0];
+    this.slider.style.overflow = "hidden";
+    this.container = document.createElement("div");
+    this.container.style.display = "flex";
+    this.container.style.flexDirection = "row";
+    this.container.style.width = `${sliderRects.width}px`;
+    this.container.style.height = `${sliderRects.height}px`;
+    this.container.style.transform = this.getTranslateValue(this.index);
+    this.boxes = Array.from(this.slider.children);
+    this.boxes = [
+      this.boxes[this.boxes.length - 1],
+      ...this.boxes,
+      this.boxes[0],
+    ];
+    this.size = this.boxes.length;
+    this.boxes.forEach((box) => {
+      const clonedBox = box.cloneNode(true);
+      clonedBox.style.flex = "none";
+      clonedBox.style.flexWrap = "wrap";
+      clonedBox.style.height = "100%";
+      clonedBox.style.width = "100%";
+      this.container.appendChild(clonedBox);
+    });
+    this.slider.innerHTML = "";
+    this.slider.appendChild(this.container);
+  }
+
+  addEventListeners() {
+    this.container.addEventListener("transitionstart", () => {
+      this.isMoved = false;
+      setTimeout(() => {
+        this.isMoved = true;
+      }, this.speed);
+    });
+
+    this.container.addEventListener("transitionend", () => {
+      if (this.index === this.size - 1) {
+        this.index = 1;
+        this.container.style.transition = "none";
+        this.container.style.transform = this.getTranslateValue(this.index);
+      }
+
+      if (this.index === 0) {
+        this.index = this.size - 2;
+        this.container.style.transition = "none";
+        this.container.style.transform = this.getTranslateValue(this.index);
+      }
+    });
+  }
+
+  move(i) {
+    if (this.isMoved) {
+      this.index = i;
+      this.container.style.transition = this.transform;
+      this.container.style.transform = this.getTranslateValue(this.index);
     }
+  }
 
-    if (index === 0) {
-      index = size - 2;
-      container.style["transition"] = "none";
-      container.style["transform"] = translate(index);
+  next() {
+    if (this.isMoved) {
+      this.index = (this.index + 1) % this.size;
+      this.container.style.transition = this.transform;
+      this.container.style.transform = this.getTranslateValue(this.index);
     }
-  });
+  }
 
-  slider.innerHTML = "";
-  slider.appendChild(container);
+  prev() {
+    if (this.isMoved) {
+      this.index = this.index === 0 ? this.size - 1 : this.index;
+      this.index = (this.index - 1) % this.size;
+      this.container.style.transition = this.transform;
+      this.container.style.transform = this.getTranslateValue(this.index);
+    }
+  }
 
-  return {
-    move: function (i) {
-      if (isMoved === true) {
-        index = i;
-        container.style["transition"] = transform;
-        container.style["transform"] = translate(index);
-      }
-    },
-    next: function () {
-      if (isMoved === true) {
-        index = (index + 1) % size;
-        container.style["transition"] = transform;
-        container.style["transform"] = translate(index);
-      }
-    },
-    prev: function () {
-      if (isMoved === true) {
-        index = index === 0 ? index + size : index;
-        index = (index - 1) % size;
-        container.style["transition"] = transform;
-        container.style["transform"] = translate(index);
-      }
-    },
-  };
+  static init(target) {
+    return new CustomSlider(target);
+  }
 }
 
 class TableOfContents {
@@ -182,7 +203,7 @@ class TableOfContents {
       if (heading.id) {
         link.href = `#${heading.id}`;
       } else {
-        let slugByTextContent = this.slugify(heading.textContent);
+        let slugByTextContent = slugify(heading.textContent);
         link.href = `#${slugByTextContent}`;
         heading.id = slugByTextContent;
       }
@@ -191,16 +212,6 @@ class TableOfContents {
       this.list.appendChild(li);
       this.links.push(link);
     });
-  }
-
-  slugify(string = "", separator = "-") {
-    return string
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9 ]/g, "")
-      .replace(/\s+/g, separator);
   }
 }
 
@@ -289,4 +300,231 @@ class CustomSelect {
         new CustomSelect(selectElement);
       });
   }
+}
+
+class CustomRangeSlider {
+  constructor(fromSlider, toSlider, fromTooltip, toTooltip, scaleElement) {
+    this.COLOR_TRACK = "#CBD5E1";
+    this.COLOR_RANGE = "#0EA5E9";
+
+    this.fromSlider = fromSlider;
+    this.toSlider = toSlider;
+    this.fromTooltip = fromTooltip;
+    this.toTooltip = toTooltip;
+    this.scaleElement = scaleElement;
+
+    this.MIN = parseInt(this.fromSlider.getAttribute("min"));
+    this.MAX = parseInt(this.fromSlider.getAttribute("max"));
+    this.STEPS = parseInt(this.scaleElement.dataset.steps);
+
+    this.init();
+  }
+
+  init() {
+    this.fromSlider.addEventListener("input", () => this.controlFromSlider());
+    this.toSlider.addEventListener("input", () => this.controlToSlider());
+
+    this.fillSlider();
+    this.setToggleAccessible();
+    this.setTooltip(this.fromSlider, this.fromTooltip);
+    this.setTooltip(this.toSlider, this.toTooltip);
+    this.createScale(this.MIN, this.MAX, this.STEPS);
+  }
+
+  controlFromSlider() {
+    const [from, to] = this.getParsedValues();
+    this.fillSlider();
+    if (from > to) {
+      this.fromSlider.value = to;
+    }
+    this.setTooltip(this.fromSlider, this.fromTooltip);
+  }
+
+  controlToSlider() {
+    const [from, to] = this.getParsedValues();
+    this.fillSlider();
+    this.setToggleAccessible();
+    if (from <= to) {
+      this.toSlider.value = to;
+    } else {
+      this.toSlider.value = from;
+    }
+    this.setTooltip(this.toSlider, this.toTooltip);
+  }
+
+  getParsedValues() {
+    const from = parseInt(this.fromSlider.value, 10);
+    const to = parseInt(this.toSlider.value, 10);
+    return [from, to];
+  }
+
+  fillSlider() {
+    const rangeDistance = this.toSlider.max - this.toSlider.min;
+    const fromPosition = this.fromSlider.value - this.toSlider.min;
+    const toPosition = this.toSlider.value - this.toSlider.min;
+
+    this.toSlider.style.background = `linear-gradient(
+      to right,
+      ${this.COLOR_TRACK} 0%,
+      ${this.COLOR_TRACK} ${(fromPosition / rangeDistance) * 100}%,
+      ${this.COLOR_RANGE} ${(fromPosition / rangeDistance) * 100}%,
+      ${this.COLOR_RANGE} ${(toPosition / rangeDistance) * 100}%,
+      ${this.COLOR_TRACK} ${(toPosition / rangeDistance) * 100}%,
+      ${this.COLOR_TRACK} 100%)`;
+  }
+
+  setToggleAccessible() {
+    if (Number(this.toSlider.value) <= 0) {
+      this.toSlider.style.zIndex = 2;
+    } else {
+      this.toSlider.style.zIndex = 0;
+    }
+  }
+
+  setTooltip(slider, tooltip) {
+    const value = slider.value;
+    tooltip.textContent = `$${value}`;
+    const thumbPosition = (value - slider.min) / (slider.max - slider.min);
+    const percent = thumbPosition * 100;
+    const markerWidth = 20;
+    const offset = (((percent - 50) / 50) * markerWidth) / 2;
+    tooltip.style.left = `calc(${percent}% - ${offset}px)`;
+  }
+
+  createScale(min, max, step) {
+    const range = max - min;
+    const steps = range / step;
+    for (let i = 0; i <= steps; i++) {
+      const value = min + i * step;
+      const percent = ((value - min) / range) * 100;
+      const marker = document.createElement("div");
+      marker.style.left = `${percent}%`;
+      marker.textContent = `$${value}`;
+      this.scaleElement.appendChild(marker);
+    }
+  }
+
+  static initAll() {
+    const fromSlider = document.querySelector("#fromSlider");
+    const toSlider = document.querySelector("#toSlider");
+    const fromTooltip = document.querySelector("#fromSliderTooltip");
+    const toTooltip = document.querySelector("#toSliderTooltip");
+    const scale = document.getElementById("scale");
+
+    new CustomRangeSlider(fromSlider, toSlider, fromTooltip, toTooltip, scale);
+  }
+}
+
+class ScrollToTopButton {
+  constructor(buttonSelector, amountScrolled = 200, scrollDuration = 800) {
+    this.button = document.querySelector(buttonSelector);
+    this.amountScrolled = amountScrolled;
+    this.scrollDuration = scrollDuration;
+
+    this.init();
+  }
+
+  init() {
+    window.addEventListener("scroll", () => this.handleScroll());
+    this.button.addEventListener("click", (event) => this.scrollToTop(event));
+  }
+
+  handleScroll() {
+    if (window.scrollY > this.amountScrolled) {
+      this.button.classList.add("show");
+    } else {
+      this.button.classList.remove("show");
+    }
+  }
+
+  scrollToTop(event) {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+  static init(buttonSelector, amountScrolled = 200, scrollDuration = 800) {
+    new ScrollToTopButton(buttonSelector, amountScrolled, scrollDuration);
+  }
+}
+
+class TabsContent {
+  constructor(selector) {
+    this.container = document.querySelector(selector);
+    this.links = [];
+    this.list = null;
+    this.previousSection = null;
+    this.contentElements = this.container.querySelectorAll(".tab-content");
+  }
+
+  init() {
+    this.createTabsFromContent();
+    this.addEventListeners();
+    this.contentElements[0].style.display = "block";
+    this.contentElements[0].classList.add("tab-active")
+  }
+
+  showFirstActiveTab() {
+    const hrefFromUrl = window.location.href
+    const currentTabFromUrl = hrefFromUrl.split("#")[1];
+  }
+
+  addEventListeners() {
+    this.links.forEach(link => {
+      link.addEventListener("click", () => {
+        this.contentElements.forEach(content => { 
+          content.classList.remove("tab-active") 
+          content.style.display = "none";
+
+          if (link.href.split('#')[1] === content.id) {
+            
+            content.style.display = "block";
+
+            setTimeout(() => {
+              content.classList.add("tab-active")
+            }, 0)
+          }
+        }); 
+      })
+    })
+  }
+
+  createTabsFromContent() {
+    this.list = this.container.querySelector(".tabs-navigation-list");
+
+    this.contentElements.forEach((content) => {
+      const heading = content.querySelector(".tab-content-title");
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+
+      link.textContent = heading.textContent;
+      link.classList.add("tab-link");
+
+      if (content.id) {
+        link.href = `#${content.id}`;
+      } else {
+        let slugByTextContent = slugify(heading.textContent);
+        link.href = `#${slugByTextContent}`;
+        content.id = slugByTextContent;
+      }
+
+      li.appendChild(link);
+      this.list.appendChild(li);
+      this.links.push(link);
+    });
+  }
+}
+
+// pomoc
+
+function slugify(string = "", separator = "-") {
+  return string
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9 ]/g, "")
+    .replace(/\s+/g, separator);
 }
