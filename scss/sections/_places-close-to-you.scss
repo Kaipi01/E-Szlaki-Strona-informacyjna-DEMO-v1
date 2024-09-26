@@ -49,16 +49,16 @@
     margin-top: 3rem;
     background: var(--dark-gray);
     background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
-  }
-
-  .places-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  } 
+ 
+  .places-list { 
+    display: grid; 
+    grid-template-columns: 1fr;
     margin-top: 3rem;
     gap: 1rem;
 
     @media (min-width: 50em) {
-      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     }
 
     @media (min-width: 62.5em) {

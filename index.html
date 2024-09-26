@@ -41,24 +41,227 @@
         <button id="back-to-top-button" type="button">
             <span class="visually-hidden">Scroll to top</span>
         </button>
+ 
 
-        <div id="quote-section">  
+        <!-- WYLOSOWANY SZLAK DLA UŻYTKOWNIKA-->
+        <section id="random-trail-info">
             <div class="container">
-                <div class="wrapper">    
-                    <figure class="quote-figure">  
-                      <blockquote class="blockquote">
-                        <svg class="icon icon-left" aria-hidden="true" viewBox="0 -0.5 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-quote-open" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>1031</title> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g transform="translate(1.000000, 1.000000)" fill="#000000"> <path d="M15,13.969 C15.552,13.969 16,13.534 16,13 C16,12.466 15.552,12.031 15,12.031 C12.243,12.031 11,10.83 11,8.124 L11,6.906 L14.441,6.906 C15.271,6.906 15.947,6.301 15.947,5.468 L15.947,1.512 C15.947,0.678 15.271,0 14.441,0 L10.506,0 C9.676,0 9,0.678 9,1.512 L9,8.124 C9,11.899 11.141,13.969 15,13.969 L15,13.969 Z" class="si-glyph-fill"> </path> <path d="M6,13.969 C6.552,13.969 7,13.534 7,13 C7,12.466 6.552,12.031 6,12.031 C3.243,12.031 2,10.83 2,8.124 L2,6.947 L5.467,6.947 C6.301,6.947 6.979,6.271 6.979,5.441 L6.979,1.505 C6.979,0.675 6.301,-0.001 5.467,-0.001 L1.512,-0.001 C0.678,-0.001 0,0.675 0,1.505 L0,8.123 C0,11.899 2.141,13.969 6,13.969 L6,13.969 Z" class="si-glyph-fill"> </path> </g> </g> </g></svg>
-                        <p class="blockquote-text">TYLKO TEN, KTO WĘDRUJE, ODNAJDUJE NOWE ŚCIEŻKI</p>
-                        <svg class="icon icon-right" aria-hidden="true" viewBox="0 -0.5 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-quote-close" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>1030</title> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g transform="translate(1.000000, 1.000000)" fill="#000000"> <path d="M1,13.969 C0.447,13.969 0,13.534 0,13 C0,12.466 0.447,12.031 1,12.031 C3.757,12.031 5,10.83 5,8.124 L5,6.978 L1.559,6.978 C0.729,6.978 0.053,6.3 0.053,5.467 L0.053,1.511 C0.053,0.677 0.729,-0.001 1.559,-0.001 L5.494,-0.001 C6.324,-0.001 7,0.677 7,1.511 L7,8.123 C7,11.898 4.859,13.969 1,13.969 L1,13.969 Z" class="si-glyph-fill"> </path> <path d="M10,13.969 C9.447,13.969 9,13.534 9,13 C9,12.466 9.447,12.031 10,12.031 C12.757,12.031 14,10.83 14,8.124 L14,6.947 L10.533,6.947 C9.699,6.947 9.021,6.271 9.021,5.441 L9.021,1.505 C9.021,0.675 9.699,-0.001 10.533,-0.001 L14.488,-0.001 C15.322,-0.001 16,0.675 16,1.505 L16,8.123 C16,11.898 13.859,13.969 10,13.969 L10,13.969 Z" class="si-glyph-fill"> </path> </g> </g> </g></svg>
-                      </blockquote> 
-                      <figcaption class="blockquote-figcaption">
-                        <p class="blockquote-name">- Przysłowie Norweskie</p> 
-                      </figcaption>
-                    </figure>
-                 </div>
-            </div>
-        </div> 
+                <div class="header">
+                    <p class="big-header">Commodi voluptas officia</p>
+                    <p class="sub-header">Saepe assumenda magni</p>
+                    <div class="text">Nemo, quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi
+                        voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut
+                        ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
+                </div>
 
+                <div class="main-content">
+                    <div class="content-right">
+                        <div class="panel trail-preview-panel"></div>
+                        <div class="panel trail-short-info"></div>
+                        <a href="https://e-szlaki.com/szlak/szlakiem-po-najwyzszy-szczyt-w-bieszczadach" target="_blank"
+                            class="panel trail-map-link">
+                            <span class="trail-map-link-text">Zobacz na mapie</span>
+                        </a>
+                    </div>
+                    <div class="content-left">
+                        <div class="panel">
+                            <div class="circular-progress-bar"> 
+            
+                                <div class="pie" data-pie='{ 
+                                    "lineargradient": ["#37ff7a","#00c821"], 
+                                    "round": true, 
+                                    "percent": 75, 
+                                    "colorCircle": "#3f624a" 
+                                }' data-pie-index="0">   
+                                    <meter class="visually-hidden" id="disk_d" value="0.6">60%</meter>
+                                </div> 
+                    
+                                <label class="progress-desc" for="disk_d">Disk usage D:</label>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="circular-progress-bar"> 
+            
+                                <div class="pie" data-pie='{ 
+                                    "lineargradient": ["#37ff7a","#00c821"], 
+                                    "round": true, 
+                                    "percent": 25, 
+                                    "colorCircle": "#3f624a" 
+                                }' data-pie-index="1">   
+                                    <meter class="visually-hidden" id="disk_d" value="0.6">25%</meter>
+                                </div> 
+                    
+                                <label class="progress-desc" for="disk_d">Disk usage D:</label>
+                            </div>
+                        </div>
+                        <div class="panel"></div>
+                        <div class="panel"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIEJSCA BLISKO UŻYTKOWNIKA-->
+        <section id="places-module">
+            <div class="container">
+                <div class="header">
+                    <p class="big-header">Commodi voluptas officia</p>
+                    <p class="sub-header">Saepe assumenda magni</p>
+                    <p class="text" Perferendis est itaque consequuntur, porro placeat asperiores. Quo voluptatum id,
+                        cupiditate architecto laboriosam non incidunt. Facere numquam deleniti rem laudantium accusamus
+                        totam, neque vero reprehenderit consequuntur autem? Tempore explicabo repellendus, modi nisi
+                        ipsa fuga ullam ea atque quam ipsam culpa harum molestiae ex, quaerat id officiis impedit. Totam
+                        omnis, illum voluptatem corporis fugiat dolore sequi sit odio quis, reprehenderit, sunt impedit
+                        a. Tempora, vitae repellat!</p>
+                </div>
+                <div class="big-hr" aria-hidden="true"></div>
+
+                <ul class="places-list">
+                    <li class="place-item place-highlighted">
+                        <img class="place-img" src="./images/place-img-1.webp" alt="">
+                        <span class="place-content">
+
+                        </span>
+                    </li>
+                    <li class="place-item">
+                        <img class="place-img" src="./images/place-img-2.webp" alt="">
+                    </li>
+                    <li class="place-item">
+                        <img class="place-img" src="./images/place-img-3.webp" alt="">
+                    </li>
+                    <li class="place-item">
+                        <img class="place-img" src="./images/place-img-4.webp" alt="">
+                    </li>
+                    <li class="place-item">
+                        <img class="place-img" src="./images/place-img-5.webp" alt="">
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- OPIS NARZĘDZI OFEROWANYCH PRZEZ SYSTEM-->
+        <section id="modules-and-tools">
+            <div class="container">
+                <div class="tabs">
+
+                    <nav class="tabs-navigation">
+                        <ul class="tabs-navigation-list"></ul>
+                    </nav>
+
+                    <div class="main-content">
+                        <div class="tab-content">
+                            <div class="header">
+                                <p class="tab-content-title small-header">Ipsa incidunt</p>
+                                <p class="sub-header">consequuntur</p>
+                            </div>
+                            <p>Eaque maiores numquam fugit perferendis, illo suscipit labore dolorem doloremque atque
+                                explicabo eum excepturi rerum accusantium commodi est beatae quis mollitia animi optio.
+                                Ipsa incidunt beatae obcaecati dicta quasi nihil vel consequuntur asperiores repudiandae
+                                alias saepe a eveniet, voluptatum blanditiis maxime debitis perferendis distinctio.
+                                Incidunt cumque magni sunt eum cum doloribus rem officiis perferendis error pariatur.
+                            </p>
+                        </div>
+                        <div class="tab-content">
+                            <div class="header">
+                                <p class="tab-content-title small-header">Mollitia</p>
+                                <p class="sub-header">exercitation</p>
+                            </div>
+                            <p>Odio cumque quo quod ratione unde nobis mollitia consequatur quibusdam? Velit consectetur
+                                accusamus quibusdam, sapiente ipsum pariatur ipsam. Ipsa, at iste, fuga dolores pariatur
+                                voluptatum doloremque numquam accusamus vel in odit earum placeat vitae. Ut enim ad
+                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor </p>
+                        </div>
+                        <div class="tab-content">
+                            <div class="header">
+                                <p class="tab-content-title small-header">Aliquid impedit</p>
+                                <p class="sub-header">Nostrum nobis</p>
+                            </div>
+                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Aliquid impedit labore animi ab accusantium earum architecto saepe, ex
+                                distinctio minima facere, libero suscipit fuga? Nostrum nobis ut delectus a, fugit
+                                labore inventore mollitia id?</p>
+                            <ul>
+                                <li>ex distinctio minima</li>
+                                <li>ex distinctio minima</li>
+                                <li>ex distinctio minima</li>
+                                <li>ex distinctio minima</li>
+                                <li>ex distinctio minima</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="header">
+                                <p class="tab-content-title small-header">Officia harum</p>
+                                <p class="sub-header"> facere corrupti</p>
+                            </div>
+                            <p>Voluptatem temporibus doloribus laboriosam quo officiis modi aut architecto beatae sequi
+                                amet nulla fuga reiciendis. Debitis ut dolorem tempore, in magni id officia harum ab
+                                porro vitae? Consectetur, iusto accusantium cupiditate commodi quos harum vitae facere
+                                corrupti perferendis cum voluptatibus, maxime culpa provident?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CYTAT-->
+        <div id="quote-section">
+            <div class="container">
+                <div class="wrapper">
+                    <figure class="quote-figure">
+                        <blockquote class="blockquote">
+                            <svg class="icon icon-left" aria-hidden="true" viewBox="0 -0.5 17 17" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="si-glyph si-glyph-quote-open" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>1031</title>
+                                    <defs> </defs>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(1.000000, 1.000000)" fill="#000000">
+                                            <path
+                                                d="M15,13.969 C15.552,13.969 16,13.534 16,13 C16,12.466 15.552,12.031 15,12.031 C12.243,12.031 11,10.83 11,8.124 L11,6.906 L14.441,6.906 C15.271,6.906 15.947,6.301 15.947,5.468 L15.947,1.512 C15.947,0.678 15.271,0 14.441,0 L10.506,0 C9.676,0 9,0.678 9,1.512 L9,8.124 C9,11.899 11.141,13.969 15,13.969 L15,13.969 Z"
+                                                class="si-glyph-fill"> </path>
+                                            <path
+                                                d="M6,13.969 C6.552,13.969 7,13.534 7,13 C7,12.466 6.552,12.031 6,12.031 C3.243,12.031 2,10.83 2,8.124 L2,6.947 L5.467,6.947 C6.301,6.947 6.979,6.271 6.979,5.441 L6.979,1.505 C6.979,0.675 6.301,-0.001 5.467,-0.001 L1.512,-0.001 C0.678,-0.001 0,0.675 0,1.505 L0,8.123 C0,11.899 2.141,13.969 6,13.969 L6,13.969 Z"
+                                                class="si-glyph-fill"> </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="blockquote-text">TYLKO TEN, KTO WĘDRUJE, ODNAJDUJE NOWE ŚCIEŻKI</p>
+                            <svg class="icon icon-right" aria-hidden="true" viewBox="0 -0.5 17 17" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="si-glyph si-glyph-quote-close" fill="#000000" stroke="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>1030</title>
+                                    <defs> </defs>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(1.000000, 1.000000)" fill="#000000">
+                                            <path
+                                                d="M1,13.969 C0.447,13.969 0,13.534 0,13 C0,12.466 0.447,12.031 1,12.031 C3.757,12.031 5,10.83 5,8.124 L5,6.978 L1.559,6.978 C0.729,6.978 0.053,6.3 0.053,5.467 L0.053,1.511 C0.053,0.677 0.729,-0.001 1.559,-0.001 L5.494,-0.001 C6.324,-0.001 7,0.677 7,1.511 L7,8.123 C7,11.898 4.859,13.969 1,13.969 L1,13.969 Z"
+                                                class="si-glyph-fill"> </path>
+                                            <path
+                                                d="M10,13.969 C9.447,13.969 9,13.534 9,13 C9,12.466 9.447,12.031 10,12.031 C12.757,12.031 14,10.83 14,8.124 L14,6.947 L10.533,6.947 C9.699,6.947 9.021,6.271 9.021,5.441 L9.021,1.505 C9.021,0.675 9.699,-0.001 10.533,-0.001 L14.488,-0.001 C15.322,-0.001 16,0.675 16,1.505 L16,8.123 C16,11.898 13.859,13.969 10,13.969 L10,13.969 Z"
+                                                class="si-glyph-fill"> </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </blockquote>
+                        <figcaption class="blockquote-figcaption">
+                            <p class="blockquote-name">- Przysłowie Norweskie</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIE -->
         <!-- <section id="categories">
             <div class="container">
                 <div class="header"> 
@@ -158,7 +361,23 @@
             </div>
         </section> -->
 
-         <section id="places-close-to-you">
+        <!-- <section id="places-category">
+            <div class="container">
+                <div class="header"> 
+                    <p class="big-header">Commodi voluptas officia</p>
+                    <p class="sub-header">Saepe assumenda magni</p>
+                    <div class="text">Nemo, quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
+                </div>
+                <ul class="categories-list">
+                    <li class="category-item">
+                        <svg class="category-icon"></svg>
+                    </li>
+                </ul>
+            </div>
+        </section>  -->
+
+        <!-- SZLAKI BLISKO UŻYTKOWNIKA -->
+        <section id="places-close-to-you">
             <div class="header">
                 <div class="container">
                     <p class="big-header">Commodi voluptas officia</p>
@@ -205,45 +424,7 @@
                         <div id="scale" class="scale" data-steps="10"></div>
                     </div>
                 </div> -->
-                <div class="places-list">
-                    <div class="place-card">
-                        <img class="place-img" src="./images/img-3.png" alt="">
-                        <div class="place-card-content">
-                            <div class="icon-top">
-                                <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
-                                        fill="#1d2d2b" />
-                                </svg>
-                            </div>
-                            <p class="small-header">Commodi voluptas officia</p>
-                            <p class="sub-header">Saepe assumenda magni</p>
-                            <p class="text">Atque ratione delectus amet numquam corrupti necessitatibus quis ad
-                                tenetur
-                                quos magni reprehenderit.</p>
-                            <a href="#" class="link variant2 small">Assumenda</a>
-                        </div>
-                    </div>
-                    <div class="place-card">
-                        <img class="place-img" src="./images/img-3.png" alt="">
-                        <div class="place-card-content">
-                            <div class="icon-top">
-                                <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
-                                        fill="#1d2d2b" />
-                                </svg>
-                            </div>
-                            <p class="small-header">Commodi voluptas officia</p>
-                            <p class="sub-header">Saepe assumenda magni</p>
-                            <p class="text">Atque ratione delectus amet numquam corrupti necessitatibus quis ad
-                                tenetur
-                                quos magni reprehenderit.</p>
-                            <a href="#" class="link variant2 small">Assumenda</a>
-                        </div>
-                    </div>
+                <div class="places-list"> 
                     <div class="place-card">
                         <img class="place-img" src="./images/img-3.png" alt="">
                         <div class="place-card-content">
@@ -361,158 +542,32 @@
                 </div>
                 <a href="#" class="link variant2 d-block mx-auto my-3">Doloremque amet</a>
             </div>
-        </section> 
+        </section>
 
-        <!-- <section id="places-module">
-        <div class="container">
-            <div class="header"> 
-                <p class="big-header">Commodi voluptas officia</p>
-                <p class="sub-header">Saepe assumenda magni</p>
-                <div class="text">Nemo, quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
-            </div>
-            <div class="big-hr" aria-hidden="true"></div>
+        <!-- SZYBKI DOSTĘP -->
+        <section id="quick-access">
 
-            <div class="place-highlighted">
-
-            </div>
-
-            <section id="places-slider" class="slider">
-                <div class="box" style="background-color: #000;">1</div>
-                <div class="box" style="background-color: #000;">2</div>
-                <div class="box" style="background-color: #000;">3</div>
-                <div class="box" style="background-color: #000;">4</div>
-                <div class="box" style="background-color: #000;">5</div>
-              </section>  
-        </div>
-    </section> -->
-
-        <!-- <section id="places-category">
             <div class="container">
-                <div class="header"> 
-                    <p class="big-header">Commodi voluptas officia</p>
-                    <p class="sub-header">Saepe assumenda magni</p>
-                    <div class="text">Nemo, quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
-                </div>
-                <ul class="categories-list">
-                    <li class="category-item">
-                        <svg class="category-icon"></svg>
-                    </li>
-                </ul>
-            </div>
-        </section>  -->
 
-        <!-- <section id="modules-and-tools">
-            <div class="container">
-                <div class="tabs">
-
-                    <nav class="tabs-navigation">
-                        <ul class="tabs-navigation-list"></ul>
-                    </nav>
-
-                    <div class="main-content">
-                        <div class="tab-content">
-                            <div class="header">
-                                <p class="tab-content-title small-header">Ipsa incidunt</p>
-                                <p class="sub-header">consequuntur</p>
-                            </div>
-                            <p>Eaque maiores numquam fugit perferendis, illo suscipit labore dolorem doloremque atque
-                                explicabo eum excepturi rerum accusantium commodi est beatae quis mollitia animi optio.
-                                Ipsa incidunt beatae obcaecati dicta quasi nihil vel consequuntur asperiores repudiandae
-                                alias saepe a eveniet, voluptatum blanditiis maxime debitis perferendis distinctio.
-                                Incidunt cumque magni sunt eum cum doloribus rem officiis perferendis error pariatur.
-                            </p>
-                        </div>
-                        <div class="tab-content">
-                            <div class="header">
-                                <p class="tab-content-title small-header">Mollitia</p>
-                                <p class="sub-header">exercitation</p>
-                            </div>
-                            <p>Odio cumque quo quod ratione unde nobis mollitia consequatur quibusdam? Velit consectetur
-                                accusamus quibusdam, sapiente ipsum pariatur ipsam. Ipsa, at iste, fuga dolores pariatur
-                                voluptatum doloremque numquam accusamus vel in odit earum placeat vitae. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor </p>
-                        </div>
-                        <div class="tab-content">
-                            <div class="header">
-                                <p class="tab-content-title small-header">Aliquid impedit</p>
-                                <p class="sub-header">Nostrum nobis</p>
-                            </div>
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Aliquid impedit labore animi ab accusantium earum architecto saepe, ex
-                                distinctio minima facere, libero suscipit fuga? Nostrum nobis ut delectus a, fugit
-                                labore inventore mollitia id?</p>
-                            <ul>
-                                <li>ex distinctio minima</li>
-                                <li>ex distinctio minima</li>
-                                <li>ex distinctio minima</li>
-                                <li>ex distinctio minima</li>
-                                <li>ex distinctio minima</li>
-                            </ul>
-                        </div>
-                        <div class="tab-content">
-                            <div class="header">
-                                <p class="tab-content-title small-header">Officia harum</p>
-                                <p class="sub-header"> facere corrupti</p>
-                            </div>
-                            <p>Voluptatem temporibus doloribus laboriosam quo officiis modi aut architecto beatae sequi
-                                amet nulla fuga reiciendis. Debitis ut dolorem tempore, in magni id officia harum ab
-                                porro vitae? Consectetur, iusto accusantium cupiditate commodi quos harum vitae facere
-                                corrupti perferendis cum voluptatibus, maxime culpa provident?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section id="random-trail-info">
-            <div class="container">
                 <div class="header">
-                    <p class="big-header">Commodi voluptas officia</p>
+                    <p class="big-header">Abore incidunt </p>
                     <p class="sub-header">Saepe assumenda magni</p>
-                    <div class="text">Nemo, quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
-                </div>
+                    <div class="text">Fugiat sed rem, quis culpa, eligendi hic est consequuntur vitae dicta ipsam ex
+                        nihil natus, libero dolore rerum nisi ut. Dignissimos ad aut dolorum odio? quas. Sint quam
+                        incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta
+                        deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda
+                        magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
 
-                <div class="main-content">
-                    <div class="content-right"> 
-                        <div class="panel trail-preview-panel"></div>
-                        <div class="panel trail-short-info"></div>
-                        <a href="https://e-szlaki.com/szlak/szlakiem-po-najwyzszy-szczyt-w-bieszczadach" target="_blank" class="panel trail-map-link">
-                            <span class="trail-map-link-text">Zobacz na mapie</span>
-                        </a>
-                    </div>
-                    <div class="content-left">
-                        <div class="panel"></div>
-                        <div class="panel"></div>
-                        <div class="panel"></div>
-                        <div class="panel"></div> 
-                    </div> 
-                </div>
-            </div>
-        </section> -->
-
-        
-
-         <section id="quick-access">
-
-            <div class="container">
-
-                <div class="header"> 
-                        <p class="big-header">Abore incidunt </p>
-                        <p class="sub-header">Saepe assumenda magni</p>
-                        <div class="text">Fugiat sed rem, quis culpa, eligendi hic est consequuntur vitae dicta ipsam ex nihil natus, libero dolore rerum nisi ut. Dignissimos ad aut dolorum odio? quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
-       
                     <div class="big-hr mb-1" aria-hidden="true"></div>
-                </div> 
+                </div>
 
                 <div class="wrapper">
 
-                    <article class="card"> 
+                    <article class="card">
                         <p class="tip-text">Kliknij aby wejść</p>
 
                         <a href="#" class="card-container">
-                            
+
                             <div class="content">
                                 <div class="header">
                                     <p class="small-header">Asperiores qui</p>
@@ -522,17 +577,17 @@
                                     aspernatur.
                                 </p>
                             </div>
-                            
+
                             <div class="bottom">
                                 <p class="text">Molestiae optio</p>
                                 <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-    
+
                             <div class="icon-top">
                                 <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -541,13 +596,13 @@
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-                        </a> 
-                    </article>  
-                    <article class="card"> 
+                        </a>
+                    </article>
+                    <article class="card">
                         <p class="tip-text">Kliknij aby wejść</p>
 
                         <a href="#" class="card-container">
-                            
+
                             <div class="content">
                                 <div class="header">
                                     <p class="small-header">Asperiores qui</p>
@@ -557,17 +612,17 @@
                                     aspernatur.
                                 </p>
                             </div>
-                            
+
                             <div class="bottom">
                                 <p class="text">Molestiae optio</p>
                                 <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-    
+
                             <div class="icon-top">
                                 <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -576,13 +631,13 @@
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-                        </a> 
-                    </article>  
-                    <article class="card"> 
+                        </a>
+                    </article>
+                    <article class="card">
                         <p class="tip-text">Kliknij aby wejść</p>
 
                         <a href="#" class="card-container">
-                            
+
                             <div class="content">
                                 <div class="header">
                                     <p class="small-header">Asperiores qui</p>
@@ -592,17 +647,17 @@
                                     aspernatur.
                                 </p>
                             </div>
-                            
+
                             <div class="bottom">
                                 <p class="text">Molestiae optio</p>
                                 <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-    
+
                             <div class="icon-top">
                                 <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -611,13 +666,13 @@
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-                        </a> 
-                    </article>  
-                    <article class="card"> 
+                        </a>
+                    </article>
+                    <article class="card">
                         <p class="tip-text">Kliknij aby wejść</p>
 
                         <a href="#" class="card-container">
-                            
+
                             <div class="content">
                                 <div class="header">
                                     <p class="small-header">Asperiores qui</p>
@@ -627,17 +682,17 @@
                                     aspernatur.
                                 </p>
                             </div>
-                            
+
                             <div class="bottom">
                                 <p class="text">Molestiae optio</p>
                                 <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-    
+
                             <div class="icon-top">
                                 <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -646,13 +701,13 @@
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-                        </a> 
-                    </article>  
-                    <article class="card"> 
+                        </a>
+                    </article>
+                    <article class="card">
                         <p class="tip-text">Kliknij aby wejść</p>
 
                         <a href="#" class="card-container">
-                            
+
                             <div class="content">
                                 <div class="header">
                                     <p class="small-header">Asperiores qui</p>
@@ -662,17 +717,17 @@
                                     aspernatur.
                                 </p>
                             </div>
-                            
+
                             <div class="bottom">
                                 <p class="text">Molestiae optio</p>
                                 <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-    
+
                             <div class="icon-top">
                                 <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -681,13 +736,13 @@
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-                        </a> 
-                    </article>  
-                    <article class="card"> 
+                        </a>
+                    </article>
+                    <article class="card">
                         <p class="tip-text">Kliknij aby wejść</p>
 
                         <a href="#" class="card-container">
-                            
+
                             <div class="content">
                                 <div class="header">
                                     <p class="small-header">Asperiores qui</p>
@@ -697,17 +752,17 @@
                                     aspernatur.
                                 </p>
                             </div>
-                            
+
                             <div class="bottom">
                                 <p class="text">Molestiae optio</p>
                                 <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-    
+
                             <div class="icon-top">
                                 <svg width="25" height="25" viewBox="0 0 48 42" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -716,14 +771,15 @@
                                         fill="#1d2d2b" />
                                 </svg>
                             </div>
-                        </a> 
-                    </article>  
+                        </a>
+                    </article>
                 </div>
             </div>
 
-        </section> 
+        </section>
 
-         <section id="collection-list">
+        <!-- KOLEKCJE -->
+        <section id="collection-list">
             <div class="container">
 
                 <div class="content-wrapper">
@@ -735,32 +791,33 @@
                                     <span>Consectetur</span>
                                 </a>
                             </span>
-                            <span class="list-el-number" aria-hidden="true"></span> 
+                            <span class="list-el-number" aria-hidden="true"></span>
                             <span class="list-el-info">
                                 <span class="list-el-icon" aria-hidden="true">
                                     <svg width="35" height="35" viewBox="0 0 45 49" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M22.5 33.1791C21.1618 33.185 19.8412 32.8662 18.6467 32.249C17.4522 31.6316 16.4177 30.7335 15.6282 29.6282L10.125 32.8616C10.3344 33.1086 10.5823 33.3183 10.8588 33.4823L20.6515 39.2563C21.2239 39.5554 21.8573 39.7113 22.5 39.7113C23.1427 39.7113 23.7761 39.5554 24.3485 39.2563L34.1412 33.4823C34.4177 33.3183 34.6656 33.1086 34.875 32.8616L29.386 29.5704C28.6011 30.6884 27.5671 31.5989 26.3695 32.2265C25.172 32.8541 23.8455 33.1807 22.5 33.1791Z"
-                                        fill="white"></path>
-                                    <path
-                                        d="M13.8838 24.4655C13.8888 22.4127 14.7002 20.4335 16.1628 18.9064C17.6255 17.3792 19.6369 16.4112 21.8125 16.1873V9.96479C21.4824 10.0291 21.1649 10.1408 20.871 10.2959L10.6623 15.8148C10.1074 16.1629 9.64602 16.6269 9.3143 17.1703C8.98251 17.7136 8.78939 18.3216 8.75 18.9467V29.9843C8.75454 30.3028 8.80899 30.619 8.91177 30.9225L14.6488 27.8182C14.1471 26.763 13.8865 25.6209 13.8838 24.4655Z"
-                                        fill="white"></path>
-                                    <path
-                                        d="M34.4384 15.8109L24.7669 10.2957C24.4886 10.1407 24.1877 10.0291 23.875 9.96479V16.1694C25.1889 16.3167 26.4495 16.7671 27.5553 17.4845C28.661 18.2019 29.5811 19.1661 30.2414 20.2996C30.9017 21.4331 31.2836 22.7041 31.3567 24.0104C31.4297 25.3167 31.1916 26.6216 30.6617 27.8202L36.0968 30.9225C36.1941 30.6191 36.2457 30.3032 36.25 29.985V18.9546C36.2148 18.3275 36.0328 17.7172 35.7184 17.1716C35.404 16.626 34.9658 16.1602 34.4384 15.8109Z"
-                                        fill="white"></path>
-                                    <path
-                                        d="M41.483 10.2833L25.5171 1.2033C24.5808 0.74081 23.5476 0.5 22.5 0.5C21.4524 0.5 20.4193 0.74081 19.483 1.2033L3.51703 10.2833C2.64067 10.8455 1.91103 11.6027 1.38688 12.4938C0.862794 13.385 0.558987 14.3849 0.5 15.4129V33.5728C0.557888 34.6031 0.861145 35.6054 1.38523 36.499C1.90931 37.3926 2.63957 38.1523 3.51703 38.7167L19.483 47.7969C20.4193 48.2593 21.4524 48.5 22.5 48.5C23.5476 48.5 24.5808 48.2593 25.5171 47.7969L41.483 38.7167C42.3604 38.1523 43.0907 37.3926 43.6148 36.499C44.1389 35.6054 44.4421 34.6031 44.5 33.5728V15.4129C44.441 14.3849 44.1372 13.385 43.6131 12.4938C43.089 11.6027 42.3593 10.8455 41.483 10.2833ZM39.4331 31.484C39.3862 32.2755 39.1515 33.045 38.7479 33.731C38.3443 34.4171 37.783 35.0004 37.1089 35.4343L24.8097 42.4254C24.0912 42.7826 23.2976 42.9687 22.4928 42.9687C21.6879 42.9687 20.8943 42.7826 20.1759 42.4254L7.89111 35.4343C7.21701 35.0004 6.65567 34.4171 6.25211 33.731C5.84847 33.045 5.61383 32.2755 5.56694 31.484V17.516C5.61383 16.7245 5.84847 15.955 6.25211 15.269C6.65567 14.5829 7.21701 13.9996 7.89111 13.5657L20.1614 6.57457C20.8798 6.21741 21.6734 6.03129 22.4783 6.03129C23.2832 6.03129 24.0769 6.21741 24.7953 6.57457L37.0945 13.5657C37.7712 13.998 38.3354 14.5807 38.7416 15.2668C39.1477 15.9529 39.3846 16.7233 39.4331 17.516V31.484Z"
-                                        fill="white"></path>
-                                    <path
-                                        d="M16.3125 24.5C16.3125 25.6365 16.6754 26.7475 17.3552 27.6925C18.0351 28.6376 19.0015 29.3741 20.1322 29.8091C21.2628 30.244 22.5069 30.3578 23.7072 30.1361C24.9074 29.9143 26.0099 29.3671 26.8752 28.5634C27.7405 27.7597 28.3299 26.7358 28.5686 25.6211C28.8073 24.5064 28.6848 23.351 28.2165 22.3009C27.7482 21.2509 26.9552 20.3534 25.9376 19.722C24.9201 19.0905 23.7237 18.7535 22.5 18.7535C20.859 18.7535 19.2852 19.3589 18.1248 20.4366C16.9644 21.5143 16.3125 22.976 16.3125 24.5Z"
-                                        fill="white"></path>
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M22.5 33.1791C21.1618 33.185 19.8412 32.8662 18.6467 32.249C17.4522 31.6316 16.4177 30.7335 15.6282 29.6282L10.125 32.8616C10.3344 33.1086 10.5823 33.3183 10.8588 33.4823L20.6515 39.2563C21.2239 39.5554 21.8573 39.7113 22.5 39.7113C23.1427 39.7113 23.7761 39.5554 24.3485 39.2563L34.1412 33.4823C34.4177 33.3183 34.6656 33.1086 34.875 32.8616L29.386 29.5704C28.6011 30.6884 27.5671 31.5989 26.3695 32.2265C25.172 32.8541 23.8455 33.1807 22.5 33.1791Z"
+                                            fill="white"></path>
+                                        <path
+                                            d="M13.8838 24.4655C13.8888 22.4127 14.7002 20.4335 16.1628 18.9064C17.6255 17.3792 19.6369 16.4112 21.8125 16.1873V9.96479C21.4824 10.0291 21.1649 10.1408 20.871 10.2959L10.6623 15.8148C10.1074 16.1629 9.64602 16.6269 9.3143 17.1703C8.98251 17.7136 8.78939 18.3216 8.75 18.9467V29.9843C8.75454 30.3028 8.80899 30.619 8.91177 30.9225L14.6488 27.8182C14.1471 26.763 13.8865 25.6209 13.8838 24.4655Z"
+                                            fill="white"></path>
+                                        <path
+                                            d="M34.4384 15.8109L24.7669 10.2957C24.4886 10.1407 24.1877 10.0291 23.875 9.96479V16.1694C25.1889 16.3167 26.4495 16.7671 27.5553 17.4845C28.661 18.2019 29.5811 19.1661 30.2414 20.2996C30.9017 21.4331 31.2836 22.7041 31.3567 24.0104C31.4297 25.3167 31.1916 26.6216 30.6617 27.8202L36.0968 30.9225C36.1941 30.6191 36.2457 30.3032 36.25 29.985V18.9546C36.2148 18.3275 36.0328 17.7172 35.7184 17.1716C35.404 16.626 34.9658 16.1602 34.4384 15.8109Z"
+                                            fill="white"></path>
+                                        <path
+                                            d="M41.483 10.2833L25.5171 1.2033C24.5808 0.74081 23.5476 0.5 22.5 0.5C21.4524 0.5 20.4193 0.74081 19.483 1.2033L3.51703 10.2833C2.64067 10.8455 1.91103 11.6027 1.38688 12.4938C0.862794 13.385 0.558987 14.3849 0.5 15.4129V33.5728C0.557888 34.6031 0.861145 35.6054 1.38523 36.499C1.90931 37.3926 2.63957 38.1523 3.51703 38.7167L19.483 47.7969C20.4193 48.2593 21.4524 48.5 22.5 48.5C23.5476 48.5 24.5808 48.2593 25.5171 47.7969L41.483 38.7167C42.3604 38.1523 43.0907 37.3926 43.6148 36.499C44.1389 35.6054 44.4421 34.6031 44.5 33.5728V15.4129C44.441 14.3849 44.1372 13.385 43.6131 12.4938C43.089 11.6027 42.3593 10.8455 41.483 10.2833ZM39.4331 31.484C39.3862 32.2755 39.1515 33.045 38.7479 33.731C38.3443 34.4171 37.783 35.0004 37.1089 35.4343L24.8097 42.4254C24.0912 42.7826 23.2976 42.9687 22.4928 42.9687C21.6879 42.9687 20.8943 42.7826 20.1759 42.4254L7.89111 35.4343C7.21701 35.0004 6.65567 34.4171 6.25211 33.731C5.84847 33.045 5.61383 32.2755 5.56694 31.484V17.516C5.61383 16.7245 5.84847 15.955 6.25211 15.269C6.65567 14.5829 7.21701 13.9996 7.89111 13.5657L20.1614 6.57457C20.8798 6.21741 21.6734 6.03129 22.4783 6.03129C23.2832 6.03129 24.0769 6.21741 24.7953 6.57457L37.0945 13.5657C37.7712 13.998 38.3354 14.5807 38.7416 15.2668C39.1477 15.9529 39.3846 16.7233 39.4331 17.516V31.484Z"
+                                            fill="white"></path>
+                                        <path
+                                            d="M16.3125 24.5C16.3125 25.6365 16.6754 26.7475 17.3552 27.6925C18.0351 28.6376 19.0015 29.3741 20.1322 29.8091C21.2628 30.244 22.5069 30.3578 23.7072 30.1361C24.9074 29.9143 26.0099 29.3671 26.8752 28.5634C27.7405 27.7597 28.3299 26.7358 28.5686 25.6211C28.8073 24.5064 28.6848 23.351 28.2165 22.3009C27.7482 21.2509 26.9552 20.3534 25.9376 19.722C24.9201 19.0905 23.7237 18.7535 22.5 18.7535C20.859 18.7535 19.2852 19.3589 18.1248 20.4366C16.9644 21.5143 16.3125 22.976 16.3125 24.5Z"
+                                            fill="white"></path>
                                     </svg>
-                                </span> 
+                                </span>
                                 <span class="list-el-text">
                                     <p class="small-header">Odio quibusdam</p>
                                     <hr class="hr-header">
-                                    <p class="text">Consequatur, hic mollitia nihil reiciendis tempora facere et, in quod, esse quia rerum ad illum sapiente itaque odio quibusdam</p>
+                                    <p class="text">Consequatur, hic mollitia nihil reiciendis tempora facere et, in
+                                        quod, esse quia rerum ad illum sapiente itaque odio quibusdam</p>
                                 </span>
                             </span>
                         </li>
@@ -773,21 +830,22 @@
                             <span class="list-el-number" aria-hidden="true"></span>
                             <span class="list-el-info">
                                 <span class="list-el-icon" aria-hidden="true">
-                                <svg width="35" height="35" viewBox="0 0 49 43" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M36.5004 42.5V39.5C36.5004 39.106 36.4228 38.7159 36.2721 38.3518C36.1213 37.988 35.9004 37.6573 35.6218 37.3785C35.3431 37.1 35.0123 36.879 34.6485 36.7283C34.2845 36.5776 33.8943 36.4999 33.5004 36.4999H21.4994C17.5211 36.4999 13.7057 34.9196 10.8926 32.1065C8.07949 29.2935 6.49908 25.4783 6.49902 21.5C6.49902 19.5302 6.88702 17.5796 7.64086 15.7597C8.39471 13.9398 9.49963 12.2863 10.8925 10.8934C12.2855 9.50048 13.9391 8.39562 15.759 7.6418C17.5789 6.88799 19.5295 6.50004 21.4994 6.50006H33.4995C33.8934 6.50018 34.2838 6.42267 34.6478 6.27197C35.0119 6.12125 35.3428 5.90028 35.6214 5.6217C35.9002 5.34309 36.1211 5.01233 36.2721 4.6483C36.4228 4.28426 36.5004 3.89408 36.5004 3.50003V0.5H21.5001C18.7423 0.5 16.0115 1.04318 13.4636 2.09853C10.9158 3.15388 8.60073 4.70074 6.65071 6.65076C4.70066 8.60081 3.1538 10.9158 2.09847 13.4637C1.04313 16.0115 0.49997 18.7423 0.5 21.5C0.5 27.0694 2.71249 32.4109 6.65075 36.3492C10.589 40.2874 15.9305 42.5 21.5001 42.5H36.5004Z"
-                                        fill="white"></path>
-                                    <path
-                                        d="M12.4987 21.5C12.4987 23.8869 13.4469 26.176 15.1347 27.8637C16.8224 29.5515 19.1116 30.4996 21.4984 30.4996H36.4999C38.0913 30.4996 39.6172 31.1319 40.7424 32.2571C41.8676 33.3822 42.4999 34.9084 42.4999 36.4997V42.4998H48.5V36.4999C48.5 33.3174 47.2358 30.2652 44.9854 28.0146C42.7347 25.7643 39.6825 24.5 36.4999 24.5H21.4989C20.7032 24.5 19.9401 24.1839 19.3775 23.6214C18.8149 23.0587 18.4988 22.2957 18.4988 21.5C18.4988 20.7043 18.8149 19.9413 19.3775 19.3786C19.9401 18.816 20.7032 18.5 21.4989 18.5H36.4999C39.6825 18.5 42.7347 17.2357 44.9854 14.9853C47.2358 12.7349 48.5 9.68263 48.5 6.50006V0.5H42.499V6.50006C42.499 8.09116 41.8669 9.61711 40.742 10.7423C39.617 11.8674 38.0911 12.4997 36.4999 12.4999H21.4989C20.3169 12.4998 19.1466 12.7326 18.0546 13.1849C16.9626 13.6371 15.9704 14.3001 15.1347 15.1358C14.2989 15.9716 13.6359 16.9638 13.1837 18.0557C12.7314 19.1477 12.4986 20.3181 12.4987 21.5Z"
-                                        fill="white"></path>
-                                </svg>
+                                    <svg width="35" height="35" viewBox="0 0 49 43" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M36.5004 42.5V39.5C36.5004 39.106 36.4228 38.7159 36.2721 38.3518C36.1213 37.988 35.9004 37.6573 35.6218 37.3785C35.3431 37.1 35.0123 36.879 34.6485 36.7283C34.2845 36.5776 33.8943 36.4999 33.5004 36.4999H21.4994C17.5211 36.4999 13.7057 34.9196 10.8926 32.1065C8.07949 29.2935 6.49908 25.4783 6.49902 21.5C6.49902 19.5302 6.88702 17.5796 7.64086 15.7597C8.39471 13.9398 9.49963 12.2863 10.8925 10.8934C12.2855 9.50048 13.9391 8.39562 15.759 7.6418C17.5789 6.88799 19.5295 6.50004 21.4994 6.50006H33.4995C33.8934 6.50018 34.2838 6.42267 34.6478 6.27197C35.0119 6.12125 35.3428 5.90028 35.6214 5.6217C35.9002 5.34309 36.1211 5.01233 36.2721 4.6483C36.4228 4.28426 36.5004 3.89408 36.5004 3.50003V0.5H21.5001C18.7423 0.5 16.0115 1.04318 13.4636 2.09853C10.9158 3.15388 8.60073 4.70074 6.65071 6.65076C4.70066 8.60081 3.1538 10.9158 2.09847 13.4637C1.04313 16.0115 0.49997 18.7423 0.5 21.5C0.5 27.0694 2.71249 32.4109 6.65075 36.3492C10.589 40.2874 15.9305 42.5 21.5001 42.5H36.5004Z"
+                                            fill="white"></path>
+                                        <path
+                                            d="M12.4987 21.5C12.4987 23.8869 13.4469 26.176 15.1347 27.8637C16.8224 29.5515 19.1116 30.4996 21.4984 30.4996H36.4999C38.0913 30.4996 39.6172 31.1319 40.7424 32.2571C41.8676 33.3822 42.4999 34.9084 42.4999 36.4997V42.4998H48.5V36.4999C48.5 33.3174 47.2358 30.2652 44.9854 28.0146C42.7347 25.7643 39.6825 24.5 36.4999 24.5H21.4989C20.7032 24.5 19.9401 24.1839 19.3775 23.6214C18.8149 23.0587 18.4988 22.2957 18.4988 21.5C18.4988 20.7043 18.8149 19.9413 19.3775 19.3786C19.9401 18.816 20.7032 18.5 21.4989 18.5H36.4999C39.6825 18.5 42.7347 17.2357 44.9854 14.9853C47.2358 12.7349 48.5 9.68263 48.5 6.50006V0.5H42.499V6.50006C42.499 8.09116 41.8669 9.61711 40.742 10.7423C39.617 11.8674 38.0911 12.4997 36.4999 12.4999H21.4989C20.3169 12.4998 19.1466 12.7326 18.0546 13.1849C16.9626 13.6371 15.9704 14.3001 15.1347 15.1358C14.2989 15.9716 13.6359 16.9638 13.1837 18.0557C12.7314 19.1477 12.4986 20.3181 12.4987 21.5Z"
+                                            fill="white"></path>
+                                    </svg>
 
                                 </span>
-                                <span class="list-el-text"> 
+                                <span class="list-el-text">
                                     <p class="small-header">Unde minus</p>
                                     <hr class="hr-header">
-                                    <p class="text">Quia, delectus facilis. Unde minus omnis modi laborum, voluptatibus ducimus officia. Aliquid commodi et fuga, a iusto recusandae.</p>
+                                    <p class="text">Quia, delectus facilis. Unde minus omnis modi laborum, voluptatibus
+                                        ducimus officia. Aliquid commodi et fuga, a iusto recusandae.</p>
                                 </span>
                             </span>
                         </li>
@@ -807,10 +865,11 @@
                                             fill="white"></path>
                                     </svg>
                                 </span>
-                                <span class="list-el-text"> 
+                                <span class="list-el-text">
                                     <p class="small-header">Incidunt fugiat</p>
                                     <hr class="hr-header">
-                                    <p class="text">Tenetur voluptate recusandae atque esse aliquam aspernatur adipisci nihil nam. Sed sunt quo ipsa.</p>
+                                    <p class="text">Tenetur voluptate recusandae atque esse aliquam aspernatur adipisci
+                                        nihil nam. Sed sunt quo ipsa.</p>
                                 </span>
                             </span>
                         </li>
@@ -836,13 +895,15 @@
                                             fill="white"></path>
                                     </svg>
                                 </span>
-                                <span class="list-el-text"> 
+                                <span class="list-el-text">
                                     <p class="small-header">Aspernatur est</p>
                                     <hr class="hr-header">
-                                    <p class="text">Ducimus rem officiis inventore eveniet eos illo tenetur quis, consequatur beatae eius vel repellat sequi! Culpa ullam id similique totam quaerat?</p>
-                                </span> 
+                                    <p class="text">Ducimus rem officiis inventore eveniet eos illo tenetur quis,
+                                        consequatur beatae eius vel repellat sequi! Culpa ullam id similique totam
+                                        quaerat?</p>
+                                </span>
                             </span>
-                        </li> 
+                        </li>
                         <li class="list-el-wrapper">
                             <span class="list-el-link-wrapper">
                                 <a class="list-el-link link variant4" href="#">
@@ -859,25 +920,31 @@
                                             fill="white"></path>
                                     </svg>
                                 </span>
-                                <span class="list-el-text"> 
+                                <span class="list-el-text">
                                     <p class="small-header">Recusandae sint</p>
                                     <hr class="hr-header">
-                                    <p class="text">Sed nam veniam dolor porro odit architecto minima soluta, eius quis incidunt, sint recusandae, veritatis modi quaerat voluptatibus!</p>
-                                </span> 
+                                    <p class="text">Sed nam veniam dolor porro odit architecto minima soluta, eius quis
+                                        incidunt, sint recusandae, veritatis modi quaerat voluptatibus!</p>
+                                </span>
                             </span>
                         </li>
-                    </ul> 
+                    </ul>
                 </div>
             </div>
-        </section> 
+        </section>
 
+        <!-- TIMELINE -->
         <section id="timeline-module">
             <div class="container">
-                
-                <div class="header"> 
+
+                <div class="header">
                     <p class="big-header">Commodi voluptas officia</p>
                     <p class="sub-header">Saepe assumenda magni</p>
-                    <div class="text">Fugiat sed rem, quis culpa, eligendi hic est consequuntur vitae dicta ipsam ex nihil natus, libero dolore rerum nisi ut. Dignissimos ad aut dolorum odio? quas. Sint quam incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
+                    <div class="text">Fugiat sed rem, quis culpa, eligendi hic est consequuntur vitae dicta ipsam ex
+                        nihil natus, libero dolore rerum nisi ut. Dignissimos ad aut dolorum odio? quas. Sint quam
+                        incidunt ducimus voluptatibus. Odio, iusto ipsa! Commodi voluptas officia, expedita soluta
+                        deserunt hic, debitis consequatur sunt impedit harum cumque ut ad culpa non saepe assumenda
+                        magni doloremque amet aliquid alias aut. Dicta, facilis illo.</div>
                 </div>
                 <div class="big-hr mb-3" aria-hidden="true"></div>
                 <div class="timeline timeline-purple">
@@ -1050,7 +1117,7 @@
                     </div>
                 </div>
             </div>
-        </section>  
+        </section>
 
         <section id="how-it-works">
             <div class="container">
@@ -1118,7 +1185,9 @@
                             <div class="column">
                                 <p class="small-header">Quibusdam</p>
                                 <p class="sub-header">Culpa rerum ipsa</p>
-                                <p class="text">Incidunt praesentium unde exercitationem. Vero, error natus? Ad obcaecati illo magni laborum. Unde doloribus et rerum. Dolorum culpa rerum blanditiis soluta quibusdam magni, est facere porro architecto. Soluta?</p>
+                                <p class="text">Incidunt praesentium unde exercitationem. Vero, error natus? Ad
+                                    obcaecati illo magni laborum. Unde doloribus et rerum. Dolorum culpa rerum
+                                    blanditiis soluta quibusdam magni, est facere porro architecto. Soluta?</p>
 
                                 <div class="link-icon-wrapper">
                                     <svg width="20" height="20" viewBox="0 0 20 18" fill="none"
@@ -1200,7 +1269,9 @@
                         <div class="card content-text">
                             <p class="small-header">Fugit</p>
                             <p class="sub-header">Commodi tenetur</p>
-                            <p class="text">Dolores repudiandae molestiae, atque dolorum earum assumenda ipsam delectus? Iusto, nemo fugit. Aliquam assumenda fugit a perspiciatis. Tempora, totam. Commodi tenetur perferendis sit voluptates facere sapiente.</p>
+                            <p class="text">Dolores repudiandae molestiae, atque dolorum earum assumenda ipsam delectus?
+                                Iusto, nemo fugit. Aliquam assumenda fugit a perspiciatis. Tempora, totam. Commodi
+                                tenetur perferendis sit voluptates facere sapiente.</p>
                             <div class="links">
 
                                 <div class="link-icon-wrapper">
@@ -1213,14 +1284,14 @@
                                     <a href="#" class="basic-link basic-link--variant2 tooltip-link">
                                         Arum assumenda <span>Lorem ipsum dolor sit.</span>
                                     </a>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="header">
-                    <p class="small-header">Dicta, possimus at</p> 
+                    <p class="small-header">Dicta, possimus at</p>
                 </div>
 
                 <div class="bottom-content">
@@ -1228,7 +1299,7 @@
                         <div class="card dark-green content-text">
                             <p class="small-header">Eaque deleniti</p>
                             <hr class="hr-header mt-1 mb-2">
-                            <a href="#" class="link variant1">Adipisci eum</a> 
+                            <a href="#" class="link variant1">Adipisci eum</a>
                         </div>
                         <div class="card content-text">
                             <p class="small-header">Culpa eum</p>
@@ -1244,27 +1315,31 @@
                                 <a href="#" class="basic-link basic-link--variant2 tooltip-link">
                                     Reiciendis quo <span>Lorem ipsum dolor sit.</span>
                                 </a>
-                            </div>  
+                            </div>
                         </div>
                         <div class="card content-text">
                             <p class="small-header">Ajnho eratione</p>
-                                <p class="sub-header">Minus libero</p>
-                                <p class="text">Rerum repudiandae temporibus nesciunt at modi reiciendis esse iusto suscipit nam beatae molestiae quos doloribus odit voluptas quia libero autem, accusantium accusamus quam. Aut, ratione soluta quidem tempora facilis facere excepturi odio voluptas, esse obcaecati molestiae. Modi nam doloremque qui deleniti consequuntur. Minus libero aspernatur sint!</p>
-                                <div class="links">
+                            <p class="sub-header">Minus libero</p>
+                            <p class="text">Rerum repudiandae temporibus nesciunt at modi reiciendis esse iusto suscipit
+                                nam beatae molestiae quos doloribus odit voluptas quia libero autem, accusantium
+                                accusamus quam. Aut, ratione soluta quidem tempora facilis facere excepturi odio
+                                voluptas, esse obcaecati molestiae. Modi nam doloremque qui deleniti consequuntur. Minus
+                                libero aspernatur sint!</p>
+                            <div class="links">
 
-                                    <div class="link-icon-wrapper">
-                                        <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
-                                                fill="#1d2d2b" />
-                                        </svg>
-                                        <a href="#" class="basic-link basic-link--variant2 tooltip-link">
-                                            Omnis atque <span>Lorem ipsum dolor sit.</span>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="link variant2 small">Mollitia undo</a>
+                                <div class="link-icon-wrapper">
+                                    <svg width="20" height="20" viewBox="0 0 48 42" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.41759 14.3105L13.4989 11.3585L10.6626 6.4126H37.3374L24.0043 29.6833L21.168 24.7288L16.0867 27.6894L24.0043 41.5L47.5 0.5H0.5L8.41759 14.3105Z"
+                                            fill="#1d2d2b" />
+                                    </svg>
+                                    <a href="#" class="basic-link basic-link--variant2 tooltip-link">
+                                        Omnis atque <span>Lorem ipsum dolor sit.</span>
+                                    </a>
                                 </div>
+                                <a href="#" class="link variant2 small">Mollitia undo</a>
+                            </div>
                         </div>
                     </div>
 
@@ -1272,7 +1347,7 @@
                         <p class="small-header">Appsperiores</p>
                         <hr class="hr-header mt-1">
 
-                        <ul class="green-list list"> 
+                        <ul class="green-list list">
                             <li>
                                 <span class="text">
                                     <span class="li-title">Nullam id tempor ex</span>
@@ -1369,9 +1444,10 @@
                     </div>
                 </div>
             </div>
-        </section> 
+        </section>
 
-         <section id="table-info">
+        <!-- TABELA -->
+        <section id="table-info">
 
             <div class="container">
 
@@ -1537,16 +1613,22 @@
 
                 </div>
             </div>
-        </section> 
+        </section>
 
+        <!-- CYTAT -->
         <div class="container" id="quote-section-variant-2">
             <blockquote class="blockquote">
-                W górach musisz wykonać pewien wysiłek bez zapłaty. Jest to mistyka, <b>szukanie czegoś wyjątkowego</b>. Do tego trzeba mieć wyobraźnię i filozofię życiową. Nie każdego na to stać, nie każdemu się chce. Bo w górach nie ma granic, tam się szuka <b>Własnej woli</b>. A samo przebywanie <b>w górach łagodzi</b>, eliminuje agresję. Są elementy rywalizacji ale <b>rywalizacji z wyznaczonym celem</b>, a nie z przeciwnikiem.
+                W górach musisz wykonać pewien wysiłek bez zapłaty. Jest to mistyka, <b>szukanie czegoś wyjątkowego</b>.
+                Do tego trzeba mieć wyobraźnię i filozofię życiową. Nie każdego na to stać, nie każdemu się chce. Bo w
+                górach nie ma granic, tam się szuka <b>Własnej woli</b>. A samo przebywanie <b>w górach łagodzi</b>,
+                eliminuje agresję. Są elementy rywalizacji ale <b>rywalizacji z wyznaczonym celem</b>, a nie z
+                przeciwnikiem.
                 <cite class="quote-author">- Krzysztof Wielicki</cite>
-              </blockquote>
-        </div> 
+            </blockquote>
+        </div>
 
-         <section id="our-mission-information">
+        <!-- INNE INFORMACJE -->
+        <section id="our-mission-information">
             <div class="top">
                 <div class="container">
                     <div class="content">
@@ -1619,7 +1701,7 @@
                     <div class="content">
 
                         <p class="small-header">Table of Contents</p>
-                        <hr class="header-hr"> 
+                        <hr class="header-hr">
                         <ul class="list js-toc-list"></ul>
 
                     </div>
@@ -1841,7 +1923,7 @@
                         facere, laboriosam corporis minus sint. Quia architecto amet ratione nesciunt voluptatibus aut
                         inventore, maiores dolore error porro pariatur officiis suscipit. Molestias autem reiciendis
                         totam eum aut odio quos</p>
-                        
+
 
                     <ul class="list py-1">
                         <li class="text">reprehenderit quam quae tempora debitis, natus voluptas</li>
@@ -1856,14 +1938,16 @@
                         Cumque sequi nihil debitis similique autem totam ipsa itaque? Cum quos ut
                         ratione quae ducimus deserunt dolorum commodi quia reiciendis animi soluta ab
                         placeat, natus, nobis sequi facere laborum temporibus. Quam quisquam optio voluptate,
-                        temporibus corporis illo cupiditate qui iusto Deleniti laborum laboriosam nostrum! Sequi minima labore optio explicabo
+                        temporibus corporis illo cupiditate qui iusto Deleniti laborum laboriosam nostrum! Sequi minima
+                        labore optio explicabo
                         inventore accusantium aliquid fugit consequatur repellat?
-                    </p> 
+                    </p>
                 </div>
             </div>
-        </section> 
+        </section>
 
-         <section id="green-faq">
+        <!-- INFORMACJE / FAQ -->
+        <section id="green-faq">
             <div class="container">
                 <div class="info-left">
                     <div class="content">
@@ -2293,9 +2377,10 @@
                     </div>
                 </div>
             </div>
-        </section> 
+        </section>
 
-         <section id="used-technologies">
+        <!-- TECHNOLOGIE KTÓRYCH UŻYWAMY -->
+        <section id="used-technologies">
             <div class="container">
 
                 <div class="header">
@@ -2320,7 +2405,7 @@
 
                     <div class="technology-content">
                         <div class="short-dsc-header">
-                            
+
                             <svg class="short-dsc-icon" width="35" height="35" viewBox="0 0 49 45" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -2769,7 +2854,7 @@
 
                     <div class="technology-content">
                         <div class="short-dsc-header">
-                            
+
                             <svg class="short-dsc-icon" width="35" height="35" viewBox="0 0 49 49" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -3090,7 +3175,7 @@
 
                     <div class="technology-content">
                         <div class="short-dsc-header">
-                            
+
                             <svg class="short-dsc-icon" width="35" height="35" viewBox="0 0 47 49" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -3550,14 +3635,18 @@
                 </div>
 
                 <div class="big-hr mt-3" aria-hidden="true"></div>
-                <div class="header"> 
+                <div class="header">
                     <p class="sub-header">
                         Aliquid illo vero
                     </p>
                 </div>
                 <p class="text text-intro">
-                    Quidem adipisci quis iusto minima vel optio excepturi. Aliquid illo vero, modi nulla similique a vitae repudiandae enim quod totam temporibus, quas ipsam repellat tenetur et odio quam ad impedit cum deserunt. Amet consectetur adipisicing elit. Fugiat quos, eveniet porro ullam obcaecati est consequuntur unde deleniti illum magni illo. Veniam minus, odio esse quod laboriosam officia dignissimos est rem nesciunt, ad minima.
-                </p> 
+                    Quidem adipisci quis iusto minima vel optio excepturi. Aliquid illo vero, modi nulla similique a
+                    vitae repudiandae enim quod totam temporibus, quas ipsam repellat tenetur et odio quam ad impedit
+                    cum deserunt. Amet consectetur adipisicing elit. Fugiat quos, eveniet porro ullam obcaecati est
+                    consequuntur unde deleniti illum magni illo. Veniam minus, odio esse quod laboriosam officia
+                    dignissimos est rem nesciunt, ad minima.
+                </p>
 
                 <div class="bottom-content">
                     <ul class="used-technologies-list">
@@ -3676,7 +3765,9 @@
                     </ul>
                 </div>
             </div>
-        </section> 
+        </section>
+
+        
     </main>
     <script src="./js/index.js"></script>
 </body>

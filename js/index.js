@@ -1,121 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  const pie = document.querySelectorAll(".pie"); 
+  const elements = [].slice.call(document.querySelectorAll(".pie"));
+  const circle = new CircularProgressBar("pie");
+ 
+
+  if ("IntersectionObserver" in window) {
+    const config = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.75,
+    };
+
+    const ovserver = new IntersectionObserver((entries, observer) => {
+      entries.map((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.75) {
+          circle.initial(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, config);
+
+    elements.map((item) => {
+      ovserver.observe(item);
+    });
+  } else {
+    elements.map((element) => {
+      circle.initial(element);
+    });
+  }
+
   //Scroll spy skrypt
   //linki są dynamicznie generowane na podstawie nagłówków posiadających klase "js-toc-title"
   new TableOfContents("#our-mission-information .js-toc").init();
   // Tabs skrypt
   // linki są dynamicznie generowane na podstawie nagłówków posiadających klase "tab-content-title"
-  //new TabsContent("#modules-and-tools .tabs").init();
+  new TabsContent("#modules-and-tools .tabs").init();
 
   ScrollToTopButton.init("#back-to-top-button");
   // CustomSelect.initAll();
   // CustomRangeSlider.initAll();
-
-  // const slider = CustomSlider.init("#places-slider");
-
-  // setInterval(() => {
-  //   slider.next();
-  // }, 1000);
-
-  
 });
-
-class CustomSlider {
-  constructor(target) {
-    this.index = 1;
-    this.isMoved = true;
-    this.speed = 1000; // ms
-    this.transform = `transform ${this.speed / 1000}s`;
-    this.slider = document.querySelector(target);
-
-    this.initSlider();
-    this.addEventListeners();
-  }
-
-  getTranslateValue(i) {
-    return `translateX(-${100 * i}%)`;
-  }
-
-  initSlider() {
-    const sliderRects = this.slider.getClientRects()[0];
-    this.slider.style.overflow = "hidden";
-    this.container = document.createElement("div");
-    this.container.style.display = "flex";
-    this.container.style.flexDirection = "row";
-    this.container.style.width = `${sliderRects.width}px`;
-    this.container.style.height = `${sliderRects.height}px`;
-    this.container.style.transform = this.getTranslateValue(this.index);
-    this.boxes = Array.from(this.slider.children);
-    this.boxes = [
-      this.boxes[this.boxes.length - 1],
-      ...this.boxes,
-      this.boxes[0],
-    ];
-    this.size = this.boxes.length;
-    this.boxes.forEach((box) => {
-      const clonedBox = box.cloneNode(true);
-      clonedBox.style.flex = "none";
-      clonedBox.style.flexWrap = "wrap";
-      clonedBox.style.height = "100%";
-      clonedBox.style.width = "100%";
-      this.container.appendChild(clonedBox);
-    });
-    this.slider.innerHTML = "";
-    this.slider.appendChild(this.container);
-  }
-
-  addEventListeners() {
-    this.container.addEventListener("transitionstart", () => {
-      this.isMoved = false;
-      setTimeout(() => {
-        this.isMoved = true;
-      }, this.speed);
-    });
-
-    this.container.addEventListener("transitionend", () => {
-      if (this.index === this.size - 1) {
-        this.index = 1;
-        this.container.style.transition = "none";
-        this.container.style.transform = this.getTranslateValue(this.index);
-      }
-
-      if (this.index === 0) {
-        this.index = this.size - 2;
-        this.container.style.transition = "none";
-        this.container.style.transform = this.getTranslateValue(this.index);
-      }
-    });
-  }
-
-  move(i) {
-    if (this.isMoved) {
-      this.index = i;
-      this.container.style.transition = this.transform;
-      this.container.style.transform = this.getTranslateValue(this.index);
-    }
-  }
-
-  next() {
-    if (this.isMoved) {
-      this.index = (this.index + 1) % this.size;
-      this.container.style.transition = this.transform;
-      this.container.style.transform = this.getTranslateValue(this.index);
-    }
-  }
-
-  prev() {
-    if (this.isMoved) {
-      this.index = this.index === 0 ? this.size - 1 : this.index;
-      this.index = (this.index - 1) % this.size;
-      this.container.style.transition = this.transform;
-      this.container.style.transform = this.getTranslateValue(this.index);
-    }
-  }
-
-  static init(target) {
-    return new CustomSlider(target);
-  }
-}
 
 class TableOfContents {
   constructor(selector) {
@@ -462,33 +387,43 @@ class TabsContent {
   init() {
     this.createTabsFromContent();
     this.addEventListeners();
-    this.contentElements[0].style.display = "block";
-    this.contentElements[0].classList.add("tab-active")
   }
 
   showFirstActiveTab() {
-    const hrefFromUrl = window.location.href
-    const currentTabFromUrl = hrefFromUrl.split("#")[1];
+    const hrefFromUrl = window.location.href;
+    const currentHref = hrefFromUrl.split("#")[1];
+
+    if (currentHref) {
+      this.showContent(currentHref);
+    } else {
+      this.showContent(this.links[0]?.href.split("#")[1]);
+    }
+  }
+
+  showContent(contentHref) {
+    history.replaceState(null, null, "#" + contentHref);
+
+    this.contentElements.forEach((content) => {
+      content.classList.remove("tab-active");
+      content.style.display = "none";
+
+      if (contentHref === content.id) {
+        content.style.display = "block";
+
+        setTimeout(() => {
+          content.classList.add("tab-active");
+        }, 0);
+      }
+    });
   }
 
   addEventListeners() {
-    this.links.forEach(link => {
-      link.addEventListener("click", () => {
-        this.contentElements.forEach(content => { 
-          content.classList.remove("tab-active") 
-          content.style.display = "none";
-
-          if (link.href.split('#')[1] === content.id) {
-            
-            content.style.display = "block";
-
-            setTimeout(() => {
-              content.classList.add("tab-active")
-            }, 0)
-          }
-        }); 
-      })
-    })
+    this.links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.showContent(link.href.split("#")[1]);
+      });
+    });
   }
 
   createTabsFromContent() {
@@ -515,6 +450,399 @@ class TabsContent {
       this.links.push(link);
     });
   }
+}
+
+class CircularProgressBar {
+
+  static DEFAULT_OPTIONS = {
+    colorSlice: "#00a1ff",
+    fontColor: "#000",
+    fontSize: "1.6rem",
+    fontWeight: 400,
+    lineargradient: false,
+    number: true,
+    round: false,
+    fill: "none",
+    unit: "%",
+    rotation: -90,
+    size: 200,
+    stroke: 10,
+  };
+
+  constructor(pieName, globalObj = {}) {
+    this._className = pieName;
+    this._globalObj = globalObj;
+
+    const pieElements = document.querySelectorAll(`.${pieName}`);
+    const elements = [].slice.call(pieElements);
+    // add index to all progressbar
+    elements.map((item, idx) => {
+      const id = JSON.parse(item.getAttribute("data-pie"));
+      item.setAttribute(
+        "data-pie-index",
+        id.index || globalObj.index || idx + 1
+      );
+    });
+
+    this._elements = elements;
+  }
+
+  initial(outside) {
+    const triggeredOutside = outside || this._elements;
+    Array.isArray(triggeredOutside)
+      ? triggeredOutside.map((element) => this._createSVG(element))
+      : this._createSVG(triggeredOutside);
+  }
+
+  _progress(svg, target, options) {
+    const pieName = this._className;
+    if (options.number) {
+      this._insertAdElement(svg, this._percent(options, pieName));
+    }
+
+    const progressCircle = this._querySelector(
+      `.${pieName}-circle-${options.index}`
+    );
+
+    const configCircle = {
+      fill: "none",
+      "stroke-width": options.stroke,
+      "stroke-dashoffset": "264",
+      ...this._strokeDasharray(),
+      ...this._strokeLinecap(options),
+    };
+    this._setAttribute(progressCircle, configCircle);
+
+    // animation progress
+    this.animationTo({ ...options, element: progressCircle }, true);
+
+    // set style and rotation
+    progressCircle.setAttribute("style", this._styleTransform(options));
+
+    // set color
+    this._setColor(progressCircle, options);
+
+    // set width and height on div
+    target.setAttribute(
+      "style",
+      `width:${options.size}px;height:${options.size}px;`
+    );
+  }
+
+  animationTo(options, initial = false) {
+    const pieName = this._className;
+    const previousConfigObj = JSON.parse(
+      this._querySelector(`[data-pie-index="${options.index}"]`).getAttribute(
+        "data-pie"
+      )
+    );
+
+    const circleElement = this._querySelector(
+      `.${pieName}-circle-${options.index}`
+    );
+
+    if (!circleElement) return;
+
+    // merging all configuration objects
+    const commonConfiguration = initial
+      ? options
+      : {
+          ...CircularProgressBar.DEFAULT_OPTIONS,
+          ...previousConfigObj,
+          ...options,
+          ...this._globalObj,
+        };
+
+    // update color circle
+    if (!initial) {
+      this._setColor(circleElement, commonConfiguration);
+    }
+
+    // font color update
+    if (!initial && commonConfiguration.number) {
+      const fontconfig = {
+        fill: commonConfiguration.fontColor,
+        ...this._fontSettings(commonConfiguration),
+      };
+      const textElement = this._querySelector(
+        `.${pieName}-text-${commonConfiguration.index}`
+      );
+      this._setAttribute(textElement, fontconfig);
+    }
+
+    const centerNumber = this._querySelector(
+      `.${pieName}-percent-${options.index}`
+    );
+
+    if (commonConfiguration.animationOff) {
+      if (commonConfiguration.number)
+        centerNumber.textContent = `${commonConfiguration.percent}`;
+      circleElement.setAttribute(
+        "stroke-dashoffset",
+        this._dashOffset(
+          commonConfiguration.percent *
+            ((100 - (commonConfiguration.cut || 0)) / 100),
+          commonConfiguration.inverse
+        )
+      );
+      return;
+    }
+
+    // get numer percent from data-angel
+    let angle = JSON.parse(circleElement.getAttribute("data-angel"));
+
+    // round if number is decimal
+    const percent = Math.round(options.percent);
+
+    // if percent 0 then set at start 0%
+    if (percent === 0) {
+      if (commonConfiguration.number) centerNumber.textContent = "0";
+      circleElement.setAttribute("stroke-dashoffset", "264");
+    }
+
+    if (percent > 100 || percent < 0 || angle === percent) return;
+
+    let request;
+    let i = initial ? 0 : angle;
+
+    const fps = commonConfiguration.speed || 1000;
+    const interval = 1000 / fps;
+    const tolerance = 0.1;
+    let then = performance.now();
+
+    const performAnimation = (now) => {
+      request = requestAnimationFrame(performAnimation);
+      const delta = now - then;
+
+      if (delta >= interval - tolerance) {
+        then = now - (delta % interval);
+
+        // angle >= commonConfiguration.percent ? i-- : i++;
+        i = i < commonConfiguration.percent ? i + 1 : i - 1;
+      }
+
+      circleElement.setAttribute(
+        "stroke-dashoffset",
+        this._dashOffset(
+          i,
+          commonConfiguration.inverse,
+          commonConfiguration.cut
+        )
+      );
+      if (centerNumber && commonConfiguration.number) {
+        centerNumber.textContent = `${i}`;
+      }
+
+      circleElement.setAttribute("data-angel", i);
+      circleElement.parentNode.setAttribute("aria-valuenow", i);
+
+      if (i === percent) {
+        cancelAnimationFrame(request);
+      }
+
+      // return;
+    };
+
+    requestAnimationFrame(performAnimation);
+  }
+
+  _createSVG(element) {
+    const index = element.getAttribute("data-pie-index");
+    const json = JSON.parse(element.getAttribute("data-pie"));
+
+    const options = { ...CircularProgressBar.DEFAULT_OPTIONS, ...json, index, ...this._globalObj };
+
+    const svg = this._createNSElement("svg");
+
+    const configSVG = {
+      role: "progressbar",
+      width: options.size,
+      height: options.size,
+      viewBox: "0 0 100 100",
+      "aria-valuemin": "0",
+      "aria-valuemax": "100",
+    };
+
+    this._setAttribute(svg, configSVG);
+
+    // colorCircle
+    if (options.colorCircle) {
+      svg.appendChild(this._circle(options));
+    }
+
+    // gradient
+    if (options.lineargradient) {
+      svg.appendChild(this._gradient(options));
+    }
+
+    svg.appendChild(this._circle(options, "top"));
+
+    element.appendChild(svg);
+
+    this._progress(svg, element, options);
+  }
+
+  _circle(options, where = "bottom") {
+    const circle = this._createNSElement("circle");
+
+    let configCircle = {};
+    if (options.cut) {
+      const dashoffset = 264 - (100 - options.cut) * 2.64;
+      configCircle = {
+        "stroke-dashoffset": options.inverse ? -dashoffset : dashoffset,
+        style: this._styleTransform(options),
+        ...this._strokeDasharray(),
+        ...this._strokeLinecap(options),
+      };
+    }
+
+    const objCircle = {
+      fill: options.fill,
+      stroke: options.colorCircle,
+      "stroke-width": options.strokeBottom || options.stroke,
+      ...configCircle,
+    };
+
+    if (options.strokeDasharray) {
+      Object.assign(objCircle, {
+        ...this._strokeDasharray(options.strokeDasharray),
+      });
+    }
+
+    const typeCircle =
+      where === "top"
+        ? { class: `${this._className}-circle-${options.index}` }
+        : objCircle;
+
+    const objConfig = {
+      cx: "50%",
+      cy: "50%",
+      r: 42,
+      "shape-rendering": "geometricPrecision",
+      ...typeCircle,
+    };
+
+    this._setAttribute(circle, objConfig);
+
+    return circle;
+  }
+
+  _styleTransform = ({ rotation, animationSmooth }) => {
+    const smoothAnimation = animationSmooth
+      ? `transition: stroke-dashoffset ${animationSmooth}`
+      : "";
+
+    return `transform:rotate(${rotation}deg);transform-origin: 50% 50%;${smoothAnimation}`;
+  };
+  _strokeDasharray = (type) => {
+    return {
+      "stroke-dasharray": type || "264",
+    };
+  };
+  _strokeLinecap = ({ round }) => {
+    return {
+      "stroke-linecap": round ? "round" : "",
+    };
+  };
+  _fontSettings = (options) => {
+    return {
+      "font-size": options.fontSize,
+      "font-weight": options.fontWeight,
+    };
+  };
+  _querySelector = (element) => document.querySelector(element);
+
+  _setColor = (element, { lineargradient, index, colorSlice }) => {
+    element.setAttribute(
+      "stroke",
+      lineargradient ? `url(#linear-${index})` : colorSlice
+    );
+  };
+
+  _setAttribute = (element, object) => {
+    for (const key in object) {
+      element?.setAttribute(key, object[key]);
+    }
+  };
+
+  _createNSElement = (type) =>
+    document.createElementNS("http://www.w3.org/2000/svg", type);
+
+  _tspan = (className, unit) => {
+    const element = this._createNSElement("tspan");
+
+    element.classList.add(className);
+    if (unit) element.textContent = unit;
+    return element;
+  };
+
+  _dashOffset = (count, inverse, cut) => {
+    const cutChar = cut ? (264 / 100) * (100 - cut) : 264;
+    const angle = 264 - (count / 100) * cutChar;
+
+    return inverse ? -angle : angle;
+  };
+
+  _insertAdElement = (element, el, type = "beforeend") =>
+    element.insertAdjacentElement(type, el);
+
+  _gradient = ({ index, lineargradient }) => {
+    const defsElement = this._createNSElement("defs");
+    const linearGradient = this._createNSElement("linearGradient");
+    linearGradient.id = `linear-${index}`;
+
+    const countGradient = [].slice.call(lineargradient);
+
+    defsElement.appendChild(linearGradient);
+
+    let number = 0;
+    countGradient.map((item) => {
+      const stopElements = this._createNSElement("stop");
+
+      const stopObj = {
+        offset: `${number}%`,
+        "stop-color": `${item}`,
+      };
+      this._setAttribute(stopElements, stopObj);
+
+      linearGradient.appendChild(stopElements);
+      number += 100 / (countGradient.length - 1);
+    });
+
+    return defsElement;
+  };
+
+  _percent = (options, className) => {
+    const creatTextElementSVG = this._createNSElement("text");
+
+    creatTextElementSVG.classList.add(`${className}-text-${options.index}`);
+
+    // create tspan element with number
+    // and insert to svg text element
+    this._insertAdElement(
+      creatTextElementSVG,
+      this._tspan(`${className}-percent-${options.index}`)
+    );
+
+    // create and insert unit to text element
+    this._insertAdElement(
+      creatTextElementSVG,
+      this._tspan(`${className}-unit-${options.index}`, options.unit)
+    );
+
+    // config to svg text
+    const obj = {
+      x: "50%",
+      y: "50%",
+      fill: options.fontColor,
+      "text-anchor": "middle",
+      dy: options.textPosition || "0.35em",
+      ...this._fontSettings(options),
+    };
+
+    this._setAttribute(creatTextElementSVG, obj);
+    return creatTextElementSVG;
+  };
 }
 
 // pomoc

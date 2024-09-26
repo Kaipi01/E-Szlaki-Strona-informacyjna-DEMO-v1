@@ -1,0 +1,22 @@
+.circular-progress-bar { 
+ 
+    svg {
+        text { 
+            font-size: 1rem;
+            fill: var(--font-color); 
+        }
+
+        circle {
+            stroke-width: 15; 
+        }
+    }    
+ 
+//   .progress-wrapper {
+//     justify-content: space-between;
+//     max-width: 350px;
+//     margin: auto;
+//     padding: 20px;
+//     text-transform: uppercase;
+//   }         
+} 
+ 

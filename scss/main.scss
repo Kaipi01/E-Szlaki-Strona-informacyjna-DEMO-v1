@@ -8,10 +8,11 @@
 @use "./components/modern-card";
 @use "./components/custom-select";
 @use "./components/custom-range";
-@use "./components/custom-checkbox";
+@use "./components/custom-checkbox"; 
 @use "./components/sr-only";
 @use "./components/scroll-to-top";
- 
+@use "./components/circular-progress-bar";
+  
 @use "./sections/green-faq";
 @use "./sections/our-mission-information";
 @use "./sections/collection-list";
@@ -19,14 +20,15 @@
 @use "./sections/quick-access";
 @use "./sections/how-it-works";
 @use "./sections/timeline-module";  
-// @use "./sections/modules-and-tools";    
-@use "./sections/table-info";   
-// @use "./sections/random-trail-info"; 
-// @use "./sections/categories";
-// @use "./sections/places-module"; 
-@use "./sections/places-close-to-you";
+@use "./sections/table-info";    
 @use "./sections/quote-section"; 
 @use "./sections/quote-section-variant-2";
+
+@use "./sections/modules-and-tools";   
+@use "./sections/random-trail-info"; 
+@use "./sections/categories";
+@use "./sections/places-module"; 
+@use "./sections/places-close-to-you";
 
 
 

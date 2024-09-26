@@ -3,15 +3,15 @@
 
   .tabs-navigation { 
     width: 100%;
-
+ 
     &-list { 
       display: flex; 
       justify-content: space-between;
       width: 100%;
-      list-style: none;
+      list-style: none; 
 
-      li {
-        flex: 1; 
+      li { 
+        flex: 1;  
       }
  
       .tab-link {
@@ -32,10 +32,10 @@
   }
 
   .tab-content {
+    display: none;
     transition: 0.3s;
-    opacity: 0;  
 
-    &.tab-active {
+    &.tab-active { 
       opacity: 1;  
     } 
   }

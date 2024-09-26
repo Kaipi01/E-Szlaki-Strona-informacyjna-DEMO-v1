@@ -40,8 +40,7 @@
     border-bottom: solid 12px var(--dark-green);
     border-left: solid 12px transparent;
     border-radius: 20px;
-    line-height: 0;
-    vertical-align: middle;
+    line-height: 0; 
   }
   &::after,
   &::before {
@@ -54,15 +53,20 @@
   }
   &.show {
     display: block;
-    visibility: visible;
-    right: 25px;
-    bottom: 50px;
+    visibility: visible; 
+    right: 15px;
+    bottom: 15px;
     width: 50px;
     height: 50px;
     background: #fff;
     -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);  
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+
+    @media (min-width: 50em) {
+      right: 25px;
+      bottom: 50px;
+    }
   }
   &.show:active {
     -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);

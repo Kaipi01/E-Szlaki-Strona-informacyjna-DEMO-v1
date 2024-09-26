@@ -48,6 +48,11 @@
     .panel {
       @extend %modern-card;
       min-height: 10rem;
+      background: linear-gradient(
+        to top,
+        var(--background-gray),
+        var(--background)
+      );
     }
 
     .content-right {
@@ -123,7 +128,7 @@
           transform: translate(
             -50%,
             calc(-50% - (var(--trail-short-info-margin) / 2))
-          );
+          ); 
           transition: 0.4s;
           opacity: 0;
           font-size: 2rem;

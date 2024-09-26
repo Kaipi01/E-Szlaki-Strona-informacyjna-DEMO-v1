@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     padding: 4rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 4px; 
     text-align: center;
   }
 
@@ -26,12 +26,13 @@
     position: relative;
     z-index: 2;
     max-width: 40ch;
+    padding-inline: 0.8rem;
     color: var(--font-color);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     line-height: 1.5;
 
-    @media (min-width: toRem(1200)) {
+    @media (min-width: 62.5em) {
       font-size: 3rem;
     }
   }
@@ -52,11 +53,11 @@
 
   .icon-left {
     top: 0;
-    left: -1rem;
+    left: -1.95rem;
   }
 
   .icon-right {
-    right: -1rem;
+    right: -1.95rem;
     bottom: 0;
   }
 
