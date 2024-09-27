@@ -2,7 +2,8 @@
   margin: 5rem 0;
 
   .tabs-navigation { 
-    width: 100%;
+    --navigation-border-radius: 20px;
+    width: 100%; 
  
     &-list { 
       display: flex; 
@@ -12,16 +13,39 @@
 
       li { 
         flex: 1;  
+
+        &:first-child {
+          .tab-link {
+            border-top-left-radius: var(--navigation-border-radius);
+          }
+        }
+        &:last-child {
+          .tab-link {
+            border-top-right-radius: var(--navigation-border-radius);
+          }
+        } 
       }
- 
+  
       .tab-link {
         display: block;
         width: 100%;
         padding: 1rem 2rem;
-        border: 1px solid #000;
+        transition: 0.3s;
+        background-color: green;
+        color: #fff; 
         text-align: center;
+
+        &-active {
+          background-color: transparent;
+          color: var(--font-color);
+        }
       }
     } 
+  } 
+
+  .main-content {
+    position: relative; 
+    min-height: 50rem;
   }
 
   .tabs { 
@@ -32,8 +56,8 @@
   }
 
   .tab-content {
-    display: none;
-    transition: 0.3s;
+    transition: 0.3s; 
+    opacity: 0;
 
     &.tab-active { 
       opacity: 1;  

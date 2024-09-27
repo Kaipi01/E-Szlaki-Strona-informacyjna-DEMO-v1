@@ -12,6 +12,7 @@
 @use "./components/sr-only";
 @use "./components/scroll-to-top";
 @use "./components/circular-progress-bar";
+@use "./components/top-left-badge"; 
   
 @use "./sections/green-faq";
 @use "./sections/our-mission-information";
@@ -35,11 +36,11 @@
 
 #toggle-theme-btn {
   position: fixed;
-  right: 2rem;
+  z-index: 999;
   top: 2rem;
-  z-index: 999;  
+  right: 2rem;
+  padding: 10px;  
   background-color: #FFF;
-  padding: 10px;
 
   .toggle {
     display: flex;

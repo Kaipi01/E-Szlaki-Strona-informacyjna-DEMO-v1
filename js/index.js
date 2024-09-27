@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-  const pie = document.querySelectorAll(".pie"); 
+  const pie = document.querySelectorAll(".pie");
   const elements = [].slice.call(document.querySelectorAll(".pie"));
   const circle = new CircularProgressBar("pie");
- 
 
   if ("IntersectionObserver" in window) {
     const config = {
@@ -38,8 +36,58 @@ document.addEventListener("DOMContentLoaded", function () {
   new TabsContent("#modules-and-tools .tabs").init();
 
   ScrollToTopButton.init("#back-to-top-button");
-  // CustomSelect.initAll();
-  // CustomRangeSlider.initAll();
+  CustomSelect.initAll();
+  CustomRangeSlider.initAll();
+
+  // document
+  //   .querySelectorAll(".card-3d-effect")
+  //   .forEach((card) => new Card3DEffect(card));
+
+  const $card = document.querySelector(".card-3d-effect");
+  let bounds;
+
+  function rotateToMouse(e) {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const leftX = mouseX - bounds.x;
+    const topY = mouseY - bounds.y;
+    const center = {
+      x: leftX - bounds.width / 2,
+      y: topY - bounds.height / 2,
+    };
+    const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+
+    $card.style.transform = `
+    scale3d(1.07, 1.07, 1.07)
+    rotate3d(
+      ${center.y / 100},
+      ${-center.x / 100},
+      0,
+      ${Math.log(distance) * 2}deg
+    )
+  `;
+
+    $card.querySelector(".glow").style.backgroundImage = `
+    radial-gradient(
+      circle at
+      ${center.x * 2 + bounds.width / 2}px
+      ${center.y * 2 + bounds.height / 2}px,
+      #ffffff55,
+      #0000000f
+    )
+  `;
+  }
+
+  $card.addEventListener("mouseenter", () => {
+    bounds = $card.getBoundingClientRect();
+    document.addEventListener("mousemove", rotateToMouse);
+  });
+
+  $card.addEventListener("mouseleave", () => {
+    document.removeEventListener("mousemove", rotateToMouse);
+    $card.style.transform = "";
+    $card.style.background = "";
+  });
 });
 
 class TableOfContents {
@@ -387,6 +435,7 @@ class TabsContent {
   init() {
     this.createTabsFromContent();
     this.addEventListeners();
+    this.showFirstActiveTab();
   }
 
   showFirstActiveTab() {
@@ -394,26 +443,49 @@ class TabsContent {
     const currentHref = hrefFromUrl.split("#")[1];
 
     if (currentHref) {
-      this.showContent(currentHref);
+      this.toggleContent(currentHref);
     } else {
-      this.showContent(this.links[0]?.href.split("#")[1]);
+      this.toggleContent(this.links[0]?.href.split("#")[1], false);
     }
   }
 
-  showContent(contentHref) {
-    history.replaceState(null, null, "#" + contentHref);
+  hideContent(content) {
+    content.classList.remove("tab-active");
+    content.style.position = "absolute";
+    content.style.left = "0";
+    content.style.top = "0";
+
+    setTimeout(() => {
+      content.style.display = "none";
+      content.style.position = "static";
+      content.style.left = "auto";
+      content.style.top = "auto";
+    }, 300);
+  }
+  showContent(content) {
+    content.style.display = "block";
+
+    setTimeout(() => {
+      content.classList.add("tab-active");
+    }, 0);
+  }
+
+  toggleContent(contentHref, isHistoryStateMustReplace = true) {
+    if (isHistoryStateMustReplace) {
+      history.replaceState(null, null, "#" + contentHref);
+    }
+
+    this.links.forEach((link) => link.classList.remove("tab-link-active"));
+
+    const activeTabLink = this.container.querySelector(
+      `.tab-link[href="#${contentHref}"]`
+    );
+    activeTabLink.classList.add("tab-link-active");
 
     this.contentElements.forEach((content) => {
-      content.classList.remove("tab-active");
-      content.style.display = "none";
-
-      if (contentHref === content.id) {
-        content.style.display = "block";
-
-        setTimeout(() => {
-          content.classList.add("tab-active");
-        }, 0);
-      }
+      contentHref === content.id
+        ? this.showContent(content)
+        : this.hideContent(content);
     });
   }
 
@@ -421,7 +493,7 @@ class TabsContent {
     this.links.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        this.showContent(link.href.split("#")[1]);
+        this.toggleContent(link.href.split("#")[1]);
       });
     });
   }
@@ -453,7 +525,6 @@ class TabsContent {
 }
 
 class CircularProgressBar {
-
   static DEFAULT_OPTIONS = {
     colorSlice: "#00a1ff",
     fontColor: "#000",
@@ -650,7 +721,12 @@ class CircularProgressBar {
     const index = element.getAttribute("data-pie-index");
     const json = JSON.parse(element.getAttribute("data-pie"));
 
-    const options = { ...CircularProgressBar.DEFAULT_OPTIONS, ...json, index, ...this._globalObj };
+    const options = {
+      ...CircularProgressBar.DEFAULT_OPTIONS,
+      ...json,
+      index,
+      ...this._globalObj,
+    };
 
     const svg = this._createNSElement("svg");
 
@@ -845,6 +921,72 @@ class CircularProgressBar {
   };
 }
 
+class Card3DEffect {
+  constructor(htmlElement) {
+    this.card = htmlElement;
+    this.bounds = null;
+
+    // Bind methods to ensure 'this' refers to the class instance
+    this.rotateToMouse = this.rotateToMouse.bind(this);
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+
+    this.init();
+  }
+
+  // Inicjalizacja event listenerów
+  init() {
+    this.card.addEventListener("mouseenter", this.onMouseEnter);
+    this.card.addEventListener("mouseleave", this.onMouseLeave);
+  }
+
+  // Funkcja odpowiadająca za rotację względem pozycji myszy
+  rotateToMouse(e) {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const leftX = mouseX - this.bounds.x;
+    const topY = mouseY - this.bounds.y;
+    const center = {
+      x: leftX - this.bounds.width / 2,
+      y: topY - this.bounds.height / 2,
+    };
+    const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+
+    // Ustawienie transformacji i efektu świetlnego
+    this.card.style.transform = `
+      scale3d(1.07, 1.07, 1.07)
+      rotate3d(
+        ${center.y / 100},
+        ${-center.x / 100},
+        0,
+        ${Math.log(distance) * 2}deg
+      )
+    `;
+
+    this.card.querySelector(".glow").style.backgroundImage = `
+      radial-gradient(
+        circle at
+        ${center.x * 2 + this.bounds.width / 2}px
+        ${center.y * 2 + this.bounds.height / 2}px,
+        #ffffff55,
+        #0000000f
+      )
+    `;
+  }
+
+  // Funkcja uruchamiana przy wejściu kursora na kartę
+  onMouseEnter() {
+    this.bounds = this.card.getBoundingClientRect();
+    document.addEventListener("mousemove", this.rotateToMouse);
+  }
+
+  // Funkcja uruchamiana przy opuszczeniu kursora z karty
+  onMouseLeave() {
+    document.removeEventListener("mousemove", this.rotateToMouse);
+    this.card.style.transform = ""; // Resetowanie transformacji
+    this.card.querySelector(".glow").style.backgroundImage = ""; // Resetowanie tła
+  }
+}
 // pomoc
 
 function slugify(string = "", separator = "-") {

@@ -1,0 +1,12 @@
+.top-left-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75rem 1.5rem;
+  border-top-left-radius: inherit;
+  border-bottom-right-radius: 10px;
+  background-color: var(--dark-gray-opacity);
+  color: #fff; 
+  font-weight: bold;
+}
+ 

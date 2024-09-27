@@ -58,6 +58,7 @@
     .content-right {
       .trail-preview-panel,
       .trail-map-link {
+        position: relative;
         min-height: 20rem !important;
         background-color: lightgreen;
 
@@ -128,7 +129,7 @@
           transform: translate(
             -50%,
             calc(-50% - (var(--trail-short-info-margin) / 2))
-          ); 
+          );
           transition: 0.4s;
           opacity: 0;
           font-size: 2rem;
