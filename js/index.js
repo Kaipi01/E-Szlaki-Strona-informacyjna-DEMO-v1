@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inicjacja wszystkich animowantych poziomych progress barów
   // animacja odpala się gdy użytkownik scrolluje do sekcji z 
   // progress barem (użycie Intersection Observer API)
-  new AnimatedProgressBars(".animated-progress-per", 1000);
-
-  new InteractiveTimeline(".date", ".controls", ".dates-wrap");
+  new AnimatedProgressBars(".animated-progress-per", 1000); 
 
   new ContentScreens(
     "main-menu",
@@ -122,71 +120,7 @@ class ContentScreens {
     });
   }
 }
-
-class InteractiveTimeline {
-  constructor(dateSelector, controlsSelector, datesWrapSelector) {
-    this.dateElements = document.querySelectorAll(dateSelector);
-    this.dateWidth =
-      this.dateElements.length > 0 ? this.dateElements[0].offsetWidth : 0;
-    this.activeDate = 0;
-    this.noDates = this.dateElements.length;
-    this.datesWrap = document.querySelector(datesWrapSelector);
-    this.controlElements = document.querySelectorAll(controlsSelector);
-
-    this.init();
-  }
-
-  init() {
-    this.bindDateClick();
-    this.bindControlClick();
-  }
-
-  changeDate(index) {
-    if (index < 0) {
-      this.activeDate = 0;
-      return;
-    }
-
-    if (index > this.noDates - 1) {
-      this.activeDate = this.noDates - 1;
-      return;
-    }
-
-    this.dateElements.forEach((date) =>
-      date.classList.remove("active", "sibling")
-    );
-
-    this.dateElements[index].classList.add("active");
-
-    if (this.dateElements[index].previousElementSibling) {
-      this.dateElements[index].previousElementSibling.classList.add("sibling");
-    }
-
-    this.datesWrap.style.transform = `translateX(${-this.dateWidth * index}px)`;
-  }
-
-  bindDateClick() {
-    this.dateElements.forEach((date, index) => {
-      date.addEventListener("click", () => {
-        if (index === this.activeDate) return;
-
-        this.activeDate = index;
-        this.changeDate(this.activeDate);
-      });
-    });
-  }
-
-  bindControlClick() {
-    this.controlElements.forEach((control) => {
-      control.addEventListener("click", () => {
-        const direction = parseInt(control.getAttribute("data-direction"), 10);
-        this.activeDate += direction;
-        this.changeDate(this.activeDate);
-      });
-    });
-  }
-}
-
+ 
 class AnimatedProgressBars {
   constructor(selector, duration = 1000) {
     this.elements = document.querySelectorAll(selector);

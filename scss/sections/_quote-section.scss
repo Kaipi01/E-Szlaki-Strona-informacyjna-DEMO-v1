@@ -1,5 +1,5 @@
 #quote-section {
-  padding: 5rem 0;
+  padding: 10rem 0;
   animation: quote-gradient 15s ease infinite;
   background: linear-gradient(
     -45deg,
@@ -10,7 +10,7 @@
   );
   background-size: 400% 400%;
 
-  .wrapper { 
+  .wrapper {
     margin: auto;
     padding-inline: 2rem;
     border-radius: 20px;

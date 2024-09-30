@@ -1,6 +1,10 @@
 #modules-and-tools {
   margin: 5rem 0;
 
+  .text {
+    font-size: 1rem;
+  }
+
   .tabs-navigation { 
     --navigation-border-radius: 20px;
     width: 100%; 
@@ -56,6 +60,7 @@
   }
 
   .tab-content {
+    padding-top: 4rem;
     transition: 0.3s; 
     opacity: 0;
 

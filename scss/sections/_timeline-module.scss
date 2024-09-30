@@ -47,7 +47,7 @@
     align-items: flex-start;
 
     .timeline-content,
-    .timeline-date {
+    .timeline-title {
       flex: 1;
       padding: 1rem 1.5rem;
 
@@ -58,7 +58,7 @@
     }
 
     &:nth-child(odd) {
-      & > .timeline-date:first-child {
+      & > .timeline-title:first-child {
         position: relative;
         text-align: right;
 
@@ -86,13 +86,13 @@
         text-align: left !important;
       }
 
-      .timeline-date-text {
+      .timeline-title-text {
         margin-right: 0;
       }
     }
 
     &:nth-child(even) {
-      & > .timeline-date:first-child {
+      & > .timeline-title:first-child {
         position: relative;
         order: 2;
         text-align: left;
@@ -108,7 +108,7 @@
         text-align: right;
       }
 
-      .timeline-date-text {
+      .timeline-title-text {
         margin-left: 0;
       }
 
@@ -117,7 +117,7 @@
       }
     }
 
-    & > .timeline-date:first-child::after {
+    & > .timeline-title:first-child::after {
       content: "";
       position: absolute;
       top: 50%;
@@ -130,12 +130,12 @@
     }
 
     &:hover {
-      & > .timeline-date:first-child::after {
+      & > .timeline-title:first-child::after {
         animation: shadow-dot-pulse 1s ease-in-out infinite;
       }
     }
 
-    .timeline-date-text {
+    .timeline-title-text {
       max-width: max-content;
       margin: auto;
       padding: 0.75rem 2rem;
@@ -166,7 +166,7 @@
       flex-direction: column;
       border-left: var(--timeline-strap-width) solid #e0e0e0;
 
-      & > .timeline-date,
+      & > .timeline-title,
       & > .timeline-content {
         order: unset !important;
         border-width: 0 !important;

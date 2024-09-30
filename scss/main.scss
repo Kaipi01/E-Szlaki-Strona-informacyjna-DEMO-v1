@@ -12,7 +12,7 @@
 @use "./components/sr-only";
 @use "./components/scroll-to-top";
 @use "./components/circular-progress-bar";
-@use "./components/top-left-badge"; 
+@use "./components/top-badge"; 
 @use "./components/animated-progress"; 
   
 @use "./sections/green-faq";
@@ -24,8 +24,7 @@
 @use "./sections/timeline-module";  
 @use "./sections/table-info";    
 @use "./sections/quote-section";  
-@use "./sections/quote-section-variant-2";
-@use "./sections/interactive-timeline";
+@use "./sections/quote-section-variant-2"; 
 @use "./sections/modules-and-tools";   
 @use "./sections/random-trail-info"; 
 @use "./sections/categories";

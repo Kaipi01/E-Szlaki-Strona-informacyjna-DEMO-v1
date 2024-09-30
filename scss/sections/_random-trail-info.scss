@@ -15,11 +15,8 @@
   );
 
   .header {
-    .big-header {
-    }
     .text {
       max-width: 60rem;
-      margin-bottom: 2rem;
       font-size: 1rem;
     }
   }
@@ -27,8 +24,8 @@
   .main-content {
     display: grid;
     grid-template-columns: 1fr;
-    width: 100%;
-    gap: var(--grid-gap-small);
+    width: 100%; 
+    gap: var(--grid-gap-small); 
 
     @media (min-width: 75em) {
       grid-template-columns: repeat(2, 1fr);
@@ -44,7 +41,7 @@
       grid-template-columns: 30rem 1fr;
       align-items: stretch;
       gap: var(--grid-gap-large);
-    }  
+    }
 
     .panel {
       @extend %modern-card;
@@ -87,7 +84,7 @@
 
       .trail-map-link {
         display: block;
-        position: relative;
+        position: relative;  
         width: 100%;
         overflow: hidden;
         background-image: url("../images/example-map.png");
@@ -151,7 +148,7 @@
       gap: var(--grid-gap-small);
 
       @media (min-width: 50em) {
-        gap: var(--grid-gap-medium);  
+        gap: var(--grid-gap-medium);
       }
 
       @media (min-width: 75em) {

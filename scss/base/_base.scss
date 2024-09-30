@@ -24,7 +24,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
+} 
  
 .container {
   position: relative;
@@ -46,6 +46,14 @@ a {
 
   @media (min-width: 103.125em) {
     max-width: 87.5em;
+  }
+}
+
+.basic-list {
+  list-style: initial;
+
+  li {
+    padding-bottom: 0.75rem;
   }
 }
 
@@ -219,4 +227,39 @@ a {
 }
 .py-4 {
   padding-block: 4rem !important;
+}
+.py-5 {
+  padding-block: 5rem !important;
+}
+
+.ps-1 {
+  padding-inline-start: 1rem !important;
+}
+.ps-2 {
+  padding-inline-start: 2rem !important;
+}
+.ps-3 {
+  padding-inline-start: 3rem !important;
+}
+.ps-4 {
+  padding-inline-start: 4rem !important;
+}
+.ps-5 {
+  padding-inline-start: 5rem !important;
+}
+
+.pe-1 {
+  padding-inline-end: 1rem !important;
+}
+.pe-2 {
+  padding-inline-end: 2rem !important;
+}
+.pe-3 {
+  padding-inline-end: 3rem !important;
+}
+.pe-4 {
+  padding-inline-end: 4rem !important;
+}
+.pe-5 {
+  padding-inline-end: 5rem !important;
 }
