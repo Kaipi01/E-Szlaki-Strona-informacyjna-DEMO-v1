@@ -43,13 +43,19 @@
   .sort-and-filter-box {
     @extend %modern-card;
     display: flex;
-    align-items: center;
+    align-items: center;  
     justify-content: space-between;
-    width: 100%;
+    width: 100%;  
     margin-top: 3rem;
-    background: var(--dark-gray);
-    background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
+    padding: 4rem 2rem;
   } 
+
+  .checkboxes-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
  
   .places-list { 
     display: grid; 
@@ -110,15 +116,15 @@
         }
       }
     }
-
+ 
     .place-card-content {
       padding: var(--card-padding-inline);
       padding-bottom: 1rem;
 
       .small-header {
         font-size: 1.2rem;
-      }
-      .sub-header {
+      } 
+      .sub-header { 
         margin-bottom: 1rem;
         padding-block: 0.5rem;
         font-size: 0.9rem;

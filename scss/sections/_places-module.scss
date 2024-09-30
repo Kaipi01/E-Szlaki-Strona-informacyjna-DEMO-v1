@@ -1,38 +1,49 @@
-@use '../components/modern-card';
+@use "../components/modern-card";
 
 #places-module {
+  --place-img-height: 16rem;
   padding: 6rem 0;
 
   .header {
     .text {
       font-size: 1rem;
     }
-  }  
+  }
 
   .big-hr {
     margin-bottom: 3rem;
   }
 
-  .places-list { 
+  .places-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     list-style: none;
-    gap: 1.5rem; 
+    gap: 1.5rem;
 
     .place-item {
       @extend %modern-card;
-      padding: 0; 
+      padding: 0;
     }
- 
-    .place-img {  
+
+    .place-img {
       width: 100%;
-      height: 15rem; 
+      height: var(--place-img-height);
       object-fit: cover;
       border-radius: inherit;
     }
 
     .place-highlighted {
       grid-column: span 2;
+    } 
+  }
+ 
+  #places-slider {
+    display: block;
+    height: var(--place-img-height);
+    border-radius: inherit;
+
+    & > div { 
+      height: var(--place-img-height);
     }
   }
 }

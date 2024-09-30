@@ -1,0 +1,52 @@
+.animated-progress {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+
+  &-name {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }  
+  
+  &-bar {
+    height: 20px;
+    border-radius: 8px;
+    background: #cacaca;
+  }
+
+  &-per {
+    position: relative;
+    width: 0;
+    height: 20px;
+    transition: 1s linear;
+    border-radius: 8px;
+    background-color: mediumseagreen;
+
+    &::before {
+      content: attr(per);
+      position: absolute;
+      top: -35px;
+      right: 0;
+      padding: 4px 6px;
+      transform: translateX(50%);
+      border-radius: 4px;
+      background-color: #000;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -16px;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      transform: translateX(50%) rotate(45deg);
+      border-radius: 2px;
+      background-color: #000;
+    }
+  }
+}

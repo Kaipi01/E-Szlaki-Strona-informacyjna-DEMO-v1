@@ -40,10 +40,11 @@
     }
 
     @media (min-width: 87.5em) {
+      grid-auto-flow: row dense;
       grid-template-columns: 30rem 1fr;
       align-items: stretch;
       gap: var(--grid-gap-large);
-    }
+    }  
 
     .panel {
       @extend %modern-card;
@@ -146,8 +147,24 @@
     }
 
     .content-left {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      gap: var(--grid-gap-small);
+
+      @media (min-width: 50em) {
+        gap: var(--grid-gap-medium);  
+      }
+
+      @media (min-width: 75em) {
+        gap: var(--grid-gap-large);
+      }
+    }
+
+    .content-bottom {
+      display: grid;
+      position: relative;
+      z-index: 2;
+      order: 3;
+
       gap: var(--grid-gap-small);
 
       @media (min-width: 50em) {
@@ -155,6 +172,7 @@
       }
 
       @media (min-width: 75em) {
+        grid-column: span 2;
         gap: var(--grid-gap-large);
       }
     }

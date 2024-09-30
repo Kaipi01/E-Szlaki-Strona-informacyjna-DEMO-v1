@@ -1,94 +1,348 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const pie = document.querySelectorAll(".pie");
-  const elements = [].slice.call(document.querySelectorAll(".pie"));
-  const circle = new CircularProgressBar("pie");
+  const themeTogglerBtn = document.querySelector("#toggle-theme-btn input");
 
-  if ("IntersectionObserver" in window) {
-    const config = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.75,
-    };
-
-    const ovserver = new IntersectionObserver((entries, observer) => {
-      entries.map((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.75) {
-          circle.initial(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, config);
-
-    elements.map((item) => {
-      ovserver.observe(item);
-    });
-  } else {
-    elements.map((element) => {
-      circle.initial(element);
-    });
-  }
+  themeTogglerBtn.addEventListener("change", toggleTheme);
 
   //Scroll spy skrypt
   //linki są dynamicznie generowane na podstawie nagłówków posiadających klase "js-toc-title"
   new TableOfContents("#our-mission-information .js-toc").init();
+
   // Tabs skrypt
   // linki są dynamicznie generowane na podstawie nagłówków posiadających klase "tab-content-title"
   new TabsContent("#modules-and-tools .tabs").init();
+
+  // Inicjacja wszystkich animowantych poziomych progress barów
+  // animacja odpala się gdy użytkownik scrolluje do sekcji z 
+  // progress barem (użycie Intersection Observer API)
+  new AnimatedProgressBars(".animated-progress-per", 1000);
+
+  new InteractiveTimeline(".date", ".controls", ".dates-wrap");
+
+  new ContentScreens(
+    "main-menu",
+    "section-home",
+    ".link-page",
+    ".link-home",
+    "profile-pic1",
+    "profile-pic2"
+  );
 
   ScrollToTopButton.init("#back-to-top-button");
   CustomSelect.initAll();
   CustomRangeSlider.initAll();
 
-  // document
-  //   .querySelectorAll(".card-3d-effect")
-  //   .forEach((card) => new Card3DEffect(card));
+  // Inicjacja wszystkich animowantych kołowych progress barów z klasą "circular-progress-bar"
+  // animacja odpala się gdy użytkownik scrolluje do sekcji z 
+  // progress barem (użycie Intersection Observer API)
+  CircularProgressBar.initAll();
 
-  const $card = document.querySelector(".card-3d-effect");
-  let bounds;
+  const slider = CustomSlider.init("#places-slider");
+  const sliderPrevBtn = document.querySelector(
+    "#places-slider-navigation .prev-btn"
+  );
+  const sliderNextBtn = document.querySelector(
+    "#places-slider-navigation .next-btn"
+  );
 
-  function rotateToMouse(e) {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const leftX = mouseX - bounds.x;
-    const topY = mouseY - bounds.y;
-    const center = {
-      x: leftX - bounds.width / 2,
-      y: topY - bounds.height / 2,
-    };
-    const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+  sliderPrevBtn.addEventListener("click", () => slider.prev());
+  sliderNextBtn.addEventListener("click", () => slider.next());
+});
 
-    $card.style.transform = `
-    scale3d(1.07, 1.07, 1.07)
-    rotate3d(
-      ${center.y / 100},
-      ${-center.x / 100},
-      0,
-      ${Math.log(distance) * 2}deg
-    )
-  `;
-
-    $card.querySelector(".glow").style.backgroundImage = `
-    radial-gradient(
-      circle at
-      ${center.x * 2 + bounds.width / 2}px
-      ${center.y * 2 + bounds.height / 2}px,
-      #ffffff55,
-      #0000000f
-    )
-  `;
+class ContentScreens {
+  constructor(
+    menuSelector,
+    homeSelector,
+    pageLinksSelector,
+    homeLinkSelector,
+    profilePic1Selector,
+    profilePic2Selector
+  ) {
+    this.menu = document.getElementById(menuSelector);
+    this.homeSection = document.getElementById(homeSelector);
+    this.pageLinks = document.querySelectorAll(pageLinksSelector);
+    this.homeLink = document.querySelector(homeLinkSelector);
+    this.profilePic1 = document.getElementById(profilePic1Selector);
+    this.profilePic2 = document.getElementById(profilePic2Selector);
+    this.activeDate = 0;
+    this.homeFlag = 0;
+    this.linkPage = "";
+    this.init();
   }
 
-  $card.addEventListener("mouseenter", () => {
-    bounds = $card.getBoundingClientRect();
-    document.addEventListener("mousemove", rotateToMouse);
-  });
+  init() {
+    this.bindPageLinks();
+    this.bindHomeLink();
+  }
 
-  $card.addEventListener("mouseleave", () => {
-    document.removeEventListener("mousemove", rotateToMouse);
-    $card.style.transform = "";
-    $card.style.background = "";
-  });
-});
+  pageOn() {
+    this.menu.classList.add("main-menu-pgactive");
+    this.homeSection.classList.add("vcard-body-pgactive");
+    document.querySelector(".profileActive")?.classList.remove("profileActive");
+    this.profilePic2.classList.add("profileActive");
+    this.homeFlag = 1;
+  }
+
+  pageOff() {
+    document
+      .querySelector(".section-page-active")
+      ?.classList.remove("section-page-active");
+    this.menu.classList.remove("main-menu-pgactive");
+    this.homeSection.classList.remove("vcard-body-pgactive");
+    document.querySelector(".profileActive")?.classList.remove("profileActive");
+    this.profilePic1.classList.add("profileActive");
+    this.homeFlag = 0;
+  }
+
+  bindPageLinks() {
+    this.pageLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector(".menuActive")?.classList.remove("menuActive");
+        link.classList.add("menuActive");
+        this.linkPage = link.getAttribute("href");
+        document
+          .querySelector(".section-page-active")
+          ?.classList.remove("section-page-active");
+        document
+          .querySelector(this.linkPage)
+          ?.classList.add("section-page-active");
+        this.pageOn();
+      });
+    });
+  }
+
+  bindHomeLink() {
+    this.homeLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (this.homeFlag === 1) {
+        document.querySelector(".menuActive")?.classList.remove("menuActive");
+        event.target.classList.add("menuActive");
+        this.pageOff();
+      }
+    });
+  }
+}
+
+class InteractiveTimeline {
+  constructor(dateSelector, controlsSelector, datesWrapSelector) {
+    this.dateElements = document.querySelectorAll(dateSelector);
+    this.dateWidth =
+      this.dateElements.length > 0 ? this.dateElements[0].offsetWidth : 0;
+    this.activeDate = 0;
+    this.noDates = this.dateElements.length;
+    this.datesWrap = document.querySelector(datesWrapSelector);
+    this.controlElements = document.querySelectorAll(controlsSelector);
+
+    this.init();
+  }
+
+  init() {
+    this.bindDateClick();
+    this.bindControlClick();
+  }
+
+  changeDate(index) {
+    if (index < 0) {
+      this.activeDate = 0;
+      return;
+    }
+
+    if (index > this.noDates - 1) {
+      this.activeDate = this.noDates - 1;
+      return;
+    }
+
+    this.dateElements.forEach((date) =>
+      date.classList.remove("active", "sibling")
+    );
+
+    this.dateElements[index].classList.add("active");
+
+    if (this.dateElements[index].previousElementSibling) {
+      this.dateElements[index].previousElementSibling.classList.add("sibling");
+    }
+
+    this.datesWrap.style.transform = `translateX(${-this.dateWidth * index}px)`;
+  }
+
+  bindDateClick() {
+    this.dateElements.forEach((date, index) => {
+      date.addEventListener("click", () => {
+        if (index === this.activeDate) return;
+
+        this.activeDate = index;
+        this.changeDate(this.activeDate);
+      });
+    });
+  }
+
+  bindControlClick() {
+    this.controlElements.forEach((control) => {
+      control.addEventListener("click", () => {
+        const direction = parseInt(control.getAttribute("data-direction"), 10);
+        this.activeDate += direction;
+        this.changeDate(this.activeDate);
+      });
+    });
+  }
+}
+
+class AnimatedProgressBars {
+  constructor(selector, duration = 1000) {
+    this.elements = document.querySelectorAll(selector);
+    this.duration = duration;
+    this.observer = null; // Obiekt IntersectionObserver
+    this.initObserver();
+  }
+
+  initObserver() {
+    const options = {
+      root: null, // Przecięcie z obszarem widoku (viewport)
+      rootMargin: "0px",
+      threshold: 0.1, // Procent widoczności elementu (0.1 oznacza 10% widoczności)
+    };
+
+    // Funkcja callback dla IntersectionObserver
+    this.observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Gdy element jest widoczny w viewport
+          this.animateElement(entry.target);
+          observer.unobserve(entry.target); // Przestajemy obserwować element po animacji
+        }
+      });
+    }, options);
+
+    // Dodanie obserwacji dla wszystkich elementów
+    this.elements.forEach((element) => {
+      this.observer.observe(element);
+    });
+  }
+
+  animateElement(element) {
+    const per = element.getAttribute("per");
+    element.style.width = "0%"; // Start od 0%
+
+    let startValue = { animatedValue: 0 };
+    let startTime = null;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / this.duration, 1); // Zakres 0 - 1
+      const animatedValue = percentage * per;
+
+      element.style.width = Math.floor(animatedValue) + "%";
+      element.setAttribute("per", Math.floor(animatedValue) + "%");
+
+      if (progress < this.duration) {
+        requestAnimationFrame(animate);
+      } else {
+        element.style.width = per + "%"; // Upewnienie się, że animacja zakończyła się na pełnej wartości
+        element.setAttribute("per", Math.floor(per) + "%");
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }
+}
+
+class CustomSlider {
+  constructor(target) {
+    this.index = 1;
+    this.isMoved = true;
+    this.speed = 1000; // ms
+    this.transform = `transform ${this.speed / 1000}s`;
+    this.slider = document.querySelector(target);
+
+    this.initSlider();
+    this.addEventListeners();
+  }
+
+  getTranslateValue(i) {
+    return `translateX(-${100 * i}%)`;
+  }
+
+  initSlider() {
+    const sliderRects = this.slider.getClientRects()[0];
+    this.slider.style.overflow = "hidden";
+    this.container = document.createElement("div");
+    this.container.style.display = "flex";
+    this.container.style.flexDirection = "row";
+    //this.container.style.width = `${sliderRects.width}px`;
+    //this.container.style.height = `${sliderRects.height}px`;
+    this.container.style.transform = this.getTranslateValue(this.index);
+    this.boxes = Array.from(this.slider.children);
+    this.boxes = [
+      this.boxes[this.boxes.length - 1],
+      ...this.boxes,
+      this.boxes[0],
+    ];
+    this.size = this.boxes.length;
+    this.boxes.forEach((box) => {
+      const clonedBox = box.cloneNode(true);
+      clonedBox.style.flex = "none";
+      clonedBox.style.flexWrap = "wrap";
+      clonedBox.style.height = "100%";
+      clonedBox.style.width = "100%";
+      this.container.appendChild(clonedBox);
+    });
+    this.slider.innerHTML = "";
+    this.slider.appendChild(this.container);
+  }
+
+  addEventListeners() {
+    this.container.addEventListener("transitionstart", () => {
+      this.isMoved = false;
+      setTimeout(() => {
+        this.isMoved = true;
+      }, this.speed);
+    });
+
+    this.container.addEventListener("transitionend", () => {
+      if (this.index === this.size - 1) {
+        this.index = 1;
+        this.container.style.transition = "none";
+        this.container.style.transform = this.getTranslateValue(this.index);
+      }
+
+      if (this.index === 0) {
+        this.index = this.size - 2;
+        this.container.style.transition = "none";
+        this.container.style.transform = this.getTranslateValue(this.index);
+      }
+    });
+  }
+
+  move(i) {
+    if (this.isMoved) {
+      this.index = i;
+      this.container.style.transition = this.transform;
+      this.container.style.transform = this.getTranslateValue(this.index);
+    }
+  }
+
+  next() {
+    if (this.isMoved) {
+      this.index = (this.index + 1) % this.size;
+      this.container.style.transition = this.transform;
+      this.container.style.transform = this.getTranslateValue(this.index);
+    }
+  }
+
+  prev() {
+    if (this.isMoved) {
+      this.index = this.index === 0 ? this.size - 1 : this.index;
+      this.index = (this.index - 1) % this.size;
+      this.container.style.transition = this.transform;
+      this.container.style.transform = this.getTranslateValue(this.index);
+    }
+  }
+
+  static init(target) {
+    return new CustomSlider(target);
+  }
+}
 
 class TableOfContents {
   constructor(selector) {
@@ -558,6 +812,37 @@ class CircularProgressBar {
     this._elements = elements;
   }
 
+  static initAll() {
+    const pie = document.querySelectorAll(".pie");
+    const elements = [].slice.call(pie);
+    const circle = new CircularProgressBar("pie");
+
+    if ("IntersectionObserver" in window) {
+      const config = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.75,
+      };
+
+      const ovserver = new IntersectionObserver((entries, observer) => {
+        entries.map((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.75) {
+            circle.initial(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, config);
+
+      elements.map((item) => {
+        ovserver.observe(item);
+      });
+    } else {
+      elements.map((element) => {
+        circle.initial(element);
+      });
+    }
+  }
+
   initial(outside) {
     const triggeredOutside = outside || this._elements;
     Array.isArray(triggeredOutside)
@@ -921,72 +1206,6 @@ class CircularProgressBar {
   };
 }
 
-class Card3DEffect {
-  constructor(htmlElement) {
-    this.card = htmlElement;
-    this.bounds = null;
-
-    // Bind methods to ensure 'this' refers to the class instance
-    this.rotateToMouse = this.rotateToMouse.bind(this);
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-
-    this.init();
-  }
-
-  // Inicjalizacja event listenerów
-  init() {
-    this.card.addEventListener("mouseenter", this.onMouseEnter);
-    this.card.addEventListener("mouseleave", this.onMouseLeave);
-  }
-
-  // Funkcja odpowiadająca za rotację względem pozycji myszy
-  rotateToMouse(e) {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const leftX = mouseX - this.bounds.x;
-    const topY = mouseY - this.bounds.y;
-    const center = {
-      x: leftX - this.bounds.width / 2,
-      y: topY - this.bounds.height / 2,
-    };
-    const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
-
-    // Ustawienie transformacji i efektu świetlnego
-    this.card.style.transform = `
-      scale3d(1.07, 1.07, 1.07)
-      rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
-        0,
-        ${Math.log(distance) * 2}deg
-      )
-    `;
-
-    this.card.querySelector(".glow").style.backgroundImage = `
-      radial-gradient(
-        circle at
-        ${center.x * 2 + this.bounds.width / 2}px
-        ${center.y * 2 + this.bounds.height / 2}px,
-        #ffffff55,
-        #0000000f
-      )
-    `;
-  }
-
-  // Funkcja uruchamiana przy wejściu kursora na kartę
-  onMouseEnter() {
-    this.bounds = this.card.getBoundingClientRect();
-    document.addEventListener("mousemove", this.rotateToMouse);
-  }
-
-  // Funkcja uruchamiana przy opuszczeniu kursora z karty
-  onMouseLeave() {
-    document.removeEventListener("mousemove", this.rotateToMouse);
-    this.card.style.transform = ""; // Resetowanie transformacji
-    this.card.querySelector(".glow").style.backgroundImage = ""; // Resetowanie tła
-  }
-}
 // pomoc
 
 function slugify(string = "", separator = "-") {
@@ -997,4 +1216,12 @@ function slugify(string = "", separator = "-") {
     .trim()
     .replace(/[^a-z0-9 ]/g, "")
     .replace(/\s+/g, separator);
+}
+
+function toggleTheme() {
+  if (document.body.classList.contains("dark")) {
+    document.body.classList.remove("dark");
+  } else {
+    document.body.classList.add("dark");
+  }
 }

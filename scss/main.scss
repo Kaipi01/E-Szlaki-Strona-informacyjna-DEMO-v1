@@ -13,6 +13,7 @@
 @use "./components/scroll-to-top";
 @use "./components/circular-progress-bar";
 @use "./components/top-left-badge"; 
+@use "./components/animated-progress"; 
   
 @use "./sections/green-faq";
 @use "./sections/our-mission-information";
@@ -22,14 +23,15 @@
 @use "./sections/how-it-works";
 @use "./sections/timeline-module";  
 @use "./sections/table-info";    
-@use "./sections/quote-section"; 
+@use "./sections/quote-section";  
 @use "./sections/quote-section-variant-2";
-
+@use "./sections/interactive-timeline";
 @use "./sections/modules-and-tools";   
 @use "./sections/random-trail-info"; 
 @use "./sections/categories";
 @use "./sections/places-module"; 
 @use "./sections/places-close-to-you";
+@use "./sections/more-information-module";
 
 
 
