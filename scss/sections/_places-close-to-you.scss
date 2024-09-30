@@ -41,21 +41,51 @@
   }
 
   .sort-and-filter-box {
-    @extend %modern-card;
-    display: flex;
-    align-items: center;  
-    justify-content: space-between;
+    @extend %modern-card; 
+    display: grid;
+    gap: 2rem;
     width: 100%;  
-    margin-top: 3rem;
-    padding: 4rem 2rem;
-  } 
+    margin-top: 3rem; 
+    padding: 4rem 1rem; 
+    padding-top: 2rem;
 
+    @media (min-width: 62.5em) {
+      grid-template-columns: repeat(2, minmax(15rem, 1fr));
+      padding: 3rem 2rem;
+    }
+
+    @media (min-width: 75em) {
+      padding: 3rem 3rem 5rem 3rem;
+    }
+
+    .panel {  
+      display: flex; 
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .panel:last-child {
+      width: 100%;
+      margin: 0 auto; 
+      padding-top: 4rem;
+
+      @media (min-width: 62.5em) {
+        grid-column: span 2;
+      }
+    }
+  } 
+ 
   .checkboxes-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
+    flex-flow: row wrap;
+    align-items: center; 
+    gap: 1rem;
+
+    @media (min-width: 62.5em) {
+      gap: 2rem;
+    }
+  } 
  
   .places-list { 
     display: grid; 

@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
   new TabsContent("#modules-and-tools .tabs").init();
 
   // Inicjacja wszystkich animowantych poziomych progress barów
-  // animacja odpala się gdy użytkownik scrolluje do sekcji z 
+  // animacja odpala się gdy użytkownik scrolluje do sekcji z
   // progress barem (użycie Intersection Observer API)
-  new AnimatedProgressBars(".animated-progress-per", 1000); 
+  new AnimatedProgressBars(".animated-progress-per", 1000);
 
   new ContentScreens(
     "main-menu",
@@ -25,12 +25,26 @@ document.addEventListener("DOMContentLoaded", function () {
     "profile-pic2"
   );
 
+  const fromSlider = document.querySelector("#fromSlider");
+  const toSlider = document.querySelector("#toSlider");
+  const fromTooltip = document.querySelector("#fromSliderTooltip");
+  const toTooltip = document.querySelector("#toSliderTooltip");
+  const scale = document.querySelector("#scale");
+
+  new CustomRangeSlider(
+    fromSlider,
+    toSlider,
+    fromTooltip,
+    toTooltip,
+    scale,
+    "km"
+  );
+
   ScrollToTopButton.init("#back-to-top-button");
   CustomSelect.initAll();
-  CustomRangeSlider.initAll();
 
   // Inicjacja wszystkich animowantych kołowych progress barów z klasą "circular-progress-bar"
-  // animacja odpala się gdy użytkownik scrolluje do sekcji z 
+  // animacja odpala się gdy użytkownik scrolluje do sekcji z
   // progress barem (użycie Intersection Observer API)
   CircularProgressBar.initAll();
 
@@ -120,7 +134,7 @@ class ContentScreens {
     });
   }
 }
- 
+
 class AnimatedProgressBars {
   constructor(selector, duration = 1000) {
     this.elements = document.querySelectorAll(selector);
@@ -464,15 +478,25 @@ class CustomSelect {
 }
 
 class CustomRangeSlider {
-  constructor(fromSlider, toSlider, fromTooltip, toTooltip, scaleElement) {
+  constructor(
+    fromSlider,
+    toSlider,
+    fromTooltip,
+    toTooltip,
+    scaleElement,
+    symbol = ""
+  ) {
     this.COLOR_TRACK = "#CBD5E1";
-    this.COLOR_RANGE = "#0EA5E9";
+    this.COLOR_RANGE = document.body.classList.contains("dark")
+      ? "#00ff57"
+      : "#00c821";
 
     this.fromSlider = fromSlider;
     this.toSlider = toSlider;
     this.fromTooltip = fromTooltip;
     this.toTooltip = toTooltip;
     this.scaleElement = scaleElement;
+    this.symbol = symbol;
 
     this.MIN = parseInt(this.fromSlider.getAttribute("min"));
     this.MAX = parseInt(this.fromSlider.getAttribute("max"));
@@ -544,7 +568,7 @@ class CustomRangeSlider {
 
   setTooltip(slider, tooltip) {
     const value = slider.value;
-    tooltip.textContent = `$${value}`;
+    tooltip.textContent = `${value} ${this.symbol}`;
     const thumbPosition = (value - slider.min) / (slider.max - slider.min);
     const percent = thumbPosition * 100;
     const markerWidth = 20;
@@ -560,19 +584,26 @@ class CustomRangeSlider {
       const percent = ((value - min) / range) * 100;
       const marker = document.createElement("div");
       marker.style.left = `${percent}%`;
-      marker.textContent = `$${value}`;
+      marker.textContent = `${value}`;
       this.scaleElement.appendChild(marker);
     }
   }
 
-  static initAll() {
+  static initAll(symbol = "") {
     const fromSlider = document.querySelector("#fromSlider");
     const toSlider = document.querySelector("#toSlider");
     const fromTooltip = document.querySelector("#fromSliderTooltip");
     const toTooltip = document.querySelector("#toSliderTooltip");
     const scale = document.getElementById("scale");
 
-    new CustomRangeSlider(fromSlider, toSlider, fromTooltip, toTooltip, scale);
+    new CustomRangeSlider(
+      fromSlider,
+      toSlider,
+      fromTooltip,
+      toTooltip,
+      scale,
+      symbol
+    );
   }
 }
 
@@ -663,12 +694,16 @@ class TabsContent {
       history.replaceState(null, null, "#" + contentHref);
     }
 
-    this.links.forEach((link) => link.classList.remove("tab-link-active"));
+    this.links.forEach((link) => {
+      link.classList.remove("tab-link-active");
+      link.parentElement.classList.remove("tab-li-active");
+    });
 
     const activeTabLink = this.container.querySelector(
       `.tab-link[href="#${contentHref}"]`
     );
     activeTabLink.classList.add("tab-link-active");
+    activeTabLink.parentElement.classList.add("tab-li-active");
 
     this.contentElements.forEach((content) => {
       contentHref === content.id

@@ -1,15 +1,15 @@
 .custom-range {
-  --marker-border-clr: #0ea5e9;
+  --marker-border-clr: var(--font-color-green-hover);
   --marker-size: 15px;
   --track-heigt: 3px;
 
-  --tooltip-bg-clr: rgba(0, 0, 0, 0.4);
-  --tooltip-txt-clr: var(--marker-border-clr);
+  --tooltip-bg-clr: var(--font-color-green-hover);
+  --tooltip-txt-clr: #fff;
 
   display: flex;
   flex-direction: column; 
   width: 100%;
-  max-width: 600px;
+  //max-width: 600px;
 
   .sliders_control {
     position: relative;
@@ -17,14 +17,15 @@
 
   .slider-tooltip {
     position: absolute;
-    top: -3.5rem;
+    top: -3.5rem; 
     left: 0;
-    width: fit-content;
+    width: max-content;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     background-color: var(--tooltip-bg-clr);
     color: var(--tooltip-txt-clr);
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
     text-align: center;
     translate: -50% 0;
   }
@@ -69,8 +70,8 @@
   }
 
   input[type="range"]::-webkit-slider-thumb:active {
-    -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
-    box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+    -webkit-box-shadow: inset 0 0 3px var(--font-color-green-hover), 0 0 9px var(--font-color-green-hover);
+    box-shadow: inset 0 0 3px var(--font-color-green-hover), 0 0 9px var(--font-color-green-hover);
   }
 
   input[type="range"] {
@@ -101,6 +102,7 @@
   .scale div {
     position: absolute;
     translate: -50% 0;
+    font-size: 0.9rem;
   }
 
   .scale div::before {
@@ -111,6 +113,6 @@
     translate: -50% -125%;
     width: 1px;
     height: 10px;
-    background-color: #666;
+    background-color: var(--font-color);
   }
 }
