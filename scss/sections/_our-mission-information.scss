@@ -5,6 +5,8 @@
     list-style: none;
 
     @media (min-width: 48.5em) {
+      width: -webkit-max-content;
+      width: -moz-max-content;
       width: max-content;
     }
 
@@ -15,13 +17,13 @@
       transition: 0.3s;
       color: #fff;
       gap: 0.4rem;
- 
+
       &.list-li-hover,
       &:hover {
         transform: translateX(1rem);
       }
- 
-      &::before { 
+
+      &::before {
         content: url('data:image/svg+xml,<svg width="25" height="25" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.9998 36.6667H9.99984C7.99984 36.6667 6.6665 38.0001 6.6665 40.0001C6.6665 42.0001 7.99984 43.3334 9.99984 43.3334H47.9998V36.6667Z" fill="%2337ff7a"/><path opacity="0.9" d="M48 66.6666V13.3333L72.3333 37.6666C73.6667 38.9999 73.6667 40.9999 72.3333 42.3333L48 66.6666Z" fill="%23fff"/></svg>');
         aspect-ratio: 1/1;
         height: 25px;
@@ -122,6 +124,7 @@
       color: #fff;
 
       @media (min-width: 62.5em) {
+        position: -webkit-sticky;
         position: sticky;
         top: 6rem;
         left: 0;
@@ -183,6 +186,7 @@
         display: grid;
         grid-template-columns: 1fr;
         padding-top: 2rem;
+        -moz-column-gap: 2.5rem;
         column-gap: 2.5rem;
         place-content: start;
         row-gap: 2rem;

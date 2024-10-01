@@ -27,12 +27,12 @@
     var(--background)
   );
 
-  .sub-header {
+  & > .header .sub-header {
     font-size: 1.2rem;
   }
- 
+
   .card {
-    @extend %modern-card; 
+    @extend %modern-card;
     min-height: 17rem;
 
     &.content-with-symbol {
@@ -240,6 +240,7 @@
       @media (min-width: 25em) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        -moz-column-gap: 1rem;
         column-gap: 1rem;
         row-gap: 2.5rem;
       }
@@ -249,6 +250,7 @@
       }
 
       @media (min-width: 87.5em) {
+        -moz-column-gap: 1.25rem;
         column-gap: 1.25rem;
         row-gap: 2.5rem;
       }
@@ -280,6 +282,7 @@
       @media (min-width: 45em) {
         display: grid;
         grid-template-columns: 1fr;
+        -moz-column-gap: 1rem;
         column-gap: 1rem;
         row-gap: 2.5rem;
       }
@@ -290,6 +293,7 @@
 
       @media (min-width: 87.5em) {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        -moz-column-gap: 1.5rem;
         column-gap: 1.5rem;
       }
 
@@ -335,6 +339,7 @@
 
       @media (min-width: 87.5em) {
         grid-template-columns: repeat(2, 1fr);
+        -moz-column-gap: 1.5rem;
         column-gap: 1.5rem;
         row-gap: 2.5rem;
       }

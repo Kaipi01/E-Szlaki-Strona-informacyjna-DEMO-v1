@@ -1,22 +1,21 @@
-.circular-progress-bar { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
- 
-    svg {
-        text {
-            fill: var(--font-color); 
-            font-size: 1rem; 
-        }
+.circular-progress-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-        circle {
-            stroke-width: 15; 
-        }  
-    }            
-
-    .progress-desc {
-        text-align: center;
+  svg {
+    text {
+      fill: var(--font-color);
+      font-size: 1rem;
     }
-} 
-  
+
+    circle {
+      stroke-width: 15;
+    }
+  }
+
+  .progress-desc {
+    text-align: center;
+  }
+}

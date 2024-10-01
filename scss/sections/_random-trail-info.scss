@@ -59,11 +59,11 @@
         position: relative;
         min-height: 20rem !important;
         background-color: lightgreen;
- 
-        @media (min-width: 62.5em) { 
+
+        @media (min-width: 62.5em) {
           min-height: 27rem !important;
         }
-      } 
+      }
 
       .trail-info-graphs {
         display: flex;
@@ -79,7 +79,7 @@
         @media (min-width: 62.5em) {
           margin-block: var(--trail-info-graphs-margin-big);
         }
- 
+
         .circular-progress-bar {
           --progress-bar-size: 9rem;
 

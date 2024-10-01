@@ -1,48 +1,44 @@
 @use "./base/base";
-@use './functions/toRem';
+@use "./functions/toRem";
 @use "./base/variables";
 @use "./components/tooltip-link";
-@use "./components/animated-border";
 @use "./components/links";
 @use "./components/list";
 @use "./components/modern-card";
 @use "./components/custom-select";
 @use "./components/custom-range";
-@use "./components/custom-checkbox"; 
+@use "./components/custom-checkbox";
 @use "./components/sr-only";
-@use "./components/scroll-to-top";  
+@use "./components/scroll-to-top";
 @use "./components/circular-progress-bar";
-@use "./components/top-badge";  
-@use "./components/animated-progress"; 
-//@use "./components/main-navigation"; 
-  
+@use "./components/top-badge";
+@use "./components/animated-progress";
+@use "./components/symbol-card";
+@use "./components/modern-card-content";
+
 @use "./sections/green-faq";
 @use "./sections/our-mission-information";
 @use "./sections/collection-list";
-@use "./sections/used-technologies"; 
+@use "./sections/used-technologies";
 @use "./sections/quick-access";
 @use "./sections/how-it-works";
-@use "./sections/timeline-module";  
-@use "./sections/table-info";    
-@use "./sections/quote-section";  
-@use "./sections/quote-section-variant-2"; 
-@use "./sections/modules-and-tools";   
-@use "./sections/random-trail-info"; 
-@use "./sections/categories";
-@use "./sections/places-module"; 
+@use "./sections/timeline-module";
+@use "./sections/table-info";
+@use "./sections/quote-section";
+@use "./sections/quote-section-variant-2";
+@use "./sections/modules-and-tools";
+@use "./sections/random-trail-info";
+@use "./sections/places-module";
 @use "./sections/places-close-to-you";
 @use "./sections/more-information-module";
-
-
-
 
 #toggle-theme-btn {
   position: fixed;
   z-index: 999;
   top: 2rem;
   right: 2rem;
-  padding: 10px;  
-  background-color: #FFF;
+  padding: 10px;
+  background-color: #fff;
 
   .toggle {
     display: flex;
@@ -50,7 +46,7 @@
     justify-content: center;
     gap: 5px;
     color: #000;
-  } 
+  }
 
   input {
     height: 2rem;

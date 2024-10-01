@@ -30,7 +30,6 @@
         var(--dark-gray-50) 60%,
         transparent
       );
-      //box-shadow: inset 50vw 0px 151px -20px var(--dark-gray);
     }
 
     .text {
@@ -41,12 +40,12 @@
   }
 
   .sort-and-filter-box {
-    @extend %modern-card; 
+    @extend %modern-card;
     display: grid;
     gap: 2rem;
-    width: 100%;  
-    margin-top: 3rem; 
-    padding: 4rem 1rem; 
+    width: 100%;
+    margin-top: 3rem;
+    padding: 4rem 1rem;
     padding-top: 2rem;
 
     @media (min-width: 62.5em) {
@@ -58,8 +57,8 @@
       padding: 3rem 3rem 5rem 3rem;
     }
 
-    .panel {  
-      display: flex; 
+    .panel {
+      display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 1rem;
@@ -67,28 +66,28 @@
 
     .panel:last-child {
       width: 100%;
-      margin: 0 auto; 
+      margin: 0 auto;
       padding-top: 4rem;
 
       @media (min-width: 62.5em) {
         grid-column: span 2;
       }
     }
-  } 
- 
+  }
+
   .checkboxes-wrapper {
     display: flex;
     flex-flow: row wrap;
-    align-items: center; 
+    align-items: center;
     gap: 1rem;
 
     @media (min-width: 62.5em) {
       gap: 2rem;
     }
-  } 
- 
-  .places-list { 
-    display: grid; 
+  }
+
+  .places-list {
+    display: grid;
     grid-template-columns: 1fr;
     margin-top: 3rem;
     gap: 1rem;
@@ -124,9 +123,10 @@
       border-radius: inherit;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
+      -o-object-fit: cover;
       object-fit: cover;
     }
- 
+
     .icon-top {
       display: flex;
       position: absolute;
@@ -146,15 +146,15 @@
         }
       }
     }
- 
+
     .place-card-content {
       padding: var(--card-padding-inline);
       padding-bottom: 1rem;
 
       .small-header {
         font-size: 1.2rem;
-      } 
-      .sub-header { 
+      }
+      .sub-header {
         margin-bottom: 1rem;
         padding-block: 0.5rem;
         font-size: 0.9rem;

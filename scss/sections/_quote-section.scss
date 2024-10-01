@@ -1,5 +1,6 @@
 #quote-section {
   padding: 10rem 0;
+  -webkit-animation: quote-gradient 15s ease infinite;
   animation: quote-gradient 15s ease infinite;
   background: linear-gradient(
     -45deg,
@@ -108,6 +109,17 @@
     @media (min-width: toRem(1200)) {
       font-size: 1.5rem;
     }
+  }
+}
+@-webkit-keyframes quote-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 @keyframes quote-gradient {

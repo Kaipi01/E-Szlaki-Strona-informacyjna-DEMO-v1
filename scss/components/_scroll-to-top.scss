@@ -11,11 +11,8 @@
   padding: 0 !important;
   clear: both;
   overflow: hidden;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   border: none;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
   border-radius: 50px;
   outline: 0 !important;
   background: #fff;
@@ -40,7 +37,7 @@
     border-bottom: solid 12px var(--dark-green);
     border-left: solid 12px transparent;
     border-radius: 20px;
-    line-height: 0; 
+    line-height: 0;
   }
   &::after,
   &::before {
@@ -53,14 +50,12 @@
   }
   &.show {
     display: block;
-    visibility: visible; 
+    visibility: visible;
     right: 15px;
     bottom: 15px;
     width: 50px;
     height: 50px;
     background: #fff;
-    -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
 
     @media (min-width: 50em) {
@@ -69,8 +64,6 @@
     }
   }
   &.show:active {
-    -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
   }
 }

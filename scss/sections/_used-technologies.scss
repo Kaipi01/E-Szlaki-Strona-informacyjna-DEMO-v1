@@ -4,7 +4,7 @@
     to left,
     var(--background-gray),
     var(--background)
-  ); 
+  );
 
   .text-intro {
     max-width: 60rem;
@@ -13,7 +13,7 @@
 
   .top-content {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
     margin-top: 4rem;
@@ -31,10 +31,10 @@
 
     .technology-content {
       width: 100%;
-      
+
       @media (min-width: 43.75em) {
         max-width: 26rem;
-      } 
+      }
 
       @media (min-width: 75em) {
         max-width: none;
@@ -106,7 +106,6 @@
       margin: 0 auto;
 
       @media (min-width: 87.5em) {
-        
         max-width: none;
         max-height: 24rem;
       }
@@ -196,42 +195,63 @@
     #XMLID_87_,
     #XMLID_85_,
     #XMLID_83_ {
+      -webkit-animation: twinkle 3s ease-in-out infinite;
       animation: twinkle 3s ease-in-out infinite;
     }
 
     #XMLID_85_ {
+      -webkit-animation-delay: 0.4s;
       animation-delay: 0.4s;
     }
 
     #XMLID_83_ {
+      -webkit-animation-delay: 0.6s;
       animation-delay: 0.6s;
     }
 
     .line-t,
     .line-m,
     .line-b {
+      -webkit-animation: shrink 1.8s ease-in-out infinite;
       animation: shrink 1.8s ease-in-out infinite;
     }
 
     .line-m {
+      -webkit-animation-delay: 0.3s;
       animation-delay: 0.3s;
     }
 
     .line-b {
+      -webkit-animation-delay: 0.6s;
       animation-delay: 0.6s;
     }
 
     .code {
       &-letter_o {
+        -webkit-animation: typingO 3s linear infinite;
         animation: typingO 3s linear infinite;
       }
 
       &-letter_d {
+        -webkit-animation: typingD 3s linear infinite;
         animation: typingD 3s linear infinite;
       }
 
       &-letter_e {
+        -webkit-animation: typingE 3s linear infinite;
         animation: typingE 3s linear infinite;
+      }
+
+      @-webkit-keyframes typingE {
+        20.1%,
+        80% {
+          fill: transparent;
+        }
+
+        20%,
+        80.1% {
+          fill: #fff;
+        }
       }
 
       @keyframes typingE {
@@ -246,6 +266,18 @@
         }
       }
 
+      @-webkit-keyframes typingD {
+        30.1%,
+        70% {
+          fill: transparent;
+        }
+
+        30%,
+        70.1% {
+          fill: #fff;
+        }
+      }
+
       @keyframes typingD {
         30.1%,
         70% {
@@ -254,6 +286,18 @@
 
         30%,
         70.1% {
+          fill: #fff;
+        }
+      }
+
+      @-webkit-keyframes typingO {
+        40.1%,
+        60% {
+          fill: transparent;
+        }
+
+        40%,
+        60.1% {
           fill: #fff;
         }
       }
@@ -272,13 +316,17 @@
     }
 
     .hover {
+      -webkit-animation-play-state: paused !important;
       animation-play-state: paused !important;
+      -webkit-animation-timing-function: linear;
       animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
       animation-iteration-count: infinite;
     }
 
     &:hover {
       .hover {
+        -webkit-animation-play-state: running !important;
         animation-play-state: running !important;
       }
     }
@@ -288,28 +336,34 @@
     .line-t,
     .line-m,
     .line-b {
+      -webkit-animation: shrink 2.2s ease-in-out infinite;
       animation: shrink 2.2s ease-in-out infinite;
     }
 
     .play-btn polygon {
+      -webkit-animation: twinkle 3s linear infinite;
       animation: twinkle 3s linear infinite;
     }
 
     .line-m {
+      -webkit-animation-delay: 0.3s;
       animation-delay: 0.3s;
     }
 
     .line-b {
+      -webkit-animation-delay: 0.6s;
       animation-delay: 0.6s;
     }
 
     .ruler {
       transform-origin: 300px 200px;
+      -webkit-animation: bounceBFt2 2s ease-in-out infinite;
       animation: bounceBFt2 2s ease-in-out infinite;
     }
 
     .hook {
       transform-origin: 148px 24px;
+      -webkit-animation: bounce3 1.6s ease-in-out infinite;
       animation: bounce3 1.6s ease-in-out infinite;
     }
 
@@ -322,11 +376,13 @@
     }
 
     .hover {
+      -webkit-animation-play-state: paused !important;
       animation-play-state: paused !important;
     }
 
     &:hover {
       .hover {
+        -webkit-animation-play-state: running !important;
         animation-play-state: running !important;
       }
 
@@ -342,59 +398,72 @@
 
   .icon-frontend {
     .ruler {
+      -webkit-animation: bounceBF 1.8s ease-in-out infinite;
       animation: bounceBF 1.8s ease-in-out infinite;
     }
 
     .panel {
+      -webkit-animation: twinkle3 3s ease-in-out infinite;
       animation: twinkle3 3s ease-in-out infinite;
 
       &2 {
+        -webkit-animation-delay: 0.5s;
         animation-delay: 0.5s;
       }
 
       &3 {
+        -webkit-animation-delay: 1s;
         animation-delay: 1s;
       }
 
       &4 {
+        -webkit-animation-delay: 1.5s;
         animation-delay: 1.5s;
       }
 
       &5 {
+        -webkit-animation-delay: 2s;
         animation-delay: 2s;
       }
     }
 
     .line-1 {
       transform-origin: 162px;
+      -webkit-animation: shrink 2s ease-in-out infinite;
       animation: shrink 2s ease-in-out infinite;
     }
 
     .line-2,
     .line-3 {
       transform-origin: 144.3px 0;
+      -webkit-animation: shrink 2s ease-in-out infinite;
       animation: shrink 2s ease-in-out infinite;
     }
 
     .line-2 {
+      -webkit-animation-delay: -0.4s;
       animation-delay: -0.4s;
     }
 
     .blink1,
     .blink2,
     .blink3 {
+      -webkit-animation: 6s linear infinite;
       animation: 6s linear infinite;
     }
 
     .blink1 {
+      -webkit-animation-name: bubble-b;
       animation-name: bubble-b;
     }
 
     .blink2 {
+      -webkit-animation-name: bubble-m;
       animation-name: bubble-m;
     }
 
     .blink3 {
+      -webkit-animation-name: bubble-t;
       animation-name: bubble-t;
     }
 
@@ -407,6 +476,7 @@
     }
 
     .hover {
+      -webkit-animation-play-state: paused;
       animation-play-state: paused;
     }
 
@@ -419,8 +489,22 @@
       }
 
       .hover {
+        -webkit-animation-play-state: running;
         animation-play-state: running;
       }
+    }
+  }
+
+  @-webkit-keyframes twinkle {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+
+    25%,
+    75% {
+      transform: scale(1.6);
     }
   }
 
@@ -437,6 +521,19 @@
     }
   }
 
+  @-webkit-keyframes twinkle2 {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+
+    25%,
+    75% {
+      transform: scale(1.07);
+    }
+  }
+
   @keyframes twinkle2 {
     0%,
     50%,
@@ -447,6 +544,19 @@
     25%,
     75% {
       transform: scale(1.07);
+    }
+  }
+
+  @-webkit-keyframes twinkle3 {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+    }
+
+    25%,
+    75% {
+      transform: scale(1.14);
     }
   }
 
@@ -463,6 +573,18 @@
     }
   }
 
+  @-webkit-keyframes bubble-t {
+    26%,
+    80% {
+      transform: scale(0);
+    }
+
+    20%,
+    86% {
+      transform: scale(1);
+    }
+  }
+
   @keyframes bubble-t {
     26%,
     80% {
@@ -471,6 +593,18 @@
 
     20%,
     86% {
+      transform: scale(1);
+    }
+  }
+
+  @-webkit-keyframes bubble-m {
+    36%,
+    70% {
+      transform: scale(0);
+    }
+
+    30%,
+    76% {
       transform: scale(1);
     }
   }
@@ -487,6 +621,18 @@
     }
   }
 
+  @-webkit-keyframes bubble-b {
+    46%,
+    60% {
+      transform: scale(0);
+    }
+
+    40%,
+    66% {
+      transform: scale(1);
+    }
+  }
+
   @keyframes bubble-b {
     46%,
     60% {
@@ -499,9 +645,21 @@
     }
   }
 
+  @-webkit-keyframes bounce {
+    50% {
+      transform: rotate(-6deg);
+    }
+  }
+
   @keyframes bounce {
     50% {
       transform: rotate(-6deg);
+    }
+  }
+
+  @-webkit-keyframes bounce2 {
+    50% {
+      transform: rotate(6deg);
     }
   }
 
@@ -511,9 +669,26 @@
     }
   }
 
+  @-webkit-keyframes bounce3 {
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
   @keyframes bounce3 {
     50% {
       transform: rotate(3deg);
+    }
+  }
+
+  @-webkit-keyframes bounceBF {
+    0%,
+    100% {
+      transform: rotate(1.6deg);
+    }
+
+    50% {
+      transform: rotate(-1.6deg);
     }
   }
 
@@ -528,6 +703,17 @@
     }
   }
 
+  @-webkit-keyframes bounceBFt2 {
+    0%,
+    100% {
+      transform: rotate(4.6deg);
+    }
+
+    50% {
+      transform: rotate(-4.6deg);
+    }
+  }
+
   @keyframes bounceBFt2 {
     0%,
     100% {
@@ -539,15 +725,33 @@
     }
   }
 
+  @-webkit-keyframes shrink {
+    50% {
+      transform: scaleX(0.3);
+    }
+  }
+
   @keyframes shrink {
     50% {
       transform: scaleX(0.3);
     }
   }
 
+  @-webkit-keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
   @keyframes rotate {
     to {
       transform: rotate(1turn);
+    }
+  }
+
+  @-webkit-keyframes rotate-reverse {
+    to {
+      transform: rotate(-1turn);
     }
   }
 

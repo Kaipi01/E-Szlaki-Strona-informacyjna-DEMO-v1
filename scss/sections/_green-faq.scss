@@ -1,7 +1,6 @@
 #green-faq {
   padding-block: 6rem;
   background: var(--dark-gray);
-  //background: linear-gradient(to top right, var(--dark-gray) 40%, #485f4f);
   background: linear-gradient(
     to left,
     var(--background-gray),
@@ -19,7 +18,7 @@
     background: linear-gradient(
       to top right,
       var(--dark-gray),
-      var(--dark-green) 
+      var(--dark-green)
     );
     box-shadow: -27px 27px 39px 3px rgba(0, 0, 0, 0.46);
     color: #fff;
@@ -189,7 +188,16 @@
 
   /* Arrow animation */
   .tab input:not(:checked) + .tab__label:hover svg {
+    -webkit-animation: bounce 0.5s infinite;
     animation: bounce 0.5s infinite;
+  }
+  @-webkit-keyframes bounce {
+    25% {
+      transform: translateY(0.15rem);
+    }
+    75% {
+      transform: translateY(-0.15rem);
+    }
   }
   @keyframes bounce {
     25% {

@@ -15,18 +15,16 @@ html {
 }
 
 body {
-  transition: all 0.3s;
   background-color: var(--background);
   color: var(--font-color);
   font-family: sans-serif;
-  padding-top: 5rem; // miejsce dla navigacji
 }
 
 a {
   color: inherit;
   text-decoration: none;
-} 
- 
+}
+
 .container {
   position: relative;
   max-width: 81rem;
@@ -61,11 +59,14 @@ a {
 .basic-link {
   font-weight: bold;
   text-decoration: underline;
+  -webkit-text-decoration-color: var(--dark-green);
   text-decoration-color: var(--dark-green);
+  -webkit-text-decoration-style: dashed;
   text-decoration-style: dashed;
   text-underline-offset: 0.25rem;
 
   &--light {
+    -webkit-text-decoration-color: var(--very-light-green);
     text-decoration-color: var(--very-light-green);
   }
 
@@ -240,33 +241,43 @@ a {
 }
 
 .ps-1 {
+  -webkit-padding-start: 1rem !important;
   padding-inline-start: 1rem !important;
 }
 .ps-2 {
+  -webkit-padding-start: 2rem !important;
   padding-inline-start: 2rem !important;
 }
 .ps-3 {
+  -webkit-padding-start: 3rem !important;
   padding-inline-start: 3rem !important;
 }
 .ps-4 {
+  -webkit-padding-start: 4rem !important;
   padding-inline-start: 4rem !important;
 }
 .ps-5 {
+  -webkit-padding-start: 5rem !important;
   padding-inline-start: 5rem !important;
 }
 
 .pe-1 {
+  -webkit-padding-end: 1rem !important;
   padding-inline-end: 1rem !important;
 }
 .pe-2 {
+  -webkit-padding-end: 2rem !important;
   padding-inline-end: 2rem !important;
 }
 .pe-3 {
+  -webkit-padding-end: 3rem !important;
   padding-inline-end: 3rem !important;
 }
 .pe-4 {
+  -webkit-padding-end: 4rem !important;
   padding-inline-end: 4rem !important;
 }
 .pe-5 {
+  -webkit-padding-end: 5rem !important;
   padding-inline-end: 5rem !important;
 }

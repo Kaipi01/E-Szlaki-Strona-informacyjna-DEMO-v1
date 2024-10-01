@@ -1,5 +1,4 @@
 #timeline-module {
-  max-width: 70rem;
   margin: 0 auto;
   padding-block: 6rem;
   --timeline-strap-width: 0.2rem;
@@ -11,6 +10,8 @@
   }
 
   .timeline {
+    max-width: 70rem;
+    margin: 0 auto;
     padding: 0 5%;
   }
 
@@ -131,11 +132,14 @@
 
     &:hover {
       & > .timeline-title:first-child::after {
+        -webkit-animation: shadow-dot-pulse 1s ease-in-out infinite;
         animation: shadow-dot-pulse 1s ease-in-out infinite;
       }
     }
 
     .timeline-title-text {
+      max-width: -webkit-max-content;
+      max-width: -moz-max-content;
       max-width: max-content;
       margin: auto;
       padding: 0.75rem 2rem;
@@ -193,6 +197,18 @@
         text-align: left !important;
       }
     }
+  }
+}
+
+@-webkit-keyframes shadow-dot-pulse {
+  0% {
+    box-shadow: 0 0 0 2px var(--background-green-hover-opacity);
+  }
+  50% {
+    box-shadow: 0 0 0 4px var(--background-green-hover-opacity);
+  }
+  100% {
+    box-shadow: 0 0 0 2px var(--background-green-hover-opacity);
   }
 }
 

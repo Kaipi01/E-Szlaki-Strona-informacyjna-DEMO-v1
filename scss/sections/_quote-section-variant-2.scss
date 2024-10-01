@@ -5,20 +5,20 @@
     position: relative;
     width: 100%;
     margin: 50px auto;
-    padding: 1.2em 2rem 1.2em 2.85rem; 
+    padding: 1.2em 2rem 1.2em 2.85rem;
     border-left: 8px solid var(--background-green-hover-opacity);
     background: linear-gradient(to right, var(--light-green-30), transparent);
-    color: var(--font-color);  
-    font-family: Open Sans; 
-    font-size: 1em; 
-    font-style: italic;  
+    color: var(--font-color);
+    font-family: Open Sans;
+    font-size: 1em;
+    font-style: italic;
     line-height: 1.6;
 
-    @media (min-width: 62.5em) { 
+    @media (min-width: 62.5em) {
       padding: 1.2em 2rem 1.2em 4.6875rem;
       font-size: 1.4em;
     }
-  } 
+  }
 
   .blockquote::before {
     content: "\201C";
@@ -30,9 +30,9 @@
     font-size: 4em;
   }
 
-  .blockquote::after { 
+  .blockquote::after {
     content: "";
-  } 
+  }
 
   .quote-author {
     display: block;

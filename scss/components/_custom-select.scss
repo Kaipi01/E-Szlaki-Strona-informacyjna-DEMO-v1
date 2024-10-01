@@ -1,4 +1,4 @@
-@use '../functions/toRem';
+@use "../functions/toRem";
 
 $background: var(--background-green-hover);
 $select-color: #fff;
@@ -7,13 +7,13 @@ $select-width: 220px;
 $select-height: 40px;
 
 .custom-select {
-  cursor: pointer;
   display: inline-block;
   position: relative;
-  font-size: 16px;
-  color: $select-color;
   width: $select-width;
   height: $select-height;
+  color: $select-color;
+  font-size: 16px;
+  cursor: pointer;
 
   &-hidden {
     display: none;
@@ -21,30 +21,30 @@ $select-height: 40px;
     padding-right: 10px;
   }
 
-  &-styled { 
-    position: relative;
+  &-styled {
     display: flex;
-    justify-content: space-between;
-    align-items: center; 
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0; 
-    background-color: $select-background;
-    padding: 0.75rem 0.9375rem; 
-    border-radius: 5px;
+    left: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.9375rem;
     transition: all 0.2s ease-in;
+    border-radius: 5px;
+    background-color: $select-background;
 
     &:after {
       content: "";
-      width: 0;
-      height: 0;
-      border: 7px solid transparent;
-      border-color: $select-color transparent transparent transparent;
-      position: absolute; 
+      position: absolute;
       top: calc(50% + 3.5px);
       right: 0.9375rem;
+      width: 0;
+      height: 0;
       transform: translateY(-50%);
+      border: 7px solid transparent;
+      border-color: $select-color transparent transparent transparent;
     }
     &:hover {
       background-color: var(--background-green);
@@ -63,25 +63,25 @@ $select-height: 40px;
   &-options {
     display: none;
     position: absolute;
+    z-index: 999;
     top: 100%;
     right: 0;
     left: 0;
-    z-index: 999;
     margin: 0;
     padding: 0;
-    list-style: none;
     background-color: var(--background-green);
+    list-style: none;
 
     li {
       margin: 0;
       padding: 12px 0;
-      text-indent: 15px;
-      border-top: 1px solid var(--background-green);
       transition: all 0.15s ease-in;
-      &:hover, 
-      &.is-selected { 
-        color: $select-background;
+      border-top: 1px solid var(--background-green);
+      text-indent: 15px;
+      &:hover,
+      &.is-selected {
         background: $select-color;
+        color: $select-background;
       }
       &[rel="hide"] {
         display: none;
@@ -89,87 +89,3 @@ $select-height: 40px;
     }
   }
 }
-
-// .custom-select {
-//   --select-color: #fff;
-//   --select-width: toRem(220);
-//   --select-height: toRem(40);
-
-//   display: inline-block;
-//   position: relative;
-//   width: var(--select-width);
-//   height: var(--select-height);
-//   color: var(--select-color);
-//   font-size: 1rem;
-//   cursor: pointer;
-
-//   &-hidden {
-//     display: none;
-//     visibility: hidden;
-//     padding-right: toRem(10);
-//   }
-
-//   &-styled {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     padding: 0.75rem 1rem;
-//     transition: all 0.2s ease-in;
-//     background-color: var(--background-gray);
-
-//     &:after {
-//       content: "";
-//       position: absolute;
-//       top: toRem(16);
-//       right: toRem(10);
-//       width: 0;
-//       height: 0;
-//       border: 7px solid transparent;
-//       border-color: var(--select-color) transparent transparent transparent;
-//     }
-//     &:hover {
-//       background-color: var(--background-gray);
-//     }
-//     &:active,
-//     &.active {
-//       background-color: var(--background-gray);
-
-//       &:after {
-//         top: 9px;
-//         border-color: transparent transparent var(--select-color) transparent;
-//       }
-//     }
-//   }
-
-//   &-options {
-//     display: none;
-//     position: absolute;
-//     z-index: 99;
-//     top: 100%;
-//     right: 0;
-//     left: 0;
-//     margin: 0;
-//     padding: 0;
-//     background-color: var(--background-gray);
-//     list-style: none;
-
-//     li {
-//       margin: 0;
-//       padding: toRem(12) 0;
-//       transition: all 0.15s ease-in;
-//       border-top: 1px solid var(--background-gray);
-//       text-indent: toRem(15);
-
-//       &:hover,
-//       &.is-selected {
-//         background: var(--select-color);
-//         color: var(--background-gray);
-//       }
-//       &[rel="hide"] {
-//         display: none;
-//       }
-//     }
-//   }
-// }

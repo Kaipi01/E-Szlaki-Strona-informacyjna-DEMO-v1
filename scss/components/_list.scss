@@ -1,10 +1,9 @@
 .green-list {
-
   &.list {
-    & .li-icon { 
-      order: -1; 
-      transition: 0.3s; 
-    } 
+    & .li-icon {
+      order: -1;
+      transition: 0.3s;
+    }
 
     & .li-icon svg {
       width: 35px;
@@ -20,9 +19,9 @@
       & .li-icon {
         display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: center;
         min-width: 55px;
-        height: 55px; 
+        height: 55px;
         border-radius: 50%;
         background-color: var(--light-green);
         box-shadow: -9px 9px 23px 3px rgba(0, 0, 0, 0.75);
@@ -30,7 +29,7 @@
 
       & li:nth-child(even) .li-icon {
         background-color: var(--green);
-      } 
+      }
 
       & .li-icon svg path {
         fill: #fff;
