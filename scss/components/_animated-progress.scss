@@ -3,19 +3,18 @@
   --progress-bar-label-color: #000;
 
   width: 100%;
-  max-width: 50rem;
-  padding: 0 1rem;
+  max-width: 50rem; 
 
   &-name {
     margin: 1rem 0;
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 700; 
     text-transform: uppercase;
   }
 
   &-bar {
     height: var(--progress-bar-height);
-    border-radius: 8px;
+    border-radius: 8px; 
     background: #cacaca;
   }
 

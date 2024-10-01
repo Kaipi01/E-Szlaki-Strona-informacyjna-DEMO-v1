@@ -1,0 +1,18 @@
+.custom-scrollbar {
+    --scrollbar-size: 0.6rem;
+
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: var(--scrollbar-size);
+    background-color: #ebebeb;
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+    border-radius: var(--scrollbar-size);
+    background: var(--green);
+  }
+}

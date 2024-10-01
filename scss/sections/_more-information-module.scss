@@ -1,7 +1,8 @@
 @use "../components/modern-card" as *;
+@use "../components/links" as *;
 
 #more-information-module {
-  padding-top: 5rem;
+  padding-block: 5rem; 
   background: linear-gradient(
     to left,
     var(--background-gray),
@@ -19,64 +20,42 @@
   }
 
   .main-menu-list {
+    --navgation-link-border-radius: 10px;
     display: none;
 
     @media (min-width: 62em) {
       display: flex;
-      flex: 1 1 auto;
       flex-flow: row wrap;
-      align-items: center;
       width: 100%;
       list-style: none;
     }
   }
   .main-menu-list li {
-    padding: 0;
+    flex-basis: 1;
+    flex-grow: 1;
+    padding: 0; 
   }
-  .main-menu-list a {
-    display: block;
-    position: relative;
-    z-index: 1;
-    padding: 1rem 2rem;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    background: #08aeac;
-    color: #ffffff;
-    font-size: 1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  .main-menu-list a:active,
-  .main-menu-list a:visited {
-    text-decoration: none;
-  }
-  .main-menu-list a:before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-    background: #021533;
-  }
-
-  .main-menu-list a:hover {
-    padding-left: 2rem;
-    border: 0px solid transparent !important;
-    color: red;
-    text-decoration: none;
-  }
-  .main-menu-list a:hover:before {
+  .main-menu-list .link-page {
+    @extend .link;
+    @extend .variant2;
+    @extend .small;
     width: 100%;
-  }
+    border-radius: 0;
 
-  .main-menu-list a.active {
-    padding-left: 1rem;
-    background: #021533;
-    text-decoration: none;
+    @media (min-width: 87.5em) {
+      padding-block: 0.8rem;
+      padding-inline: 2rem;
+      font-size: 1rem;
+    }
+
+    &:active,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &.active {
+      background-color: red !important;
+    }
   }
 
   .card-body {
@@ -87,6 +66,24 @@
     padding: 2rem;
     overflow-y: auto;
     transition: all 0.6s ease-in-out;
+
+    @media (min-width: 62em) {  
+      position: absolute; 
+      left: 0;
+      width: 50%; 
+      height: 42rem;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    @media (min-width: 75em) {
+      padding: 2rem;
+    }
+
+    @media (min-width: 87.5em) {
+      padding: 2.5rem;
+    }
   }
   @media (min-width: 62em) {
     .main-content {
@@ -94,26 +91,30 @@
     }
   }
 
-  @media (min-width: 62em) {
-    .card-body {
-      position: absolute;
-      left: 0;
-      width: 50%;
-      height: 35.625rem;
-      margin-top: 2rem;
-      padding: 2.5rem;
-      padding-bottom: 1.5rem;
-    }
-  }
   .card-body-pgactive {
     left: 0;
   }
-  .section-home {
-    opacity: 1;
-
+  .screen-main {
     @media (min-width: 62em) {
       z-index: 81;
       overflow-y: auto;
+    }
+
+    .logo {
+      display: block;
+      width: 100%;
+      max-width: 17rem;
+      margin: 0 auto;
+      margin-top: 1rem;
+    }
+
+    .text {
+      color: var(--font-color);
+      text-align: center;
+
+      @media (min-width: 87.5em) {
+        font-size: 1rem;
+      }
     }
   }
   @media (min-width: 62em) {
@@ -131,7 +132,7 @@
       z-index: 11;
       opacity: 0;
     }
-  }
+  } 
 
   .screen-page-active {
     visibility: visible;
@@ -139,5 +140,22 @@
     left: 50%;
     transform: translateY(0px);
     opacity: 1;
+  }
+
+  .link-icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; 
+    gap: 1rem;
+  }
+
+  .symbol-card {
+    max-width: 12rem;
   }
 }
