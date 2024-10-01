@@ -19,6 +19,7 @@ body {
   background-color: var(--background);
   color: var(--font-color);
   font-family: sans-serif;
+  padding-top: 5rem; // miejsce dla navigacji
 }
 
 a {
@@ -124,6 +125,12 @@ a {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.sub-header-small {
+  @extend .sub-header;
+  padding-block: 0.35rem;
+  font-size: 0.8rem;
 }
 
 .small-header {

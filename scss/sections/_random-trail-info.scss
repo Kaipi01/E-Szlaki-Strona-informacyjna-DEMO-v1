@@ -4,8 +4,8 @@
   --grid-gap-large: 2.5rem;
   --grid-gap-medium: 2rem;
   --grid-gap-small: 1rem;
-  --trail-short-info-margin-big: -2rem;
-  --trail-short-info-margin: -1rem;
+  --trail-info-graphs-margin-big: -2rem;
+  --trail-info-graphs-margin: -1rem;
 
   padding: 5rem 0;
   background: linear-gradient(
@@ -24,8 +24,8 @@
   .main-content {
     display: grid;
     grid-template-columns: 1fr;
-    width: 100%; 
-    gap: var(--grid-gap-small); 
+    width: 100%;
+    gap: var(--grid-gap-small);
 
     @media (min-width: 75em) {
       grid-template-columns: repeat(2, 1fr);
@@ -59,20 +59,42 @@
         position: relative;
         min-height: 20rem !important;
         background-color: lightgreen;
-
-        @media (min-width: 62.5em) {
+ 
+        @media (min-width: 62.5em) { 
           min-height: 27rem !important;
         }
-      }
+      } 
 
-      .trail-short-info {
+      .trail-info-graphs {
+        display: flex;
         position: relative;
         z-index: 2;
-        margin-block: var(--trail-short-info-margin);
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-block: var(--trail-info-graphs-margin);
         border-radius: 0;
+        gap: 1.5rem;
 
         @media (min-width: 62.5em) {
-          margin-block: var(--trail-short-info-margin-big);
+          margin-block: var(--trail-info-graphs-margin-big);
+        }
+ 
+        .circular-progress-bar {
+          --progress-bar-size: 9rem;
+
+          width: var(--progress-bar-size);
+          svg {
+            width: var(--progress-bar-size);
+            text {
+              fill: var(--font-color);
+              font-size: 1rem;
+            }
+
+            circle {
+              stroke-width: 10;
+            }
+          }
         }
       }
 
@@ -84,7 +106,7 @@
 
       .trail-map-link {
         display: block;
-        position: relative;  
+        position: relative;
         width: 100%;
         overflow: hidden;
         background-image: url("../images/example-map.png");
@@ -126,7 +148,7 @@
           left: 50%;
           transform: translate(
             -50%,
-            calc(-50% - (var(--trail-short-info-margin) / 2))
+            calc(-50% - (var(--trail-info-graphs-margin) / 2))
           );
           transition: 0.4s;
           opacity: 0;
@@ -136,7 +158,7 @@
           @media (min-width: 62.5em) {
             transform: translate(
               -50%,
-              calc(-50% - (var(--trail-short-info-margin-big) / 2))
+              calc(-50% - (var(--trail-info-graphs-margin-big) / 2))
             );
           }
         }

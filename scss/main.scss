@@ -10,10 +10,11 @@
 @use "./components/custom-range";
 @use "./components/custom-checkbox"; 
 @use "./components/sr-only";
-@use "./components/scroll-to-top";
+@use "./components/scroll-to-top";  
 @use "./components/circular-progress-bar";
-@use "./components/top-badge"; 
+@use "./components/top-badge";  
 @use "./components/animated-progress"; 
+//@use "./components/main-navigation"; 
   
 @use "./sections/green-faq";
 @use "./sections/our-mission-information";
