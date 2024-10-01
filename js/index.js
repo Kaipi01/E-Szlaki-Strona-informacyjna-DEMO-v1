@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   themeTogglerBtn.addEventListener("change", toggleTheme);
 
-
   // linki są dynamicznie generowane na podstawie atrybutu "data-screen"
   new ContentScreens("#more-information-module");
 
@@ -18,24 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inicjacja wszystkich animowantych poziomych progress barów
   // animacja odpala się gdy użytkownik scrolluje do sekcji z
   // progress barem (użycie Intersection Observer API)
-  new AnimatedProgressBars(".animated-progress-per", 1000);
+  new AnimatedProgressBars(".animated-progress-per", 1000); 
 
-  
-
-  const fromSlider = document.querySelector("#fromSlider");
-  const toSlider = document.querySelector("#toSlider");
-  const fromTooltip = document.querySelector("#fromSliderTooltip");
-  const toTooltip = document.querySelector("#toSliderTooltip");
-  const scale = document.querySelector("#scale");
-
-  new CustomRangeSlider(
-    fromSlider,
-    toSlider,
-    fromTooltip,
-    toTooltip,
-    scale,
-    "km"
-  );
+  new CustomRangeSlider("#trials-close-to-you", "km");
 
   ScrollToTopButton.init("#back-to-top-button");
   CustomSelect.initAll();
@@ -54,45 +38,44 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   sliderPrevBtn.addEventListener("click", () => slider.prev());
-  sliderNextBtn.addEventListener("click", () => slider.next()); 
+  sliderNextBtn.addEventListener("click", () => slider.next());
 });
 
 class ContentScreens {
   constructor(mainContainerSelector) {
-    this.mainContainer = document.querySelector(mainContainerSelector); 
-    this.menuList = this.mainContainer.querySelector(".main-menu-list"); 
+    this.mainContainer = document.querySelector(mainContainerSelector);
+    this.menuList = this.mainContainer.querySelector(".main-menu-list");
     this.screens = this.mainContainer.querySelectorAll(".screen-page");
-    this.pageLinks = [];  
+    this.pageLinks = [];
     this.linkPage = "";
     this.init();
   }
 
   init() {
     this.generateNavigation();
-    this.pageLinks = this.mainContainer.querySelectorAll(".link-page"); 
+    this.pageLinks = this.mainContainer.querySelectorAll(".link-page");
     this.bindPageLinks();
     this.showPage(this.pageLinks[0]);
   }
 
   generateNavigation() {
-    this.screens.forEach(screen => {
+    this.screens.forEach((screen) => {
       const li = document.createElement("li");
-      const link = document.createElement("a"); 
-      const screenData = this.getScreenData(screen)
+      const link = document.createElement("a");
+      const screenData = this.getScreenData(screen);
 
-      link.href = `#${screenData.slug}`
+      link.href = `#${screenData.slug}`;
       link.className = "link-page";
       link.textContent = screenData.name;
       li.appendChild(link);
 
-      this.menuList.appendChild(li)
-    })
-     
+      this.menuList.appendChild(li);
+    });
   }
 
   pageOn() {
-    const activeProfile = this.mainContainer.querySelector(".active"); 
-    activeProfile?.classList.remove("active");  
+    const activeProfile = this.mainContainer.querySelector(".active");
+    activeProfile?.classList.remove("active");
   }
 
   bindPageLinks() {
@@ -106,7 +89,9 @@ class ContentScreens {
 
   showPage(link) {
     const activeMenu = this.mainContainer.querySelector(".link-page.active");
-    const activeSectionPage = this.mainContainer.querySelector(".screen-page-active");
+    const activeSectionPage = this.mainContainer.querySelector(
+      ".screen-page-active"
+    );
 
     activeMenu?.classList.remove("active");
     activeSectionPage?.classList.remove("screen-page-active");
@@ -114,18 +99,18 @@ class ContentScreens {
     link.classList.add("active");
     this.linkPage = link.getAttribute("href").split("#")[1];
 
-    this.screens.forEach(screen => {
-      const screenData = this.getScreenData(screen)
+    this.screens.forEach((screen) => {
+      const screenData = this.getScreenData(screen);
 
       if (screenData.slug === this.linkPage) {
         screen.classList.add("screen-page-active");
       }
-    }) 
+    });
     this.pageOn();
   }
 
   getScreenData(screen) {
-    return JSON.parse(screen.dataset.screen)
+    return JSON.parse(screen.dataset.screen);
   }
 }
 
@@ -205,14 +190,11 @@ class CustomSlider {
     return `translateX(-${100 * i}%)`;
   }
 
-  initSlider() {
-    const sliderRects = this.slider.getClientRects()[0];
+  initSlider() { 
     this.slider.style.overflow = "hidden";
     this.container = document.createElement("div");
     this.container.style.display = "flex";
-    this.container.style.flexDirection = "row";
-    //this.container.style.width = `${sliderRects.width}px`;
-    //this.container.style.height = `${sliderRects.height}px`;
+    this.container.style.flexDirection = "row"; 
     this.container.style.transform = this.getTranslateValue(this.index);
     this.boxes = Array.from(this.slider.children);
     this.boxes = [
@@ -472,24 +454,20 @@ class CustomSelect {
 }
 
 class CustomRangeSlider {
-  constructor(
-    fromSlider,
-    toSlider,
-    fromTooltip,
-    toTooltip,
-    scaleElement,
-    symbol = ""
-  ) {
+  constructor(containerSelector, symbol = "") {
     this.COLOR_TRACK = "#CBD5E1";
     this.COLOR_RANGE = document.body.classList.contains("dark")
       ? "#00ff57"
       : "#00c821";
 
-    this.fromSlider = fromSlider;
-    this.toSlider = toSlider;
-    this.fromTooltip = fromTooltip;
-    this.toTooltip = toTooltip;
-    this.scaleElement = scaleElement;
+    this.container = document.querySelector(containerSelector);
+    this.fromSlider = this.container.querySelector("[data-from-range]");
+    this.toSlider = this.container.querySelector("[data-to-range]");
+    this.fromTooltip = this.container.querySelector(
+      "[data-from-range-tooltip]"
+    );
+    this.toTooltip = this.container.querySelector("[data-to-range-tooltip]");
+    this.scaleElement = this.container.querySelector("[data-range-scale]");
     this.symbol = symbol;
 
     this.MIN = parseInt(this.fromSlider.getAttribute("min"));
@@ -1170,7 +1148,6 @@ class CircularProgressBar {
     return creatTextElementSVG;
   };
 }
- 
 
 // pomoc
 

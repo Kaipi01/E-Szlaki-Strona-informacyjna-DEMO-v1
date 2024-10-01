@@ -15,6 +15,7 @@
 @use "./components/animated-progress";
 @use "./components/symbol-card";
 @use "./components/modern-card-content";
+@use "./components/custom-accordions";
 
 @use "./sections/green-faq";
 @use "./sections/our-mission-information";
@@ -29,11 +30,11 @@
 @use "./sections/modules-and-tools";
 @use "./sections/random-trail-info";
 @use "./sections/places-module";
-@use "./sections/places-close-to-you";
+@use "./sections/trials-close-to-you";
 @use "./sections/more-information-module";
 
-#toggle-theme-btn {
-  position: fixed;
+#toggle-theme-btn { 
+  position: fixed; 
   z-index: 999;
   top: 2rem;
   right: 2rem;

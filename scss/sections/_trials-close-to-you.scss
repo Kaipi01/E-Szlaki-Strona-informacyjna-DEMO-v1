@@ -1,0 +1,165 @@
+@use "../components/modern-card" as *;
+
+#trials-close-to-you {
+  padding: 5rem 0;
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
+
+  .header {
+    position: relative;
+    padding-block: 4rem;
+    background-image: url(../images/example-trail.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        var(--dark-gray-opacity),
+        var(--dark-gray-50) 60%,
+        transparent
+      );
+    }
+
+    .text {
+      max-width: 50rem;
+      color: var(--very-light-gray);
+      font-size: 1rem;
+    }
+  }
+
+  .sort-and-filter-box {
+    @extend %modern-card;
+    display: grid;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 3rem;
+    padding: 4rem 1rem;
+    padding-top: 2rem;
+
+    @media (min-width: 62.5em) {
+      grid-template-columns: repeat(2, minmax(15rem, 1fr));
+      padding: 3rem 2rem;
+    }
+
+    @media (min-width: 75em) {
+      padding: 3rem 3rem 5rem 3rem;
+    }
+
+    .panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .panel:last-child {
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 4rem;
+
+      @media (min-width: 62.5em) {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  .checkboxes-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 1rem;
+
+    @media (min-width: 62.5em) {
+      gap: 2rem;
+    }
+  }
+
+  .places-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+    gap: 1rem;
+
+    @media (min-width: 50em) {
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    }
+
+    @media (min-width: 62.5em) {
+      gap: 2rem;
+    }
+  }
+
+  .place-card {
+    @extend %modern-card;
+
+    --card-padding-inline: 1.5rem;
+
+    position: relative;
+    padding: 0;
+
+    &:hover {
+      .icon-top {
+        svg path {
+          fill: var(--very-light-green);
+        }
+      }
+    }
+
+    .place-img {
+      width: 100%;
+      height: 12.5rem;
+      border-radius: inherit;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .icon-top {
+      display: flex;
+      position: absolute;
+      top: var(--card-padding-inline);
+      right: var(--card-padding-inline);
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      border-radius: 50%;
+      background-color: var(--dark-gray-opacity);
+      aspect-ratio: 1/1;
+
+      svg {
+        path {
+          transition: 0.3s;
+          fill: #fff;
+        }
+      }
+    }
+
+    .place-card-content {
+      padding: var(--card-padding-inline);
+      padding-bottom: 1rem;
+
+      .small-header {
+        font-size: 1.2rem;
+      }
+      .sub-header {
+        margin-bottom: 1rem;
+        padding-block: 0.5rem;
+        font-size: 0.9rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

@@ -1,5 +1,10 @@
 #quick-access {
   padding: 5rem 0;
+  background: linear-gradient(
+    to left,
+    var(--background-gray),
+    var(--background)
+  );
 
   .big-header {
     color: var(--font-color);
@@ -55,7 +60,6 @@
         min-height: 30rem;
         transition: all 0.3s;
         border-radius: var(--card-border-radius);
-        background-image: url("../images/img-3.png");
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: inset 0px -20rem 53px -40px #000000af,
@@ -64,15 +68,15 @@
 
         &:hover,
         &:focus,
-        &:active {
-          background-position: 20%;
-          box-shadow: inset 0px -22rem 53px -40px #000000c3,
+        &:active { 
+          background-position-y: 140%;
+          box-shadow: inset 0px -20rem 53px -40px #000000c3,
             rgba(0, 0, 0, 0.63) 0px 19px 38px, rgba(0, 0, 0, 0.52) 0px 15px 12px;
 
           .small-header {
             color: var(--very-light-green);
           }
-
+ 
           .icon-top {
             svg path {
               transition: 0.3s;
@@ -126,6 +130,25 @@
           svg path {
             fill: #fff;
           }
+        }
+
+        &-1 {
+          background-image: url("../images/quick-access-1.jpg");
+        }
+        &-2 {
+          background-image: url("../images/quick-access-2.png");
+        }
+        &-3 {
+          background-image: url("../images/quick-access-3.png");
+        }
+        &-4 {
+          background-image: url("../images/quick-access-4.png");
+        }
+        &-5 {
+          background-image: url("../images/quick-access-5.png");
+        }
+        &-6 {
+          background-image: url("../images/quick-access-6.png");
         }
       }
     }
