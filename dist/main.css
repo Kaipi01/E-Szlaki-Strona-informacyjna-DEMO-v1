@@ -329,15 +329,15 @@ body {
   /* gray */
   --very-light-gray: #efefef;
   --gray: #3f624a;
-  --dark-gray: #192725;
+  --dark-gray: #1d2d2b;
   --dark-gray-opacity: #1d2d2bf5;
   --dark-gray-80: #1d2d2bd4;
   --dark-gray-50: #1d2d2b84;
   --dark-gray-30: #1d2d2b57;
   --dark-gray-20: #1d2d2b45;
-  --very-dark-gray: #222;
-  --very-dark-gray-opacity: #222222b9;
-  --very-dark-gray-opacity-30: #2222224e;
+  --very-dark-gray: #252525;
+  --very-dark-gray-opacity: #252525b9;
+  --very-dark-gray-opacity-30: #2525254e;
   /* base */
   --background: #fff;
   --background-opacity: #ffffffb5;
@@ -556,7 +556,7 @@ body.dark {
   font-weight: bold;
 }
 
-#more-information-module .card-body, #trials-close-to-you .sort-and-filter-box, #trials-close-to-you .place-card, #places-module .places-list .place-item, #random-trail-info .main-content .panel, .modern-card-content, .symbol-card {
+#more-information-module .card-body, #trials-close-to-you .sort-and-filter-box, #trials-close-to-you .trial-card, #places-module .places-list .place-item, #random-trail-info .main-content .panel, .modern-card-content, .symbol-card {
   width: 100%;
   padding: 1rem;
   padding-top: 2rem;
@@ -917,51 +917,54 @@ body.dark {
 }
 
 .animated-progress {
+  --progress-bar-height: 1rem;
+  --progress-bar-label-color: #000;
   width: 100%;
-  max-width: 600px;
-  padding: 0 20px;
+  max-width: 50rem;
+  padding: 0 1rem;
 }
 .animated-progress-name {
-  margin: 20px 0;
-  font-size: 18px;
+  margin: 1rem 0;
+  font-size: 1.15rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 .animated-progress-bar {
-  height: 20px;
+  height: var(--progress-bar-height);
   border-radius: 8px;
   background: #cacaca;
 }
 .animated-progress-per {
   position: relative;
   width: 0;
-  height: 20px;
+  height: var(--progress-bar-height);
   transition: 1s linear;
   border-radius: 8px;
-  background-color: mediumseagreen;
+  background-color: var(--font-color-green-hover);
 }
 .animated-progress-per::before {
   content: attr(per);
   position: absolute;
-  top: -35px;
+  z-index: 2;
+  top: -2.4rem;
   right: 0;
-  padding: 4px 6px;
+  padding: 0.325rem 0.6rem;
   transform: translateX(50%);
   border-radius: 4px;
-  background-color: #000;
+  background-color: var(--progress-bar-label-color);
   color: #fff;
-  font-size: 12px;
+  font-size: 0.85rem;
 }
 .animated-progress-per::after {
   content: "";
   position: absolute;
-  top: -16px;
+  top: -1.15rem;
   right: 0;
-  width: 10px;
-  height: 10px;
+  width: 0.6rem;
+  height: 0.6rem;
   transform: translateX(50%) rotate(45deg);
   border-radius: 2px;
-  background-color: #000;
+  background-color: var(--progress-bar-label-color);
 }
 
 .symbol-card {
@@ -3749,44 +3752,56 @@ body.dark {
     gap: 2rem;
   }
 }
-#trials-close-to-you .places-list {
+#trials-close-to-you .trials-list {
   display: grid;
   grid-template-columns: 1fr;
   margin-top: 3rem;
   gap: 1rem;
 }
 @media (min-width: 50em) {
-  #trials-close-to-you .places-list {
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  #trials-close-to-you .trials-list {
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
   }
 }
 @media (min-width: 62.5em) {
-  #trials-close-to-you .places-list {
+  #trials-close-to-you .trials-list {
     gap: 2rem;
   }
 }
-#trials-close-to-you .place-card {
+#trials-close-to-you .trial-card {
   --card-padding-inline: 1.5rem;
   position: relative;
   padding: 0;
 }
-#trials-close-to-you .place-card:hover .icon-top svg path {
+#trials-close-to-you .trial-card:hover .icon-top svg path {
   fill: var(--very-light-green);
 }
-#trials-close-to-you .place-card .place-img {
+#trials-close-to-you .trial-card .trial-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  gap: 0.5rem;
+}
+#trials-close-to-you .trial-card .trial-name svg {
+  width: 1.5rem;
+}
+#trials-close-to-you .trial-card .trial-img {
   width: 100%;
-  height: 12.5rem;
+  height: 15rem;
   border-radius: inherit;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  -o-object-position: center;
+  object-position: center;
   -o-object-fit: cover;
   object-fit: cover;
 }
-#trials-close-to-you .place-card .icon-top {
+#trials-close-to-you .trial-card .icon-top {
   display: flex;
   position: absolute;
-  top: var(--card-padding-inline);
-  right: var(--card-padding-inline);
+  top: 0.75rem;
+  right: 0.75rem;
   align-items: center;
   justify-content: center;
   width: 45px;
@@ -3794,22 +3809,63 @@ body.dark {
   background-color: var(--dark-gray-opacity);
   aspect-ratio: 1/1;
 }
-#trials-close-to-you .place-card .icon-top svg path {
+#trials-close-to-you .trial-card .icon-top svg path {
   transition: 0.3s;
   fill: #fff;
 }
-#trials-close-to-you .place-card .place-card-content {
+#trials-close-to-you .trial-card .trial-card-content {
   padding: var(--card-padding-inline);
   padding-bottom: 1rem;
 }
-#trials-close-to-you .place-card .place-card-content .small-header {
+#trials-close-to-you .trial-card .trial-card-content .small-header {
   font-size: 1.2rem;
 }
-#trials-close-to-you .place-card .place-card-content .sub-header {
+#trials-close-to-you .trial-card .trial-card-content .sub-header {
   margin-bottom: 1rem;
   padding-block: 0.5rem;
   font-size: 0.9rem;
   text-transform: capitalize;
+}
+#trials-close-to-you .trial-card .trial-data {
+  font-size: 1rem;
+  font-weight: bold;
+}
+#trials-close-to-you .trial-card .trial-data svg {
+  width: 1.5rem;
+}
+#trials-close-to-you .trial-card .trial-data-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#trials-close-to-you .trial-card .trial-data-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+#trials-close-to-you .trial-card .links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 29.75em) {
+  #trials-close-to-you .trial-card .links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 62.5em) {
+  #trials-close-to-you .trial-card .links {
+    gap: 1rem;
+  }
+}
+#trials-close-to-you .trial-card .links .link {
+  min-width: 100%;
+}
+
+.dark #trials-close-to-you .trial-card {
+  background-color: var(--dark-gray);
 }
 
 #more-information-module {
