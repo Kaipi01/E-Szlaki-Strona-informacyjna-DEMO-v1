@@ -11,7 +11,7 @@
 @use "./components/sr-only";
 @use "./components/scroll-to-top";
 @use "./components/circular-progress-bar";
-@use "./components/top-badge";
+@use "./components/badge";
 @use "./components/animated-progress";
 @use "./components/symbol-card";
 @use "./components/modern-card-content";
@@ -37,8 +37,8 @@
 #toggle-theme-btn { 
   position: fixed; 
   z-index: 999;
-  top: 2rem;
-  right: 2rem;
+  top: 0.5rem;
+  right: 0.5rem;
   padding: 10px;
   background-color: #fff;
 

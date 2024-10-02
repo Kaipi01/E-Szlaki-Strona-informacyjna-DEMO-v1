@@ -163,6 +163,9 @@ a {
   margin: 0 auto;
 }
 
+.mt-0 {
+  margin-top: 0 !important;
+}
 .mt-1 {
   margin-top: 1rem !important;
 }
@@ -175,6 +178,9 @@ a {
 .mt-4 {
   margin-top: 4rem !important;
 }
+.mb-0 {
+  margin-bottom: 0 !important;
+}
 .mb-1 {
   margin-bottom: 1rem !important;
 }
@@ -186,6 +192,9 @@ a {
 }
 .mb-4 {
   margin-bottom: 4rem !important;
+}
+.my-0 {
+  margin-block: 0 !important;
 }
 .my-1 {
   margin-block: 1rem !important;
@@ -200,6 +209,9 @@ a {
   margin-block: 4rem !important;
 }
 
+.pt-0 {
+  padding-top: 0 !important;
+}
 .pt-1 {
   padding-top: 1rem !important;
 }
@@ -212,6 +224,9 @@ a {
 .pt-4 {
   padding-top: 4rem !important;
 }
+.pb-0 {
+  padding-bottom: 0 !important;
+}
 .pb-1 {
   padding-bottom: 1rem !important;
 }
@@ -223,6 +238,9 @@ a {
 }
 .pb-4 {
   padding-bottom: 4rem !important;
+}
+.py-0 {
+  padding-block: 0 !important;
 }
 .py-1 {
   padding-block: 1rem !important;

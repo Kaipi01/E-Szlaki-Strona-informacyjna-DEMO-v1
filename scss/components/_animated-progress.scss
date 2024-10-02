@@ -5,7 +5,15 @@
   width: 100%;
   max-width: 50rem; 
 
-  &-name {
+  &--no-label {
+    .animated-progress-per {  
+      &::before, &::after {
+        content: none; 
+      } 
+    }   
+  } 
+  
+  &-name { 
     margin: 1rem 0;
     font-size: 0.9rem;
     font-weight: 700; 

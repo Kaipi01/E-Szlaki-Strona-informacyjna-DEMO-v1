@@ -156,6 +156,10 @@ a {
   margin: 0 auto;
 }
 
+.mt-0 {
+  margin-top: 0 !important;
+}
+
 .mt-1 {
   margin-top: 1rem !important;
 }
@@ -170,6 +174,10 @@ a {
 
 .mt-4 {
   margin-top: 4rem !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
 }
 
 .mb-1 {
@@ -188,6 +196,10 @@ a {
   margin-bottom: 4rem !important;
 }
 
+.my-0 {
+  margin-block: 0 !important;
+}
+
 .my-1 {
   margin-block: 1rem !important;
 }
@@ -202,6 +214,10 @@ a {
 
 .my-4 {
   margin-block: 4rem !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
 }
 
 .pt-1 {
@@ -220,6 +236,10 @@ a {
   padding-top: 4rem !important;
 }
 
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
 .pb-1 {
   padding-bottom: 1rem !important;
 }
@@ -234,6 +254,10 @@ a {
 
 .pb-4 {
   padding-bottom: 4rem !important;
+}
+
+.py-0 {
+  padding-block: 0 !important;
 }
 
 .py-1 {
@@ -895,7 +919,7 @@ body.dark {
   text-align: center;
 }
 
-.top-left-badge, .top-right-badge {
+.top-left-badge, .bottom-right-badge, .bottom-left-badge, .top-right-badge {
   position: absolute;
   top: 0;
   left: 0;
@@ -916,11 +940,29 @@ body.dark {
   border-bottom-left-radius: 10px;
 }
 
+.bottom-left-badge {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right-badge {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  border-bottom-right-radius: 0;
+}
+
 .animated-progress {
   --progress-bar-height: 1rem;
   --progress-bar-label-color: #000;
   width: 100%;
   max-width: 50rem;
+}
+.animated-progress--no-label .animated-progress-per::before, .animated-progress--no-label .animated-progress-per::after {
+  content: none;
 }
 .animated-progress-name {
   margin: 1rem 0;
@@ -1098,7 +1140,7 @@ body.dark {
 }
 .modern-card-content--dark-green {
   background: var(--dark-green);
-  background: linear-gradient(to top, var(--dark-gray), var(--dark-green));
+  background: linear-gradient(to top, var(--dark-gray), var(--dark-green)) !important;
   color: #fff;
 }
 .modern-card-content--dark-green .text {
@@ -3326,6 +3368,21 @@ body.dark {
   position: relative;
   min-height: 50rem;
 }
+#modules-and-tools .main-content .content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  gap: 1rem;
+}
+@media (min-width: 65em) {
+  #modules-and-tools .main-content .content-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+#modules-and-tools .main-content .content-wrapper .custom-accordions {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
 #modules-and-tools .tabs {
   position: relative;
   width: 100%;
@@ -3378,8 +3435,17 @@ body.dark {
   }
 }
 #random-trail-info .main-content .panel {
-  min-height: 10rem;
   background: linear-gradient(to top, var(--background-gray), var(--background));
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .panel {
+    padding: 1.5rem;
+  }
+}
+@media (min-width: 75em) {
+  #random-trail-info .main-content .panel {
+    padding: 2rem;
+  }
 }
 #random-trail-info .main-content .content-right .trail-preview-panel,
 #random-trail-info .main-content .content-right .trail-map-link {
@@ -3393,6 +3459,20 @@ body.dark {
     min-height: 27rem !important;
   }
 }
+#random-trail-info .main-content .content-right .trail-info-hr {
+  position: relative;
+  z-index: 2;
+  height: 3rem;
+  margin-block: var(--trail-info-graphs-margin);
+  border-radius: 0;
+  background: var(--dark-green);
+  background: linear-gradient(to right, var(--dark-green), var(--dark-gray));
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .content-right .trail-info-hr {
+    margin-block: var(--trail-info-graphs-margin-big);
+  }
+}
 #random-trail-info .main-content .content-right .trail-info-graphs {
   display: flex;
   position: relative;
@@ -3400,6 +3480,7 @@ body.dark {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  min-height: 0;
   margin-block: var(--trail-info-graphs-margin);
   border-radius: 0;
   gap: 1.5rem;
@@ -3424,9 +3505,83 @@ body.dark {
   stroke-width: 10;
 }
 #random-trail-info .main-content .content-right .trail-preview-panel {
-  background-image: url("../images/example-trail.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding: 0;
+  overflow: hidden;
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider {
+  width: 100%;
+  height: 100%;
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation {
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: calc(var(--trail-info-graphs-margin) * -1);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation {
+    bottom: calc(var(--trail-info-graphs-margin-big) * -1);
+    gap: 2rem;
+  }
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  gap: 0.25rem;
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn svg {
+  width: 1.5rem;
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn {
+    font-size: 0.9rem;
+  }
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn:hover, #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn:focus, #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn:active {
+  color: var(--very-light-green);
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn:hover svg path, #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn:focus svg path, #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation .nav-btn:active svg path {
+  transition: 0.3s;
+  fill: var(--very-light-green);
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-name {
+  display: inline-flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  gap: 0.5rem;
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-name {
+    font-size: 1.5rem;
+    gap: 1rem;
+  }
+}
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-icon {
+  width: 1.5rem;
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-icon {
+    width: 3rem;
+  }
 }
 #random-trail-info .main-content .content-right .trail-map-link {
   display: block;
@@ -3466,12 +3621,14 @@ body.dark {
   transform: translate(-50%, calc(-50% - var(--trail-info-graphs-margin) / 2));
   transition: 0.4s;
   opacity: 0;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
+  text-align: center;
 }
 @media (min-width: 62.5em) {
   #random-trail-info .main-content .content-right .trail-map-link .trail-map-link-text {
     transform: translate(-50%, calc(-50% - var(--trail-info-graphs-margin-big) / 2));
+    font-size: 2rem;
   }
 }
 #random-trail-info .main-content .content-left {
@@ -3487,6 +3644,40 @@ body.dark {
   #random-trail-info .main-content .content-left {
     gap: var(--grid-gap-large);
   }
+}
+#random-trail-info .main-content .content-left .action-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+#random-trail-info .main-content .content-left .action-link svg {
+  height: 1.5rem;
+}
+#random-trail-info .main-content .content-left .trial-data-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: normal;
+  gap: 0.5rem;
+}
+#random-trail-info .main-content .content-left .trial-data-icon {
+  width: 1.65rem;
+}
+#random-trail-info .main-content .content-left .trial-data-value {
+  font-weight: bold;
+}
+#random-trail-info .main-content .content-left .trial-data-max-info {
+  padding-top: 0.25rem;
+  padding-bottom: 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: right;
+}
+#random-trail-info .main-content .content-left .trial-data .animated-progress {
+  --progress-bar-height: 0.5rem;
 }
 #random-trail-info .main-content .content-bottom {
   display: grid;
@@ -3505,6 +3696,22 @@ body.dark {
     grid-column: span 2;
     gap: var(--grid-gap-large);
   }
+}
+#random-trail-info .main-content .content-bottom .categories-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 1rem;
+}
+#random-trail-info .main-content .content-bottom .categories-list .symbol-card {
+  max-width: 12rem;
+}
+#random-trail-info .main-content .content-bottom .tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 0.5rem;
 }
 
 #places-module {
@@ -3788,9 +3995,6 @@ body.dark {
   position: relative;
   padding: 0;
 }
-#trials-close-to-you .trial-card:hover .icon-top svg path {
-  fill: var(--very-light-green);
-}
 #trials-close-to-you .trial-card .trial-name {
   display: inline-flex;
   align-items: center;
@@ -3798,8 +4002,9 @@ body.dark {
   transition: 0.3s;
   gap: 0.5rem;
 }
-#trials-close-to-you .trial-card .trial-name svg {
-  width: 1.5rem;
+#trials-close-to-you .trial-card .trial-name .trial-color-icon {
+  width: 2.5rem;
+  border-radius: 10px;
 }
 #trials-close-to-you .trial-card .trial-img {
   width: 100%;
@@ -3811,22 +4016,6 @@ body.dark {
   object-position: center;
   -o-object-fit: cover;
   object-fit: cover;
-}
-#trials-close-to-you .trial-card .icon-top {
-  display: flex;
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  border-radius: 50%;
-  background-color: var(--dark-gray-opacity);
-  aspect-ratio: 1/1;
-}
-#trials-close-to-you .trial-card .icon-top svg path {
-  transition: 0.3s;
-  fill: #fff;
 }
 #trials-close-to-you .trial-card .trial-card-content {
   padding: var(--card-padding-inline);
@@ -3928,7 +4117,7 @@ body.dark {
   text-decoration: none;
 }
 #more-information-module .main-menu-list .link-page.active {
-  background-color: red !important;
+  background-color: var(--green);
 }
 #more-information-module .card-body {
   width: 99%;
@@ -4023,15 +4212,17 @@ body.dark {
   align-items: center;
   gap: 1rem;
 }
-#more-information-module .symbol-card {
-  max-width: 12rem;
+@media (min-width: 32em) {
+  #more-information-module .symbol-card {
+    max-width: 12rem;
+  }
 }
 
 #toggle-theme-btn {
   position: fixed;
   z-index: 999;
-  top: 2rem;
-  right: 2rem;
+  top: 0.5rem;
+  right: 0.5rem;
   padding: 10px;
   background-color: #fff;
 }

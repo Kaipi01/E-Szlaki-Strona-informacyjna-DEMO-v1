@@ -107,25 +107,18 @@
     --card-padding-inline: 1.5rem;
 
     position: relative;
-    padding: 0;
+    padding: 0; 
 
-    &:hover {
-      .icon-top {
-        svg path {
-          fill: var(--very-light-green);
-        }
-      }
-    }
-
-    .trial-name {
+    .trial-name { 
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      justify-content: center; 
       transition: 0.3s;
       gap: 0.5rem;
-
-      svg {
-        width: 1.5rem;
+ 
+      .trial-color-icon {  
+        width: 2.5rem;    
+        border-radius: 10px;
       }
     }
 
@@ -141,25 +134,7 @@
       object-fit: cover;
     }
 
-    .icon-top {
-      display: flex;
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      border-radius: 50%;
-      background-color: var(--dark-gray-opacity);
-      aspect-ratio: 1/1;
-
-      svg {
-        path {
-          transition: 0.3s;
-          fill: #fff;
-        }
-      }
-    }
+    
 
     .trial-card-content {
       padding: var(--card-padding-inline);
@@ -178,8 +153,10 @@
 
     .trial-data {
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: bold; 
 
+      
+ 
       svg {
         width: 1.5rem;
       }

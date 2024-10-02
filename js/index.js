@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const themeTogglerBtn = document.querySelector("#toggle-theme-btn input");
-
   themeTogglerBtn.addEventListener("change", toggleTheme);
 
   // linki są dynamicznie generowane na podstawie atrybutu "data-screen"
@@ -29,16 +28,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // progress barem (użycie Intersection Observer API)
   CircularProgressBar.initAll();
 
-  const slider = CustomSlider.init("#places-slider");
-  const sliderPrevBtn = document.querySelector(
-    "#places-slider-navigation .prev-btn"
-  );
-  const sliderNextBtn = document.querySelector(
-    "#places-slider-navigation .next-btn"
-  );
+  // slider dla modułu z wylosowanym szlakiem
+  CustomSlider.init("#random-trail-info-slider", {
+    speed: 1500,
+    prevBtnSelector: "#random-trail-info-slider-navigation .prev-btn",
+    nextBtnSelector: "#random-trail-info-slider-navigation .next-btn",
+  });
 
-  sliderPrevBtn.addEventListener("click", () => slider.prev());
-  sliderNextBtn.addEventListener("click", () => slider.next());
+  // slider dla modułu z miejscami
+  CustomSlider.init("#places-slider", { 
+    prevBtnSelector: "#places-slider-navigation .prev-btn",
+    nextBtnSelector: "#places-slider-navigation .next-btn",
+  }); 
 });
 
 class ContentScreens {
@@ -71,12 +72,7 @@ class ContentScreens {
 
       this.menuList.appendChild(li);
     });
-  }
-
-  pageOn() {
-    const activeProfile = this.mainContainer.querySelector(".active");
-    activeProfile?.classList.remove("active");
-  }
+  } 
 
   bindPageLinks() {
     this.pageLinks.forEach((link) => {
@@ -105,8 +101,7 @@ class ContentScreens {
       if (screenData.slug === this.linkPage) {
         screen.classList.add("screen-page-active");
       }
-    });
-    this.pageOn();
+    }); 
   }
 
   getScreenData(screen) {
@@ -175,10 +170,10 @@ class AnimatedProgressBars {
 }
 
 class CustomSlider {
-  constructor(target) {
+  constructor(target, speed = 1000) {
     this.index = 1;
     this.isMoved = true;
-    this.speed = 1000; // ms
+    this.speed = speed; // ms
     this.transform = `transform ${this.speed / 1000}s`;
     this.slider = document.querySelector(target);
 
@@ -263,8 +258,19 @@ class CustomSlider {
     }
   }
 
-  static init(target) {
-    return new CustomSlider(target);
+  static init(target, options = {}) {
+    const { speed, prevBtnSelector, nextBtnSelector } = options
+    const slider = new CustomSlider(target, speed ?? 1000);
+
+    if (prevBtnSelector) {
+      document.querySelector(prevBtnSelector).addEventListener("click", () => slider.prev());
+    }
+
+    if (nextBtnSelector) {
+      document.querySelector(nextBtnSelector).addEventListener("click", () => slider.next());
+    } 
+
+    return slider;
   }
 }
 

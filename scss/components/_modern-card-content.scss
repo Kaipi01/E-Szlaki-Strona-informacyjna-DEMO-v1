@@ -42,8 +42,8 @@
     justify-content: space-between;
 
     a {
-      display: block;
-    }
+      display: block; 
+    } 
   }
 
   &--2-column {
@@ -59,7 +59,7 @@
 
   &--dark-green {
     background: var(--dark-green);
-    background: linear-gradient(to top, var(--dark-gray), var(--dark-green));
+    background: linear-gradient(to top, var(--dark-gray), var(--dark-green)) !important;
     color: #fff;
 
     .text {

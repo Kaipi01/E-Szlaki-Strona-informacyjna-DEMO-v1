@@ -46,7 +46,7 @@
       padding-block: 0.8rem;
       padding-inline: 2rem;
       font-size: 1rem;
-    }
+    } 
 
     &:active,
     &:visited {
@@ -54,7 +54,7 @@
     }
 
     &.active {
-      background-color: red !important;
+      background-color: var(--green);
     }
   }
 
@@ -156,6 +156,8 @@
   }
 
   .symbol-card {
-    max-width: 12rem;
+    @media (min-width: 32em) {
+      max-width: 12rem;
+    }
   }
 }

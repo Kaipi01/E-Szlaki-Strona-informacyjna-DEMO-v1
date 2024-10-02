@@ -129,6 +129,22 @@
   .main-content {
     position: relative;
     min-height: 50rem;
+
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: flex-start;
+      gap: 1rem;
+
+      @media (min-width: 65em) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .custom-accordions {
+        padding-top: 0;
+        padding-bottom: 2rem;
+      }
+    }
   }
 
   .tabs {
