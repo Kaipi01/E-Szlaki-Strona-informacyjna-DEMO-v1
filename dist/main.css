@@ -30,7 +30,12 @@ a {
   position: relative;
   max-width: 81rem;
   margin: 0 auto;
-  padding-inline: 2rem;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 31.25em) {
+  .container {
+    padding-inline: 2rem;
+  }
 }
 @media (min-width: 62.5em) {
   .container {
@@ -586,7 +591,7 @@ body.dark {
   padding-top: 2rem;
   border-radius: 15px;
   background: var(--background);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 44px 28px, rgba(0, 0, 0, 0.12) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .custom-select {
@@ -913,10 +918,13 @@ body.dark {
   font-size: 1rem;
 }
 .circular-progress-bar svg circle {
-  stroke-width: 15;
+  stroke-width: 12;
 }
 .circular-progress-bar .progress-desc {
+  padding-top: 1rem;
+  font-weight: bold;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .top-left-badge, .bottom-right-badge, .bottom-left-badge, .top-right-badge {
@@ -959,7 +967,6 @@ body.dark {
   --progress-bar-height: 1rem;
   --progress-bar-label-color: #000;
   width: 100%;
-  max-width: 50rem;
 }
 .animated-progress--no-label .animated-progress-per::before, .animated-progress--no-label .animated-progress-per::after {
   content: none;
@@ -1036,6 +1043,13 @@ body.dark {
 }
 .symbol-card .symbol path {
   fill: var(--very-light-gray);
+}
+.symbol-card--small {
+  min-height: 0;
+}
+.symbol-card--small .symbol {
+  width: 4rem;
+  height: 4rem;
 }
 .symbol-card--variant2 {
   position: relative;
@@ -1524,12 +1538,16 @@ body.dark {
   }
 }
 #our-mission-information .bottom .right {
+  max-width: 100%;
   padding-top: 1rem;
 }
 @media (min-width: 62.5em) {
   #our-mission-information .bottom .right {
     padding-left: 3rem;
   }
+}
+#our-mission-information .bottom .right .list {
+  display: none;
 }
 #our-mission-information .bottom .right .list li::before {
   content: url('data:image/svg+xml,<svg width="25" height="25" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.9998 36.6667H9.99984C7.99984 36.6667 6.6665 38.0001 6.6665 40.0001C6.6665 42.0001 7.99984 43.3334 9.99984 43.3334H47.9998V36.6667Z" fill="black"/><path opacity="0.3" d="M48 66.6666V13.3333L72.3333 37.6666C73.6667 38.9999 73.6667 40.9999 72.3333 42.3333L48 66.6666Z" fill="black"/></svg>');
@@ -3118,12 +3136,17 @@ body.dark {
 #quote-section .blockquote {
   position: relative;
   z-index: 2;
-  max-width: 20ch;
   padding-inline: 0.8rem;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.5;
+}
+@media (min-width: 31.25em) {
+  #quote-section .blockquote {
+    max-width: 20ch;
+    font-size: 2rem;
+  }
 }
 @media (min-width: 43.75em) {
   #quote-section .blockquote {
@@ -3139,10 +3162,15 @@ body.dark {
 }
 #quote-section .icon {
   position: absolute;
-  width: 2rem;
+  width: 1rem;
 }
 #quote-section .icon path {
   fill: var(--very-light-green);
+}
+@media (min-width: 31.25em) {
+  #quote-section .icon {
+    width: 2rem;
+  }
 }
 @media (min-width: toRem(768)) {
   #quote-section .icon {
@@ -3383,6 +3411,14 @@ body.dark {
   padding-top: 0;
   padding-bottom: 2rem;
 }
+#modules-and-tools .main-content .progress-bars-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  gap: 1.5rem;
+}
 #modules-and-tools .tabs {
   position: relative;
   width: 100%;
@@ -3473,44 +3509,14 @@ body.dark {
     margin-block: var(--trail-info-graphs-margin-big);
   }
 }
-#random-trail-info .main-content .content-right .trail-info-graphs {
-  display: flex;
-  position: relative;
-  z-index: 2;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  min-height: 0;
-  margin-block: var(--trail-info-graphs-margin);
-  border-radius: 0;
-  gap: 1.5rem;
-}
-@media (min-width: 62.5em) {
-  #random-trail-info .main-content .content-right .trail-info-graphs {
-    margin-block: var(--trail-info-graphs-margin-big);
-  }
-}
-#random-trail-info .main-content .content-right .trail-info-graphs .circular-progress-bar {
-  --progress-bar-size: 9rem;
-  width: var(--progress-bar-size);
-}
-#random-trail-info .main-content .content-right .trail-info-graphs .circular-progress-bar svg {
-  width: var(--progress-bar-size);
-}
-#random-trail-info .main-content .content-right .trail-info-graphs .circular-progress-bar svg text {
-  fill: var(--font-color);
-  font-size: 1rem;
-}
-#random-trail-info .main-content .content-right .trail-info-graphs .circular-progress-bar svg circle {
-  stroke-width: 10;
-}
 #random-trail-info .main-content .content-right .trail-preview-panel {
+  position: relative;
   padding: 0;
   overflow: hidden;
 }
-#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider {
+#random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider > div {
   width: 100%;
-  height: 100%;
+  height: 27rem;
 }
 #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-slider-navigation {
   display: flex;
@@ -3558,8 +3564,9 @@ body.dark {
 #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-name {
   display: inline-flex;
@@ -3577,6 +3584,7 @@ body.dark {
 }
 #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-icon {
   width: 1.5rem;
+  border-radius: 10px;
 }
 @media (min-width: 62.5em) {
   #random-trail-info .main-content .content-right .trail-preview-panel .trail-preview-icon {
@@ -3645,26 +3653,55 @@ body.dark {
     gap: var(--grid-gap-large);
   }
 }
+#random-trail-info .main-content .content-left .header-hr {
+  width: 100%;
+  margin: 0;
+}
+#random-trail-info .main-content .content-left .trial-data-container {
+  display: grid;
+  place-items: center start;
+  gap: 0.5rem;
+}
+#random-trail-info .main-content .content-left .action-links-wrapper {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
 #random-trail-info .main-content .content-left .action-link {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
   gap: 0.5rem;
 }
 #random-trail-info .main-content .content-left .action-link svg {
   height: 1.5rem;
+}
+#random-trail-info .main-content .content-left .trial-data {
+  width: 100%;
 }
 #random-trail-info .main-content .content-left .trial-data-name {
   display: inline-flex;
   align-items: center;
   justify-content: start;
   margin-bottom: 0.75rem;
-  font-size: 1.15rem;
+  font-size: 0.85rem;
   font-weight: normal;
   gap: 0.5rem;
 }
+@media (min-width: 31.25em) {
+  #random-trail-info .main-content .content-left .trial-data-name {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 62.5em) {
+  #random-trail-info .main-content .content-left .trial-data-name {
+    font-size: 1.2rem;
+  }
+}
 #random-trail-info .main-content .content-left .trial-data-icon {
-  width: 1.65rem;
+  height: 1.75rem;
 }
 #random-trail-info .main-content .content-left .trial-data-value {
   font-weight: bold;
@@ -3698,18 +3735,15 @@ body.dark {
   }
 }
 #random-trail-info .main-content .content-bottom .categories-list {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   list-style: none;
   gap: 1rem;
-}
-#random-trail-info .main-content .content-bottom .categories-list .symbol-card {
-  max-width: 12rem;
 }
 #random-trail-info .main-content .content-bottom .tags-list {
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 2rem;
   list-style: none;
   gap: 0.5rem;
 }

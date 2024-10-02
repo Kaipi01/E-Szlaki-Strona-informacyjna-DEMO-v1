@@ -9,13 +9,16 @@
       fill: var(--font-color);
       font-size: 1rem;
     }
-
+ 
     circle {
-      stroke-width: 15;
+      stroke-width: 12;
     }
   }
 
   .progress-desc {
+    padding-top: 1rem;
+    font-weight: bold;
     text-align: center;
+    text-transform: capitalize;
   }
 }

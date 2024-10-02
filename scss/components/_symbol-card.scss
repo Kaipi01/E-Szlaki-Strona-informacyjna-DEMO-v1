@@ -27,13 +27,22 @@
     font-weight: bold;
     text-transform: capitalize;
   }
-
+  
   .symbol {
     width: 7rem;
     height: 7rem;
 
     path {
       fill: var(--very-light-gray);
+    }
+  }
+
+  &--small {   
+    min-height: 0;
+
+    .symbol {
+      width: 4rem;
+      height: 4rem; 
     }
   }
 

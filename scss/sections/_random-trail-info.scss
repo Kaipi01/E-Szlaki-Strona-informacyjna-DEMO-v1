@@ -44,8 +44,7 @@
     }
 
     .panel {
-      @extend %modern-card;
-      //min-height: 10rem;
+      @extend %modern-card; 
       background: linear-gradient(
         to top,
         var(--background-gray),
@@ -90,48 +89,17 @@
         }
       }
 
-      .trail-info-graphs {
-        display: flex;
-        position: relative;
-        z-index: 2;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-
-        min-height: 0;
-        margin-block: var(--trail-info-graphs-margin);
-        border-radius: 0;
-        gap: 1.5rem;
-
-        @media (min-width: 62.5em) {
-          margin-block: var(--trail-info-graphs-margin-big);
-        }
-
-        .circular-progress-bar {
-          --progress-bar-size: 9rem;
-
-          width: var(--progress-bar-size);
-          svg {
-            width: var(--progress-bar-size);
-            text {
-              fill: var(--font-color);
-              font-size: 1rem;
-            }
-
-            circle {
-              stroke-width: 10;
-            }
-          }
-        }
-      }
-
       .trail-preview-panel {
+        position: relative;
         padding: 0;
         overflow: hidden;
 
-        .trail-preview-slider {
-          width: 100%;
-          height: 100%;
+        .trail-preview-slider { 
+
+          & > div {
+            width: 100%;
+            height: 27rem;
+          }
         }
 
         .trail-preview-slider-navigation {
@@ -184,19 +152,20 @@
           }
         }
 
-        .trail-preview-img {
+        .trail-preview-img { 
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: center;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover; 
         }
 
         .trail-preview-name {
           display: inline-flex;
           z-index: 2;
           align-items: center;
-          justify-content: space-between;
-          font-size: 0.9rem;
+          justify-content: space-between; 
+          font-size: 0.9rem; 
           gap: 0.5rem;
 
           @media (min-width: 62.5em) {
@@ -207,6 +176,7 @@
 
         .trail-preview-icon {
           width: 1.5rem;
+          border-radius: 10px;
 
           @media (min-width: 62.5em) {
             width: 3rem;
@@ -277,22 +247,41 @@
       }
     }
 
-    .content-left { 
-      display: grid; 
+    .content-left {
+      display: grid;
       gap: var(--grid-gap-small);
 
       @media (min-width: 50em) {
         gap: var(--grid-gap-medium);
       }
- 
+
       @media (min-width: 75em) {
         gap: var(--grid-gap-large);
+      }
+
+      .header-hr {
+        width: 100%;
+        margin: 0;
+      }
+
+      .trial-data-container {
+        display: grid;
+        place-items: center start;
+        gap: 0.5rem;
+      }
+
+      .action-links-wrapper {
+        display: grid;
+        place-items: center;
+        gap: 1rem;
+        padding-bottom: 2rem;
       }
 
       .action-link {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0;
         gap: 0.5rem;
 
         svg {
@@ -301,17 +290,27 @@
       }
 
       .trial-data {
+        width: 100%;
+
         &-name {
           display: inline-flex;
           align-items: center;
           justify-content: start;
-          margin-bottom: 0.75rem; 
-          font-size: 1.15rem;
+          margin-bottom: 0.75rem;
+          font-size: 0.85rem;
           font-weight: normal;
           gap: 0.5rem;
+
+          @media (min-width: 31.25em) {
+            font-size: 1rem;
+          }
+
+          @media (min-width: 62.5em) {
+            font-size: 1.2rem;
+          }
         }
         &-icon {
-          width: 1.65rem;
+          height: 1.75rem;
         }
 
         &-value {
@@ -343,27 +342,23 @@
       @media (min-width: 50em) {
         gap: var(--grid-gap-medium);
       }
- 
+
       @media (min-width: 75em) {
         grid-column: span 2;
         gap: var(--grid-gap-large);
       }
 
       .categories-list {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
         list-style: none;
         gap: 1rem;
-
-        .symbol-card {
-          max-width: 12rem;
-        }
       }
 
       .tags-list {
         display: flex;
         flex-wrap: wrap;
+        padding-bottom: 2rem;
         list-style: none;
         gap: 0.5rem;
       }

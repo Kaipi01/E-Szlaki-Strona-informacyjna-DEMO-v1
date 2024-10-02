@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inicjacja wszystkich animowantych poziomych progress barów
   // animacja odpala się gdy użytkownik scrolluje do sekcji z
   // progress barem (użycie Intersection Observer API)
-  new AnimatedProgressBars(".animated-progress-per", 1000); 
+  new AnimatedProgressBars(".animated-progress-per", 1000);
 
   new CustomRangeSlider("#trials-close-to-you", "km");
 
@@ -30,16 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // slider dla modułu z wylosowanym szlakiem
   CustomSlider.init("#random-trail-info-slider", {
-    speed: 1500,
     prevBtnSelector: "#random-trail-info-slider-navigation .prev-btn",
     nextBtnSelector: "#random-trail-info-slider-navigation .next-btn",
   });
 
   // slider dla modułu z miejscami
-  CustomSlider.init("#places-slider", { 
+  CustomSlider.init("#places-slider", {
     prevBtnSelector: "#places-slider-navigation .prev-btn",
     nextBtnSelector: "#places-slider-navigation .next-btn",
-  }); 
+  });
 });
 
 class ContentScreens {
@@ -72,7 +71,7 @@ class ContentScreens {
 
       this.menuList.appendChild(li);
     });
-  } 
+  }
 
   bindPageLinks() {
     this.pageLinks.forEach((link) => {
@@ -101,7 +100,7 @@ class ContentScreens {
       if (screenData.slug === this.linkPage) {
         screen.classList.add("screen-page-active");
       }
-    }); 
+    });
   }
 
   getScreenData(screen) {
@@ -185,11 +184,11 @@ class CustomSlider {
     return `translateX(-${100 * i}%)`;
   }
 
-  initSlider() { 
+  initSlider() {
     this.slider.style.overflow = "hidden";
     this.container = document.createElement("div");
     this.container.style.display = "flex";
-    this.container.style.flexDirection = "row"; 
+    this.container.style.flexDirection = "row";
     this.container.style.transform = this.getTranslateValue(this.index);
     this.boxes = Array.from(this.slider.children);
     this.boxes = [
@@ -259,16 +258,20 @@ class CustomSlider {
   }
 
   static init(target, options = {}) {
-    const { speed, prevBtnSelector, nextBtnSelector } = options
+    const { speed, prevBtnSelector, nextBtnSelector } = options;
     const slider = new CustomSlider(target, speed ?? 1000);
 
     if (prevBtnSelector) {
-      document.querySelector(prevBtnSelector).addEventListener("click", () => slider.prev());
+      document
+        .querySelector(prevBtnSelector)
+        .addEventListener("click", () => slider.prev());
     }
 
     if (nextBtnSelector) {
-      document.querySelector(nextBtnSelector).addEventListener("click", () => slider.next());
-    } 
+      document
+        .querySelector(nextBtnSelector)
+        .addEventListener("click", () => slider.next());
+    }
 
     return slider;
   }

@@ -29,7 +29,11 @@ a {
   position: relative;
   max-width: 81rem;
   margin: 0 auto;
-  padding-inline: 2rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 31.25em) {
+    padding-inline: 2rem;
+  }
 
   @media (min-width: 62.5em) {
     padding-inline: 4rem;
