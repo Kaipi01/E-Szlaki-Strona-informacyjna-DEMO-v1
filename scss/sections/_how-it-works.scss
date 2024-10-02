@@ -142,15 +142,19 @@
     }
 
     @media (min-width: 50em) {
-      grid-template-columns: 1fr 20rem;
+      grid-template-columns: 1fr 1fr;
     }
 
     @media (min-width: 56em) {
-      grid-template-columns: 1fr 30rem;
+      
     }
 
-    @media (min-width: 62.5rem) {
+    @media (min-width: 62.5rem) { 
       gap: 3rem;
+    }
+
+    @media (min-width: 75rem) {
+      grid-template-columns: 1fr 30rem; 
     }
 
     @media (min-width: 87.5em) {
